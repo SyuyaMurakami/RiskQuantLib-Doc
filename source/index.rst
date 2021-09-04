@@ -8,6 +8,8 @@
    modules.rst
    Install.rst
    Create_Project.rst
+   Build_Project.rst
+   Instrument.rst
 
 Welcome to Use RiskQuantLib
 ===========================
