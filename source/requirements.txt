@@ -11,3 +11,7 @@ numpy
 pandas
 QuantLib
 joblib
+mysql-connector
+copula
+copulae
+scipy
