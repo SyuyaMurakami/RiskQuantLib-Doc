@@ -8,3 +8,6 @@ jupytext
 jupyter
 matplotlib
 numpy
+pandas
+QuantLib
+joblib
