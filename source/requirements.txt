@@ -16,3 +16,4 @@ copula
 copulae
 scipy
 importlib
+matplotlib
