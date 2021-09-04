@@ -15,5 +15,4 @@ mysql-connector
 copula
 copulae
 scipy
-pywin32==301
 importlib
