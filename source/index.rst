@@ -10,6 +10,7 @@
    Create_Project.rst
    Build_Project.rst
    Instrument.rst
+   Instrument_List.rst
 
 Welcome to Use RiskQuantLib
 ===========================
