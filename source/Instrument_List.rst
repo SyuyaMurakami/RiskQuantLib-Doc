@@ -16,6 +16,23 @@ Useful functions of instrument list includes ``groupBy``, ``filter``, ``execFunc
 
 It is necessary to introduce some important properties of instrument list here:
 
+Add Element
+^^^^^^^^^^^
+
+If ``pandaBondList`` is an instrument list, you can add instruments by using ``addPandaBondSeries`` function:
+::
+
+   listA = pandaBondList()
+   listA.addPandaBondSeries(codeSeries,nameSeries)
+
+You can also add one element by ``addPandaBond``:
+::
+
+   listA = pandaBondList()
+   listA.addPandaBond(code,name)
+
+**Notice: The name of add function will change if you build different instrument class, for example, if you built an instrument named samuraiBond, this function will be** ``addSamuraiBond``.
+
 Mixed Index
 ^^^^^^^^^^^
 
@@ -100,3 +117,13 @@ This is totally the same with:
 
    for element in rqlListA:
       element.calTradingAmount(tradingAmountType)
+
+Selection
+^^^^^^^^^
+
+If ``stockListA`` is a stockList, you want to select all elements whose name contains letter 'HG', you can do it like:
+::
+
+   selectedElements = stockListA.filter(lambda x:x.name.find('HG')!=-1)
+
+Here, ``filter`` is a function to select those elements you need, you can pass a function to it, and it will return the elements which are justified as ``True`` by the passed function.
