@@ -28,6 +28,14 @@ RiskQuantLib.Build.buildInstrument module
    :undoc-members:
    :show-inheritance:
 
+RiskQuantLib.Build.buildPropertyType module
+-------------------------------------------
+
+.. automodule:: RiskQuantLib.Build.buildPropertyType
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 RiskQuantLib.Build.buildShortcut module
 ---------------------------------------
 
@@ -72,6 +80,22 @@ RiskQuantLib.Build.propertyObj module
 -------------------------------------
 
 .. automodule:: RiskQuantLib.Build.propertyObj
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+RiskQuantLib.Build.propertyTypeList module
+------------------------------------------
+
+.. automodule:: RiskQuantLib.Build.propertyTypeList
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+RiskQuantLib.Build.propertyTypeObj module
+-----------------------------------------
+
+.. automodule:: RiskQuantLib.Build.propertyTypeObj
    :members:
    :undoc-members:
    :show-inheritance:
