@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>RiskQuantLib.Build.propertyTypeList &mdash; RiskQuantLib 0.0.24 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/readthedocs-custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RiskQuantLib
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">RiskQuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Create_Project.html">Create A New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Build_Project.html">Build Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument.html">Instrument</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument_List.html">Instrument List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tool.html">Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project_Management.html">Project Management</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RiskQuantLib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../RiskQuantLib.html">RiskQuantLib</a> &raquo;</li>
+        
+      <li>RiskQuantLib.Build.propertyTypeList</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for RiskQuantLib.Build.propertyTypeList</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#coding = utf-8</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">importlib</span>
+
+<div class="viewcode-block" id="propertyTypeList"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.propertyTypeList.propertyTypeList">[docs]</a><span class="k">class</span> <span class="nc">propertyTypeList</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    propertyTypeList() is a class used to format propertyType building information and commit building.</span>
+<span class="sd">    This is the entrance of new propertyType building action.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Any &#39;RiskQuantLib List&#39; object should have self.all, which is a list to contain elements.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="propertyTypeList.addPropertyType"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.propertyTypeList.propertyTypeList.addPropertyType">[docs]</a>    <span class="k">def</span> <span class="nf">addPropertyType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">propertyTypeNameSeries</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        addPropertyType(self,propertyTypeNameSeries) is a function to add new propertyType registrations.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        propertyTypeNameSeries : iterable object</span>
+<span class="sd">            This variable must be an iterable object and each element should be a string, specifying</span>
+<span class="sd">            the name of propertyTypes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">RiskQuantLib.Build.pathObj</span> <span class="k">as</span> <span class="nn">POJ</span>
+        <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">POJ</span><span class="p">)</span>
+        <span class="n">RQLpathObj</span> <span class="o">=</span> <span class="n">POJ</span><span class="o">.</span><span class="n">pathObj</span><span class="p">()</span>
+        <span class="kn">from</span> <span class="nn">RiskQuantLib.Build.propertyTypeObj</span> <span class="kn">import</span> <span class="n">propertyTypeObj</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">+=</span> <span class="p">[</span><span class="n">propertyTypeObj</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">propertyTypeNameSeries</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="o">+</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">RQLpathObj</span><span class="o">.</span><span class="n">attributeTypeDefaultList</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">RQLpathObj</span></div>
+
+<div class="viewcode-block" id="propertyTypeList.setLibraryName"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.propertyTypeList.propertyTypeList.setLibraryName">[docs]</a>    <span class="k">def</span> <span class="nf">setLibraryName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">propertyTypeNameSeries</span><span class="p">,</span><span class="n">libraryNameSeries</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        setLibraryName(self,propertyTypeNameSeries,libraryNameSeries) is a function to</span>
+<span class="sd">        set other library you want to use in new propertyType class.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        propertyTypeNameSeries : iterable object</span>
+<span class="sd">            This variable must be an iterable object and each element should be a string, specifying</span>
+<span class="sd">            the name of propertyTypes.</span>
+<span class="sd">        libraryNameSeries : iterable object</span>
+<span class="sd">            This variable must be an iterable object and each element should be a string, specifying</span>
+<span class="sd">            the library you want to include in propertyType class file. If multiple classes are included,</span>
+<span class="sd">            they should be within one string, separated by &#39;,&#39;. Note: The length of libraryNameSeries</span>
+<span class="sd">            must be equal to that of propertyTypeNameSeries.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tmpDict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">propertyTypeNameSeries</span><span class="p">,</span><span class="n">libraryNameSeries</span><span class="p">))</span>
+        <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">setLibraryName</span><span class="p">(</span><span class="n">tmpDict</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">])</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">tmpDict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="n">i</span><span class="o">.</span><span class="n">setLibraryName</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="propertyTypeList.commit"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.propertyTypeList.propertyTypeList.commit">[docs]</a>    <span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">targetProjectPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        commit(self,targetProjectPath:str = &#39;&#39;) is a function to</span>
+<span class="sd">        commit building of new propertyTypes.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        targetProjectPath : str</span>
+<span class="sd">            The RiskQuantLib project path where you want to build new propertyTypes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">RiskQuantLib.Build.buildPropertyType</span> <span class="kn">import</span> <span class="n">clearPropertyTypePath</span>
+        <span class="n">clearPropertyTypePath</span><span class="p">(</span><span class="n">targetProjectPath</span><span class="p">)</span>
+        <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">commit</span><span class="p">(</span><span class="n">targetProjectPath</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">]</span></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright .
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
