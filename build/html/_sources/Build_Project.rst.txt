@@ -104,9 +104,9 @@ The *SecurityType* column can accept key word like: ``Any``, ``Fund``, ``Stock``
 
 **Notice: The first letter must be capitalized in SecurityType column.**
 
-Any instrument you specify in *Build_Instrument.xlsx* can also be used here. If you want to create a class named ``treasureBond`` in *Build_Instrument.xlsx*, then here you can fill ``TreasureBond`` in *SecurityType* column.
+Any instrument you specify in *Build_Instrument.xlsx* can also be used here. If you already create a class named ``treasureBond`` in *Build_Instrument.xlsx*, then here you can fill ``TreasureBond`` in *SecurityType* column.
 
-The *AttrType* column can accept key word of ``Number``, ``String``, ``Any``, ``Series``. It tells RiskQuantLib what kind of data will be stored by this attribute. If you add 'sellPrice' to ``Stock``, this should be a ``Number`` attribute, while an attribute like 'issuerName' is a ``String`` kind. ``Series`` is used if it's an attribute like 'sellPriceOfPastSixMonth'.
+The *AttrType* column can accept key word of ``Number``, ``String``, ``Any``, ``Series``, or any other string that you think it could be a type. It tells RiskQuantLib what kind of data will be stored by this attribute. If you add 'sellPrice' to ``Stock``, this should be a ``Number`` attribute, while an attribute like 'issuerName' is a ``String`` kind. ``Series`` is used if it's an attribute like 'sellPriceOfPastSixMonth'. If you specify a kind that is never used before, it will be created as a type class, located in ``RiskQuantLib.Property``.
 
 build.py
 ^^^^^^^^

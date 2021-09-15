@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.IndexList.base &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>RiskQuantLib.IndexList.base &mdash; RiskQuantLib 0.0.28 documentation</title>
   
 
   
@@ -172,7 +172,7 @@
 <span class="kn">from</span> <span class="nn">RiskQuantLib.Set.IndexList.base</span> <span class="kn">import</span> <span class="n">setBase</span>
 <span class="kn">from</span> <span class="nn">RiskQuantLib.Operation.listBaseOperation</span> <span class="kn">import</span> <span class="n">listBase</span>
 
-<div class="viewcode-block" id="base"><a class="viewcode-back" href="../../../RiskQuantLib.IndexList.html#RiskQuantLib.IndexList.base.base">[docs]</a><span class="k">class</span> <span class="nc">base</span><span class="p">(</span><span class="n">Index</span><span class="p">,</span><span class="n">setBase</span><span class="p">,</span><span class="n">listBase</span><span class="p">):</span>
+<div class="viewcode-block" id="baseList"><a class="viewcode-back" href="../../../RiskQuantLib.IndexList.html#RiskQuantLib.IndexList.base.baseList">[docs]</a><span class="k">class</span> <span class="nc">baseList</span><span class="p">(</span><span class="n">Index</span><span class="p">,</span><span class="n">setBase</span><span class="p">,</span><span class="n">listBase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class the list of index.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -180,21 +180,21 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__init_get_item__</span><span class="p">()</span>
 
-<div class="viewcode-block" id="base.addIndexList"><a class="viewcode-back" href="../../../RiskQuantLib.IndexList.html#RiskQuantLib.IndexList.base.base.addIndexList">[docs]</a>    <span class="k">def</span> <span class="nf">addIndexList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">indexObjList</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+<div class="viewcode-block" id="baseList.addIndexList"><a class="viewcode-back" href="../../../RiskQuantLib.IndexList.html#RiskQuantLib.IndexList.base.baseList.addIndexList">[docs]</a>    <span class="k">def</span> <span class="nf">addIndexList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">indexObjList</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add bundles of index into this list.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">tmpList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">+</span> <span class="n">indexObjList</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="n">tmpList</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="base.addIndex"><a class="viewcode-back" href="../../../RiskQuantLib.IndexList.html#RiskQuantLib.IndexList.base.base.addIndex">[docs]</a>    <span class="k">def</span> <span class="nf">addIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">indexCodeString</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">indexNameString</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">indexTypeString</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Index&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="baseList.addIndex"><a class="viewcode-back" href="../../../RiskQuantLib.IndexList.html#RiskQuantLib.IndexList.base.baseList.addIndex">[docs]</a>    <span class="k">def</span> <span class="nf">addIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">indexCodeString</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">indexNameString</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">indexTypeString</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Index&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a single index object into this list.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">tmpList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">+</span> <span class="p">[</span><span class="n">index</span><span class="p">(</span><span class="n">indexCodeString</span><span class="p">,</span><span class="n">indexNameString</span><span class="p">,</span><span class="n">indexTypeString</span><span class="p">)]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="n">tmpList</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="base.addIndexSeries"><a class="viewcode-back" href="../../../RiskQuantLib.IndexList.html#RiskQuantLib.IndexList.base.base.addIndexSeries">[docs]</a>    <span class="k">def</span> <span class="nf">addIndexSeries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">indexCodeSeries</span><span class="p">,</span><span class="n">indexNameSeries</span><span class="p">,</span><span class="n">indexTypeString</span> <span class="o">=</span> <span class="s1">&#39;Index&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="baseList.addIndexSeries"><a class="viewcode-back" href="../../../RiskQuantLib.IndexList.html#RiskQuantLib.IndexList.base.baseList.addIndexSeries">[docs]</a>    <span class="k">def</span> <span class="nf">addIndexSeries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">indexCodeSeries</span><span class="p">,</span><span class="n">indexNameSeries</span><span class="p">,</span><span class="n">indexTypeString</span> <span class="o">=</span> <span class="s1">&#39;Index&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add a series of index into this list.</span>
 <span class="sd">        &quot;&quot;&quot;</span>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.DataInputAPI package &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>RiskQuantLib.DataInputAPI package &mdash; RiskQuantLib 0.0.28 documentation</title>
   
 
   
@@ -222,8 +222,187 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="riskquantlib-datainputapi-getdatafromjydb-module">
-<h2>RiskQuantLib.DataInputAPI.getDataFromJYDB module<a class="headerlink" href="#riskquantlib-datainputapi-getdatafromjydb-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-RiskQuantLib.DataInputAPI.getDataFromJYDB">
+<span id="riskquantlib-datainputapi-getdatafromjydb-module"></span><h2>RiskQuantLib.DataInputAPI.getDataFromJYDB module<a class="headerlink" href="#module-RiskQuantLib.DataInputAPI.getDataFromJYDB" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.decoratorQuery">
+<span class="sig-name descname"><span class="pre">decoratorQuery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queryFunction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#decoratorQuery"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.decoratorQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function deal with the issue that oracle can not query more than 1000 ‘IN’ condition.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">getDataFromJYDB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">databaseNameString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hostAddress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passWord</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getAllPublicFund">
+<span class="sig-name descname"><span class="pre">getAllPublicFund</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getAllPublicFund"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getAllPublicFund" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns all public fund, given a date.</p>
+<dl class="simple">
+<dt>date<span class="classifier">pd.Timestamp</span></dt><dd><p>The date you want to pull data on.</p>
+</dd>
+</dl>
+<p>pd.DataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondCBRImpliedRating">
+<span class="sig-name descname"><span class="pre">getBondCBRImpliedRating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getBondCBRImpliedRating"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondCBRImpliedRating" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondCouponRate">
+<span class="sig-name descname"><span class="pre">getBondCouponRate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getBondCouponRate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondCouponRate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondDuration">
+<span class="sig-name descname"><span class="pre">getBondDuration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getBondDuration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondDuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondMaturity">
+<span class="sig-name descname"><span class="pre">getBondMaturity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getBondMaturity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondMaturity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondRating">
+<span class="sig-name descname"><span class="pre">getBondRating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getBondRating"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondRating" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondSubType">
+<span class="sig-name descname"><span class="pre">getBondSubType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getBondSubType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondSubType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondYTM">
+<span class="sig-name descname"><span class="pre">getBondYTM</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getBondYTM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getBondYTM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFundAccNav">
+<span class="sig-name descname"><span class="pre">getFundAccNav</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fund</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getFundAccNav"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFundAccNav" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns fund net asset value after interest adjust.</p>
+<dl class="simple">
+<dt>fund<span class="classifier">str</span></dt><dd><p>Fund code.</p>
+</dd>
+<dt>date<span class="classifier">pd.Timestamp</span></dt><dd><p>The date you need to pull the data on.</p>
+</dd>
+</dl>
+<p>pd.DataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFundInvestmentStyle">
+<span class="sig-name descname"><span class="pre">getFundInvestmentStyle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getFundInvestmentStyle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFundInvestmentStyle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFundStockTopTen">
+<span class="sig-name descname"><span class="pre">getFundStockTopTen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fund</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getFundStockTopTen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFundStockTopTen" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns top ten stock holdings of a mutual fund.</p>
+<dl class="simple">
+<dt>fund<span class="classifier">str</span></dt><dd><p>Fund code.</p>
+</dd>
+<dt>date<span class="classifier">pd.Timestamp</span></dt><dd><p>The date you need to pull the data on.</p>
+</dd>
+</dl>
+<p>pd.DataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFundSubType">
+<span class="sig-name descname"><span class="pre">getFundSubType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getFundSubType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFundSubType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFutureUnderlying">
+<span class="sig-name descname"><span class="pre">getFutureUnderlying</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getFutureUnderlying"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getFutureUnderlying" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getIndexConstitute">
+<span class="sig-name descname"><span class="pre">getIndexConstitute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getIndexConstitute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getIndexConstitute" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will return the index constitution.</p>
+<dl class="simple">
+<dt>index<span class="classifier">str</span></dt><dd><p>Index code.</p>
+</dd>
+<dt>date<span class="classifier">pd.Timestamp</span></dt><dd><p>The date you want to pull your data on.</p>
+</dd>
+</dl>
+<p>pd.DataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getIssuer">
+<span class="sig-name descname"><span class="pre">getIssuer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getIssuer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getIssuer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getIssuerRating">
+<span class="sig-name descname"><span class="pre">getIssuerRating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getIssuerRating"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getIssuerRating" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSecurityCodeAndNameAbbr">
+<span class="sig-name descname"><span class="pre">getSecurityCodeAndNameAbbr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getSecurityCodeAndNameAbbr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSecurityCodeAndNameAbbr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getStockClose">
+<span class="sig-name descname"><span class="pre">getStockClose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getStockClose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getStockClose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getStockMarketPlate">
+<span class="sig-name descname"><span class="pre">getStockMarketPlate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getStockMarketPlate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getStockMarketPlate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getStockTradingMarket">
+<span class="sig-name descname"><span class="pre">getStockTradingMarket</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getStockTradingMarket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getStockTradingMarket" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSwIndexClose">
+<span class="sig-name descname"><span class="pre">getSwIndexClose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getSwIndexClose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSwIndexClose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSwIndustryAStockBelongTo">
+<span class="sig-name descname"><span class="pre">getSwIndustryAStockBelongTo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getSwIndustryAStockBelongTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSwIndustryAStockBelongTo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSwIndustryName">
+<span class="sig-name descname"><span class="pre">getSwIndustryName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getSwIndustryName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSwIndustryName" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function returns the name of shen wan industry level one.</p>
+<p>pd.DataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSwIndustrySTARStockBelongTo">
+<span class="sig-name descname"><span class="pre">getSwIndustrySTARStockBelongTo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getSwIndustrySTARStockBelongTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getSwIndustrySTARStockBelongTo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getTotalMktValueOfAStock">
+<span class="sig-name descname"><span class="pre">getTotalMktValueOfAStock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getTotalMktValueOfAStock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getTotalMktValueOfAStock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getTotalMktValueOfSTARStock">
+<span class="sig-name descname"><span class="pre">getTotalMktValueOfSTARStock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getTotalMktValueOfSTARStock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getTotalMktValueOfSTARStock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getTreasureBondYieldCurve">
+<span class="sig-name descname"><span class="pre">getTreasureBondYieldCurve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromJYDB.html#getDataFromJYDB.getTreasureBondYieldCurve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromJYDB.getDataFromJYDB.getTreasureBondYieldCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="riskquantlib-datainputapi-getdatafromwind-module">
 <h2>RiskQuantLib.DataInputAPI.getDataFromWind module<a class="headerlink" href="#riskquantlib-datainputapi-getdatafromwind-module" title="Permalink to this headline">¶</a></h2>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.CompanyList package &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>RiskQuantLib.CompanyList package &mdash; RiskQuantLib 0.0.28 documentation</title>
   
 
   
@@ -238,25 +238,25 @@
 <div class="section" id="module-RiskQuantLib.CompanyList.base">
 <span id="riskquantlib-companylist-base-module"></span><h2>RiskQuantLib.CompanyList.base module<a class="headerlink" href="#module-RiskQuantLib.CompanyList.base" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="RiskQuantLib.CompanyList.base.base">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">base</span></span><a class="reference internal" href="_modules/RiskQuantLib/CompanyList/base.html#base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.CompanyList.base.base" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.CompanyList.base.baseList">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">baseList</span></span><a class="reference internal" href="_modules/RiskQuantLib/CompanyList/base.html#baseList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.CompanyList.base.baseList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="RiskQuantLib.Set.CompanyList.html#RiskQuantLib.Set.CompanyList.base.setBase" title="RiskQuantLib.Set.CompanyList.base.setBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">RiskQuantLib.Set.CompanyList.base.setBase</span></code></a>, <a class="reference internal" href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase" title="RiskQuantLib.Operation.listBaseOperation.listBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">RiskQuantLib.Operation.listBaseOperation.listBase</span></code></a></p>
 <p>This class is the basic company list class.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.CompanyList.base.base.addCompany">
-<span class="sig-name descname"><span class="pre">addCompany</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nameString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codeString</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">companyTypeString</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Company'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/CompanyList/base.html#base.addCompany"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.CompanyList.base.base.addCompany" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.CompanyList.base.baseList.addCompany">
+<span class="sig-name descname"><span class="pre">addCompany</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codeString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nameString</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">companyTypeString</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Company'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/CompanyList/base.html#baseList.addCompany"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.CompanyList.base.baseList.addCompany" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a company object to company list.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.CompanyList.base.base.addCompanyFromSecurityList">
-<span class="sig-name descname"><span class="pre">addCompanyFromSecurityList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityListObject</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/CompanyList/base.html#base.addCompanyFromSecurityList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.CompanyList.base.base.addCompanyFromSecurityList" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.CompanyList.base.baseList.addCompanyFromSecurityList">
+<span class="sig-name descname"><span class="pre">addCompanyFromSecurityList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityListObject</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/CompanyList/base.html#baseList.addCompanyFromSecurityList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.CompanyList.base.baseList.addCompanyFromSecurityList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add company objects from a list of securities.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.CompanyList.base.base.addCompanySeries">
-<span class="sig-name descname"><span class="pre">addCompanySeries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">CompanyNameSeries</span></em>, <em class="sig-param"><span class="pre">CompanyCodeSeries=Series([]</span></em>, <em class="sig-param"><span class="pre">dtype:</span> <span class="pre">float64)</span></em>, <em class="sig-param"><span class="pre">companyTypeString='Company'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/CompanyList/base.html#base.addCompanySeries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.CompanyList.base.base.addCompanySeries" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.CompanyList.base.baseList.addCompanySeries">
+<span class="sig-name descname"><span class="pre">addCompanySeries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">CompanyCodeSeries</span></em>, <em class="sig-param"><span class="pre">CompanyNameSeries=Series([]</span></em>, <em class="sig-param"><span class="pre">dtype:</span> <span class="pre">float64)</span></em>, <em class="sig-param"><span class="pre">companyTypeString='Company'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/CompanyList/base.html#baseList.addCompanySeries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.CompanyList.base.baseList.addCompanySeries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add lots of company objects to company list.</p>
 </dd></dl>
 

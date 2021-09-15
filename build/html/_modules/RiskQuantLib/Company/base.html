@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Company.base &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>RiskQuantLib.Company.base &mdash; RiskQuantLib 0.0.28 documentation</title>
   
 
   
@@ -172,12 +172,11 @@
 
 <div class="viewcode-block" id="base"><a class="viewcode-back" href="../../../RiskQuantLib.Company.html#RiskQuantLib.Company.base.base">[docs]</a><span class="k">class</span> <span class="nc">base</span><span class="p">(</span><span class="n">setBase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This is the company base class. Any company object should be initialized with name and code.</span>
-<span class="sd">    Different from security class, company class use &#39;name&#39; as key attribute, rather than &#39;code&#39;.</span>
+<span class="sd">    This is the company base class. Any company object should be initialized with code and name.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nameString</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">codeString</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">companyTypeString</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">nameString</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">codeString</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">nameString</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">companyTypeString</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">codeString</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">nameString</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">companyType</span> <span class="o">=</span> <span class="n">companyTypeString</span></div>
 
 

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>RiskQuantLib &mdash; RiskQuantLib 0.0.28 documentation</title>
   
 
   
@@ -92,6 +92,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">RiskQuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Create_Project.html">Create A New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Build_Project.html">Build Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Instrument.html">Instrument</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Instrument_List.html">Instrument List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tool.html">Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Project_Management.html">Project Management</a></li>
 </ul>
 
             
@@ -190,11 +195,11 @@
     <span class="n">target_path</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;RiskQuantLib&#39;</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">target_path</span><span class="p">):</span>
-        <span class="c1"># 如果目标路径不存在原文件夹的话就创建</span>
+        <span class="c1"># if there is no target path, create one</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">target_path</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">source_path</span><span class="p">):</span>
-        <span class="c1"># 如果目标路径存在原文件夹的话就先删除</span>
+        <span class="c1"># if there is already a path, clear it</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">target_path</span><span class="p">)</span>
 
     <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">source_path</span><span class="p">,</span> <span class="n">target_path</span><span class="p">)</span>

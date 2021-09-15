@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Build Your Project &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>Build Your Project &mdash; RiskQuantLib 0.0.28 documentation</title>
   
 
   
@@ -347,8 +347,8 @@
 </table>
 <p>The <em>SecurityType</em> column can accept key word like: <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Fund</span></code>, <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, <code class="docutils literal notranslate"><span class="pre">Bond</span></code>, <code class="docutils literal notranslate"><span class="pre">Repo</span></code>, etc. However,</p>
 <p><strong>Notice: The first letter must be capitalized in SecurityType column.</strong></p>
-<p>Any instrument you specify in <em>Build_Instrument.xlsx</em> can also be used here. If you want to create a class named <code class="docutils literal notranslate"><span class="pre">treasureBond</span></code> in <em>Build_Instrument.xlsx</em>, then here you can fill <code class="docutils literal notranslate"><span class="pre">TreasureBond</span></code> in <em>SecurityType</em> column.</p>
-<p>The <em>AttrType</em> column can accept key word of <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Series</span></code>. It tells RiskQuantLib what kind of data will be stored by this attribute. If you add ‘sellPrice’ to <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, this should be a <code class="docutils literal notranslate"><span class="pre">Number</span></code> attribute, while an attribute like ‘issuerName’ is a <code class="docutils literal notranslate"><span class="pre">String</span></code> kind. <code class="docutils literal notranslate"><span class="pre">Series</span></code> is used if it’s an attribute like ‘sellPriceOfPastSixMonth’.</p>
+<p>Any instrument you specify in <em>Build_Instrument.xlsx</em> can also be used here. If you already create a class named <code class="docutils literal notranslate"><span class="pre">treasureBond</span></code> in <em>Build_Instrument.xlsx</em>, then here you can fill <code class="docutils literal notranslate"><span class="pre">TreasureBond</span></code> in <em>SecurityType</em> column.</p>
+<p>The <em>AttrType</em> column can accept key word of <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Series</span></code>, or any other string that you think it could be a type. It tells RiskQuantLib what kind of data will be stored by this attribute. If you add ‘sellPrice’ to <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, this should be a <code class="docutils literal notranslate"><span class="pre">Number</span></code> attribute, while an attribute like ‘issuerName’ is a <code class="docutils literal notranslate"><span class="pre">String</span></code> kind. <code class="docutils literal notranslate"><span class="pre">Series</span></code> is used if it’s an attribute like ‘sellPriceOfPastSixMonth’. If you specify a kind that is never used before, it will be created as a type class, located in <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Property</span></code>.</p>
 </div>
 <div class="section" id="build-py">
 <h2>build.py<a class="headerlink" href="#build-py" title="Permalink to this headline">¶</a></h2>
