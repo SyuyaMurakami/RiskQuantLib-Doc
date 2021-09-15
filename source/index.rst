@@ -13,6 +13,8 @@
    Instrument_List.rst
    Tool.rst
    Project_Management.rst
+   Variable_Type.rst
+   With_QuantLib.rst
 
 Welcome to Use RiskQuantLib
 ===========================
