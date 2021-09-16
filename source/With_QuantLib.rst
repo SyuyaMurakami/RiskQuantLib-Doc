@@ -52,13 +52,232 @@ However, what if you have ten options and you want to price them all? What if yo
 +----------+------------+------------+------------+----------+------------+-----+
 |OptionCode|   PayOff   |ExerciseType|ExerciseDate|StockPrice|RiskFreeRate|Sigma|
 +==========+============+============+============+==========+============+=====+
-|     A    |PlainVanilla|  European  | 2021-09-20 |   100.0  |     0.05   | 0.20|
+|     A    |PlainVanilla|  European  | 2021-11-18 |   100.0  |     0.05   | 0.20|
 +----------+------------+------------+------------+----------+------------+-----+
 |     B    |PlainVanilla|  European  | 2022-03-20 |    97.6  |    0.032   | 0.17|
 +----------+------------+------------+------------+----------+------------+-----+
 |   ...    |    ...     |    ...     |    ...     |    ...   |    ...     | ... |   
 +----------+------------+------------+------------+----------+------------+-----+
 
+To do it in RiskQuantLib, we need to build our own european option pricing template first, we create a project by using terminal command:
+::
+
+   newRQL yourProjectPath
+
+After it, we open ``Build_Instrument.xlsx``, and edit it like:
+
++----------------+------------------+-----------------------+------------+---------------------+
+| InstrumentName |ParentRQLClassName|ParentQuantLibClassName|LibararyName|DefaultInstrumentType|
++================+==================+=======================+============+=====================+
+|myEuropeanOption|       Any        |   EuropeanOption      |            |  myEuropeanOption   |
++----------------+------------------+-----------------------+------------+---------------------+
+
+Then we open ``Build_Attr.xlsx``, and make it look like:
+
++------------------+--------------------+----------------+
+|   SecurityType   |      AttrName      |    AttrType    |
++==================+====================+================+
+| MyEuropeanOption |      myPayOff      |    qlPayOff    |
++------------------+--------------------+----------------+
+| MyEuropeanOption |    myExercise      |  qlExercise    |
++------------------+--------------------+----------------+
+| MyEuropeanOption |underlyingStockPrice|     qlQuote    |
++------------------+--------------------+----------------+
+| MyEuropeanOption |  riskFreeRate      |     qlQuote    |
++------------------+--------------------+----------------+
+| MyEuropeanOption |         sigma      |     qlQuote    |
++------------------+--------------------+----------------+
+
+Then we build it by using terminal command:
+::
+
+   cd yourProjectPath
+   python build.py
+
+Good, we now have a brand new project for european option pricing. RiskQuantLib has created the instrument class, type class we need. We need to change it a little bit for further use. We open ``RiskQuantLib/Property/QlExercise/qlExercise.py``, and make it look like:
+::
+
+   #!/usr/bin/python
+   # coding = utf-8
+
+   import QuantLib as ql
+   import pandas as pd
+   from RiskQuantLib.Property.base import base
+
+   class qlExercise(base):
+
+       def __nullFunction__(self):
+           pass
+
+       def __init__(self, value : pd.Timestamp):
+           value = ql.EuropeanExercise(ql.Date(value.day, value.month, value.year))
+           super(qlExercise,self).__init__(value)
+
+       def setValue(self,value : pd.Timestamp):
+           self.value = ql.EuropeanExercise(ql.Date(value.day, value.month, value.year))
+
+In this step, we package the QuantLib code of exercise, so that it can be used even if we only pass a date to it. Once it is finished, we don't need to define it every time we want to price an european option.
+
+Again, we do the similar thing to ``RiskQuantLib/Property/QlPayOff/qlPayOff.py``, and make it look like:
+::
+
+   #!/usr/bin/python
+   # coding = utf-8
+
+   import QuantLib as ql
+   from RiskQuantLib.Property.base import base
+
+   class qlPayOff(base):
+
+       def __nullFunction__(self):
+           pass
+
+       def __init__(self, value : float):
+           value = ql.PlainVanillaPayoff(ql.Option.Call, value)
+           super(qlPayOff,self).__init__(value)
+
+       def setValue(self, value : float):
+           self.value = ql.PlainVanillaPayoff(ql.Option.Call, value)
+
+In this step, we package the QuantLib code of payoff, so that it can be used even if we only pass a payoff value to it. Once it is finished, we don't need to define it every time we want to price an european option.
+
+Again, we do the similar thing to ``RiskQuantLib/Property/QlQuote/qlQuote.py``, and make it look like:
+::
+
+   #!/usr/bin/python
+   # coding = utf-8
+
+   import QuantLib as ql
+   from RiskQuantLib.Property.base import base
+
+   class qlQuote(base):
+
+       def __nullFunction__(self):
+           pass
+
+       def __init__(self, value : float):
+           value = ql.SimpleQuote(value)
+           super(qlQuote,self).__init__(value)
+
+       def setValue(self,value):
+           self.value.setValue(value)
 
 
+The final preparation, is to edit ``RiskQuantLib/Security/MyEuropeanOption/myEuropeanOption.py``, to make it look like:
+::
 
+   #!/usr/bin/python
+   # coding = utf-8
+
+   import QuantLib as ql
+   from RiskQuantLib.Security.base import base
+   from QuantLib import EuropeanOption
+   from RiskQuantLib.Set.Security.MyEuropeanOption.myEuropeanOption import setMyEuropeanOption
+
+   class myEuropeanOption(base,EuropeanOption,setMyEuropeanOption):
+
+       def __nullFunction__(self):
+           pass
+
+       def __init__(self, codeString,nameString,securityTypeString = 'myEuropeanOption'):
+           base.__init__(self,codeString,nameString,securityTypeString)
+
+       def iniPricingModule(self, *args):
+           EuropeanOption.__init__(self,*args)
+
+       def pricing(self):
+           self.iniPricingModule(self.myPayOff,self.myExercise)
+           riskFreeCurve = ql.FlatForward(0, ql.TARGET(), ql.QuoteHandle(self.riskFreeRate), ql.Actual360())
+           volatility = ql.BlackConstantVol(0, ql.TARGET(), ql.QuoteHandle(self.sigma), ql.Actual360())
+           process = ql.BlackScholesProcess(ql.QuoteHandle(self.underlyingStockPrice),
+                                            ql.YieldTermStructureHandle(riskFreeCurve),
+                                            ql.BlackVolTermStructureHandle(volatility))
+           engine = ql.AnalyticEuropeanEngine(process)
+           self.setPricingEngine(engine)
+
+           # Calculate Result
+           self.npvValue = self.NPV()
+           self.deltaValue = self.delta()
+           self.gammaValue = self.gamma()
+           self.vegaValue = self.vega()
+
+
+Now everything is ready, we switch to ``main.py`` in your project root path, we can pricing the same option with RiskQuantLib, by:
+::
+
+   # With RiskQuantLib
+
+   # Don't Forget to Set Evaluation Date
+   today = ql.Date(18, 3, 2021)
+   ql.Settings.instance().evaluationDate = today
+
+   from RiskQuantLib.Module import *
+   vanillaOption = myEuropeanOption("A","A")
+   vanillaOption.setMyPayOff(100)
+   vanillaOption.setMyExercise(pd.Timestamp("20211118"))
+   vanillaOption.setUnderlyingStockPrice(100)
+   vanillaOption.setRiskFreeRate(0.05)
+   vanillaOption.setSigma(0.20)
+   vanillaOption.pricing()
+
+It is more readable, right? More importantly, you can change the value of any parameter and price it again. If you want to price another option, just initialize another object:
+::
+
+   # You already set valuation date, don't need to do it again.
+
+   from RiskQuantLib.Module import *
+   vanillaOption = myEuropeanOption("B","B")
+   vanillaOption.setMyPayOff(100)
+   vanillaOption.setMyExercise(pd.Timestamp("20220320"))
+   vanillaOption.setUnderlyingStockPrice(97.6)
+   vanillaOption.setRiskFreeRate(0.032)
+   vanillaOption.setSigma(0.17)
+   vanillaOption.pricing()
+
+Or do it in a more elegant way, which is to use RiskQuantLib list. Remember you have a dataframe like:
+
++----------+------------+------------+------------+----------+------------+-----+
+|OptionCode|   PayOff   |ExerciseType|ExerciseDate|StockPrice|RiskFreeRate|Sigma|
++==========+============+============+============+==========+============+=====+
+|     A    |PlainVanilla|  European  | 2021-11-18 |   100.0  |     0.05   | 0.20|
++----------+------------+------------+------------+----------+------------+-----+
+|     B    |PlainVanilla|  European  | 2022-03-20 |    97.6  |    0.032   | 0.17|
++----------+------------+------------+------------+----------+------------+-----+
+
+We save it as an excel file named ``European_Option.xlsx`` in your project root path. Then in ``main.py``, we code like:
+
+::
+
+   # With RiskQuantLib List
+   # Set Evaluation Date
+   today = ql.Date(18, 3, 2021)
+   ql.Settings.instance().evaluationDate = today
+
+   from RiskQuantLib.Module import *
+   df = pd.read_excel(path+os.sep+'European_Option.xlsx')
+
+   vanillaOptionList = myEuropeanOptionList()
+   vanillaOptionList.addMyEuropeanOptionSeries(df['OptionCode'],df['OptionCode'])
+   vanillaOptionList.setMyPayOff(df['OptionCode'],[100 for payoff in df['OptionCode']])
+   vanillaOptionList.setMyExercise(df['OptionCode'],[pd.Timestamp(date) for date in df['ExerciseDate']])
+   vanillaOptionList.setUnderlyingStockPrice(df['OptionCode'],df['StockPrice'])
+   vanillaOptionList.setRiskFreeRate(df['OptionCode'],df['RiskFreeRate'])
+   vanillaOptionList.setSigma(df['OptionCode'],df['Sigma'])
+   vanillaOptionList.execFunc('pricing')
+
+If you want to save the result, the only thing you need to do is to convert it to dataframe by:
+::
+
+   result = pd.DataFrame(vanillaOptionList[['code','npvValue','deltaValue','gammaValue','vegaValue']])
+
+**Do not forget to save your work to a template, this project can be used again, this is the most important feature of RiskQuantLib.**
+
+To do this, you should delete the file ``European_Option.xlsx``, and clear the content of ``main.py``, because these data and operation are not repeatable, only the logic behind could be used again. After this, open a terminal and call:
+::
+
+   saveRQL yourProjectPath europeanOption
+
+Next time you want to use it, just use terminal command:
+::
+
+   tplRQL europeanOption yourNewProjectPath
