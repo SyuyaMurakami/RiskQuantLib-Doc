@@ -97,6 +97,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../Instrument_List.html">Instrument List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Tool.html">Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Project_Management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Variable_Type.html">Variable Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../With_Pandas.html">With Pandas</a></li>
 </ul>
 
             
@@ -232,6 +235,7 @@
     <span class="n">PYB</span><span class="o">.</span><span class="n">setTitle</span><span class="p">()</span>
     <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">)</span>
     <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;sys&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib.Module&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
     <span class="n">PYB</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">codeBuilder</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s1">&#39;path = sys.path[0]&#39;</span><span class="p">)</span>
     <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s1">&#39;print(&quot;Write Your Code Here : &quot;+path+os.sep+&quot;main.py&quot;)&#39;</span><span class="p">)</span>

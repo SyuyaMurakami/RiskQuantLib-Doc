@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Operation.listBaseOperation &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>RiskQuantLib.Operation.listBaseOperation &mdash; RiskQuantLib 0.0.28 documentation</title>
   
 
   
@@ -97,6 +97,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../Instrument_List.html">Instrument List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Tool.html">Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Project_Management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Variable_Type.html">Variable Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_Pandas.html">With Pandas</a></li>
 </ul>
 
             
@@ -855,7 +858,236 @@
             <span class="n">tmpObj</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="n">leftInner</span> <span class="o">+</span> <span class="n">leftResidual</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">how</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span><span class="p">:</span>
             <span class="n">tmpObj</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="n">leftInner</span> <span class="o">+</span> <span class="n">rightResidual</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">tmpObj</span></div></div>
+        <span class="k">return</span> <span class="n">tmpObj</span></div>
+
+<div class="viewcode-block" id="listBase.fromDF"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.fromDF">[docs]</a>    <span class="k">def</span> <span class="nf">fromDF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">code</span> <span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function will convert a dataframe to RiskQuantLib list object. If</span>
+<span class="sd">        there is already elements in present list, all elements will be deleted.</span>
+
+<span class="sd">        The column name of dataframe should be in English, and this function</span>
+<span class="sd">        will try to set it to element attribute if there exists the attribute</span>
+<span class="sd">        with the same name. That is, this function will only set value of</span>
+<span class="sd">        registered attribute. If not registered in current list class, it</span>
+<span class="sd">        will be skipped.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        df : pd.DataFrame</span>
+<span class="sd">            The dataframe you want to pull data from.</span>
+<span class="sd">        code : str</span>
+<span class="sd">            The column name that you want to mark as &#39;code&#39; attribute.</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The column name that you want to mark as &#39;name&#39; attribute.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        RiskQuantLib List</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;elementClass&#39;</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The List Must Have Attribute Named elementClass To Call This Function.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setAll</span><span class="p">([])</span>
+            <span class="n">instrumentNameString</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementClass</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="n">c_instrumentNameString</span> <span class="o">=</span> <span class="n">instrumentNameString</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="n">instrumentNameString</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span> <span class="o">+</span> <span class="n">c_instrumentNameString</span> <span class="o">+</span> <span class="s1">&#39;Series&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="kc">None</span><span class="p">)(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">code</span><span class="o">!=</span><span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">name</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span> <span class="o">+</span> <span class="n">c_instrumentNameString</span> <span class="o">+</span> <span class="s1">&#39;Series&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="kc">None</span><span class="p">)(</span><span class="n">df</span><span class="p">[</span><span class="n">code</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">code</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span> <span class="o">+</span> <span class="n">c_instrumentNameString</span> <span class="o">+</span> <span class="s1">&#39;Series&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="kc">None</span><span class="p">)(</span><span class="n">df</span><span class="p">[</span><span class="n">code</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">code</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="n">name</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span> <span class="o">+</span> <span class="n">c_instrumentNameString</span> <span class="o">+</span> <span class="s1">&#39;Series&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="kc">None</span><span class="p">)(</span><span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">def</span> <span class="nf">trySetAttr</span><span class="p">(</span><span class="n">attrName</span><span class="p">,</span><span class="n">pdseries</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">c_attrName</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;set&#39;</span><span class="o">+</span><span class="n">c_attrName</span><span class="p">):</span>
+                        <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;set&#39;</span><span class="o">+</span><span class="n">c_attrName</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="kc">None</span><span class="p">)(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span><span class="n">pdseries</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+            <span class="p">[</span><span class="n">trySetAttr</span><span class="p">(</span><span class="n">col</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+            <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="listBase.addFromDF"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.addFromDF">[docs]</a>    <span class="k">def</span> <span class="nf">addFromDF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">code</span> <span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function will add elements from a dataframe. If there is already</span>
+<span class="sd">        elements in present list, all elements will be kept, while new elements</span>
+<span class="sd">        will be added.</span>
+
+<span class="sd">        The column name of dataframe should be in English, and this function</span>
+<span class="sd">        will try to set it to element attribute if there exists the attribute</span>
+<span class="sd">        with the same name. That is, this function will only set value of</span>
+<span class="sd">        registered attribute. If not registered in current list class, it</span>
+<span class="sd">        will be skipped.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        df : pd.DataFrame</span>
+<span class="sd">            The dataframe you want to pull data from.</span>
+<span class="sd">        code : str</span>
+<span class="sd">            The column name that you want to mark as &#39;code&#39; attribute.</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The column name that you want to mark as &#39;name&#39; attribute.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        RiskQuantLib List</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tmpList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+        <span class="n">tmpList</span><span class="o">.</span><span class="n">fromDF</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">+</span> <span class="n">tmpList</span><span class="o">.</span><span class="n">all</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="listBase.fromIterable"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.fromIterable">[docs]</a>    <span class="k">def</span> <span class="nf">fromIterable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterable</span><span class="p">:</span><span class="nb">list</span><span class="p">,</span> <span class="n">code</span> <span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function will convert an iterable to RiskQuantLib list object. If</span>
+<span class="sd">        there is already elements in present list, all elements will be deleted.</span>
+
+<span class="sd">        This function will only set value of registered attribute. If not</span>
+<span class="sd">        registered in current list class, it will be skipped.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        iterable : list</span>
+<span class="sd">            The iterable object you want to pull data from.</span>
+<span class="sd">        code : str</span>
+<span class="sd">            The attribute name of iterable that you want to</span>
+<span class="sd">            mark as &#39;code&#39; in RiskQuantLib List Object.</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The attribute name of iterable that you want to</span>
+<span class="sd">            mark as &#39;name&#39; in RiskQuantLib List Object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        RiskQuantLib List</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;elementClass&#39;</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The List Must Have Attribute Named elementClass To Call This Function.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setAll</span><span class="p">([])</span>
+            <span class="n">instrumentNameString</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elementClass</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="n">c_instrumentNameString</span> <span class="o">=</span> <span class="n">instrumentNameString</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="n">instrumentNameString</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span> <span class="o">+</span> <span class="n">c_instrumentNameString</span> <span class="o">+</span> <span class="s1">&#39;Series&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="kc">None</span><span class="p">)([</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">)],[</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">)])</span>
+            <span class="k">elif</span> <span class="n">code</span><span class="o">!=</span><span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">name</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span> <span class="o">+</span> <span class="n">c_instrumentNameString</span> <span class="o">+</span> <span class="s1">&#39;Series&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="kc">None</span><span class="p">)([</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">code</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">))</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">)],</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">))</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">)])</span>
+            <span class="k">elif</span> <span class="n">code</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span> <span class="o">+</span> <span class="n">c_instrumentNameString</span> <span class="o">+</span> <span class="s1">&#39;Series&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="kc">None</span><span class="p">)([</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">code</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">))</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">)],</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">code</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">))</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">)])</span>
+            <span class="k">elif</span> <span class="n">name</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span> <span class="o">+</span> <span class="n">c_instrumentNameString</span> <span class="o">+</span> <span class="s1">&#39;Series&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="kc">None</span><span class="p">)([</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">))</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">)],</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">))</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">obj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterable</span><span class="p">)])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">def</span> <span class="nf">trySetAttr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">attrName</span><span class="p">,</span><span class="n">attrValue</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">c_attrName</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="s1">&#39;set&#39;</span><span class="o">+</span><span class="n">c_attrName</span><span class="p">):</span>
+                        <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;set&#39;</span><span class="o">+</span><span class="n">c_attrName</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="kc">None</span><span class="p">)(</span><span class="n">attrValue</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+            <span class="p">[[</span><span class="n">trySetAttr</span><span class="p">(</span><span class="n">instrumentObj</span><span class="p">,</span><span class="n">attr</span><span class="p">,</span><span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span><span class="n">attr</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">))</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">obj</span><span class="p">)]</span> <span class="k">for</span> <span class="n">obj</span><span class="p">,</span><span class="n">instrumentObj</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">)]</span>
+            <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="listBase.addFromIterable"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.addFromIterable">[docs]</a>    <span class="k">def</span> <span class="nf">addFromIterable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">iterable</span><span class="p">:</span><span class="nb">list</span><span class="p">,</span> <span class="n">code</span> <span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function will add elements from an iterable object. If there is already</span>
+<span class="sd">        elements in present list, all elements will be kept, while new elements</span>
+<span class="sd">        will be added.</span>
+
+<span class="sd">        This function will only set value of registered attribute. If not</span>
+<span class="sd">        registered in current list class, it will be skipped.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        iterable : list</span>
+<span class="sd">            The iterable object you want to pull data from.</span>
+<span class="sd">        code : str</span>
+<span class="sd">            The attribute name of iterable that you want to</span>
+<span class="sd">            mark as &#39;code&#39; in RiskQuantLib List Object.</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The attribute name of iterable that you want to</span>
+<span class="sd">            mark as &#39;name&#39; in RiskQuantLib List Object.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        RiskQuantLib List</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tmpList</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+        <span class="n">tmpList</span><span class="o">.</span><span class="n">fromIterable</span><span class="p">(</span><span class="n">iterable</span><span class="o">=</span><span class="n">iterable</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="n">code</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">+</span> <span class="n">tmpList</span><span class="o">.</span><span class="n">all</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="listBase.updateAttr"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.updateAttr">[docs]</a>    <span class="k">def</span> <span class="nf">updateAttr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrName</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">codeSeries</span><span class="p">,</span> <span class="n">valueSeries</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function will update the attribute value of elements whose code</span>
+<span class="sd">        appears in given codeSeries. If code of element doesn&#39;t show in</span>
+<span class="sd">        codeSeries, these elements will be skipped and not changed.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        attrName : str</span>
+<span class="sd">            The attribute whose value is exactly what you want to update.</span>
+<span class="sd">        codeSeries : list</span>
+<span class="sd">            An iterable object that contains codes of elements whose attribute need to be updated.</span>
+<span class="sd">        valueSeries : list</span>
+<span class="sd">            An iterable object that contains new values of attributes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">c_attrName</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="n">tmpObj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">.</span><span class="n">code</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">codeSeries</span><span class="p">))</span>
+        <span class="nb">getattr</span><span class="p">(</span><span class="n">tmpObj</span><span class="p">,</span><span class="s1">&#39;set&#39;</span><span class="o">+</span><span class="n">c_attrName</span><span class="p">,</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="kc">None</span><span class="p">)(</span><span class="n">codeSeries</span><span class="p">,</span><span class="n">valueSeries</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="listBase.updateAttrFromDF"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.updateAttrFromDF">[docs]</a>    <span class="k">def</span> <span class="nf">updateAttrFromDF</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function will update attribute value of current list by passed dataframe.</span>
+<span class="sd">        The column name of passes dataframe should be in English, and if current</span>
+<span class="sd">        list has registered attribute whose name is the same with column name, it will</span>
+<span class="sd">        be updated.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        df : pd.DataFrame</span>
+<span class="sd">            The dataframe that you want to update data from.</span>
+<span class="sd">        code : str</span>
+<span class="sd">            The column name of df that you used to mark rows. Elements whose code</span>
+<span class="sd">            is in this column will be updated, and those not in this column will</span>
+<span class="sd">            not be influenced. If blank, the index of df will be used as code.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">updateAttr</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">updateAttr</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="n">code</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="listBase.updateAttrFromDict"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.updateAttrFromDict">[docs]</a>    <span class="k">def</span> <span class="nf">updateAttrFromDict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrName</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">codeValueDict</span> <span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function will update attribute value of current list by passed dict.</span>
+<span class="sd">        The key of passes dict should be code string. If current list has registered</span>
+<span class="sd">        attribute whose name is in keys of codeValueDict, it will be updated.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        attrName : str</span>
+<span class="sd">            The attribute whose value is exactly what you want to update.</span>
+<span class="sd">        codeValueDict : dict</span>
+<span class="sd">            A dict that maps code to value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">updateAttr</span><span class="p">(</span><span class="n">attrName</span><span class="p">,</span><span class="n">codeValueDict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span><span class="n">codeValueDict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span></div></div>
 </pre></div>
 
            </div>

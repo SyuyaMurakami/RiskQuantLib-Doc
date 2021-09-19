@@ -15,6 +15,8 @@
    Project_Management.rst
    Variable_Type.rst
    With_QuantLib.rst
+   With_Pandas.rst
+   With_ORM.rst
 
 Welcome to Use RiskQuantLib
 ===========================

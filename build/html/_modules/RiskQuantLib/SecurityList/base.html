@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.SecurityList.base &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>RiskQuantLib.SecurityList.base &mdash; RiskQuantLib 0.0.28 documentation</title>
   
 
   
@@ -92,6 +92,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../modules.html">RiskQuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Create_Project.html">Create A New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Build_Project.html">Build Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument.html">Instrument</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument_List.html">Instrument List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tool.html">Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project_Management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Variable_Type.html">Variable Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_Pandas.html">With Pandas</a></li>
 </ul>
 
             
@@ -172,8 +180,10 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This is the basic list class. Any security list class should inherit from this.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">elementClass</span> <span class="o">=</span> <span class="n">securityBase</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listType</span> <span class="o">=</span> <span class="s1">&#39;Security List&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__init_get_item__</span><span class="p">()</span>
 
 <div class="viewcode-block" id="baseList.addSecurityList"><a class="viewcode-back" href="../../../RiskQuantLib.SecurityList.html#RiskQuantLib.SecurityList.base.baseList.addSecurityList">[docs]</a>    <span class="k">def</span> <span class="nf">addSecurityList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">securityObjList</span><span class="p">):</span>

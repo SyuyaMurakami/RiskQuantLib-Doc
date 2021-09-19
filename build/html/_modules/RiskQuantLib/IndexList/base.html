@@ -97,6 +97,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../Instrument_List.html">Instrument List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Tool.html">Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Project_Management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Variable_Type.html">Variable Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_Pandas.html">With Pandas</a></li>
 </ul>
 
             
@@ -176,8 +179,10 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class the list of index.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">elementClass</span> <span class="o">=</span> <span class="n">index</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listType</span> <span class="o">=</span> <span class="s1">&#39;Index List&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__init_get_item__</span><span class="p">()</span>
 
 <div class="viewcode-block" id="baseList.addIndexList"><a class="viewcode-back" href="../../../RiskQuantLib.IndexList.html#RiskQuantLib.IndexList.base.baseList.addIndexList">[docs]</a>    <span class="k">def</span> <span class="nf">addIndexList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">indexObjList</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>

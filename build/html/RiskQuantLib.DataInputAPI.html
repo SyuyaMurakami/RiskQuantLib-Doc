@@ -126,6 +126,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Project_Management.html">Project Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">Variable Type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">With Pandas</a></li>
 </ul>
 
             
@@ -406,8 +407,138 @@
 </dd></dl>
 
 </div>
-<div class="section" id="riskquantlib-datainputapi-getdatafromwind-module">
-<h2>RiskQuantLib.DataInputAPI.getDataFromWind module<a class="headerlink" href="#riskquantlib-datainputapi-getdatafromwind-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-RiskQuantLib.DataInputAPI.getDataFromWind">
+<span id="riskquantlib-datainputapi-getdatafromwind-module"></span><h2>RiskQuantLib.DataInputAPI.getDataFromWind module<a class="headerlink" href="#module-RiskQuantLib.DataInputAPI.getDataFromWind" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.convertMonthNumberToString">
+<span class="sig-name descname"><span class="pre">convertMonthNumberToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">monthNumber</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#convertMonthNumberToString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.convertMonthNumberToString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.generateDateStringOfPastMonths">
+<span class="sig-name descname"><span class="pre">generateDateStringOfPastMonths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">month</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startDate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Timestamp('2021-09-19</span> <span class="pre">13:14:16.577638')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#generateDateStringOfPastMonths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.generateDateStringOfPastMonths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getAvergaeTradingAmount">
+<span class="sig-name descname"><span class="pre">getAvergaeTradingAmount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getAvergaeTradingAmount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getAvergaeTradingAmount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getBondCouponRate">
+<span class="sig-name descname"><span class="pre">getBondCouponRate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">couponRateType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'couponrate2'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getBondCouponRate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getBondCouponRate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getBondHTMAtDate">
+<span class="sig-name descname"><span class="pre">getBondHTMAtDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yieldType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yield_shc'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getBondHTMAtDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getBondHTMAtDate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getBondIssuranceInfo">
+<span class="sig-name descname"><span class="pre">getBondIssuranceInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getBondIssuranceInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getBondIssuranceInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getBondWindClassificationType">
+<span class="sig-name descname"><span class="pre">getBondWindClassificationType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classificationType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'windl2type'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getBondWindClassificationType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getBondWindClassificationType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getCTD">
+<span class="sig-name descname"><span class="pre">getCTD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchangeType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NIB'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TradingCalendar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CFFEX'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getCTD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getCTD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getCTDOfBondIndexFuture">
+<span class="sig-name descname"><span class="pre">getCTDOfBondIndexFuture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">futureCodePastMonth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataStartDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataEndDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">futureCodeList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">futureDateStartDate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Timestamp('2021-09-19</span> <span class="pre">13:14:16.577638')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getCTDOfBondIndexFuture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getCTDOfBondIndexFuture" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getFundHistoricalNav">
+<span class="sig-name descname"><span class="pre">getFundHistoricalNav</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getFundHistoricalNav"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getFundHistoricalNav" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalClose">
+<span class="sig-name descname"><span class="pre">getHistoricalClose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getHistoricalClose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalClose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalPCTReturn">
+<span class="sig-name descname"><span class="pre">getHistoricalPCTReturn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getHistoricalPCTReturn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalPCTReturn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalReturnOfIndex">
+<span class="sig-name descname"><span class="pre">getHistoricalReturnOfIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexCodeString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataStartDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataEndDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getHistoricalReturnOfIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalReturnOfIndex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalReturnOfIndexFuture">
+<span class="sig-name descname"><span class="pre">getHistoricalReturnOfIndexFuture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">futureCodePastMonth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataStartDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataEndDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">futuresCodeList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">futuresDateStartDate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Timestamp('2021-09-19</span> <span class="pre">13:14:16.577638')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getHistoricalReturnOfIndexFuture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalReturnOfIndexFuture" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getIndexConstituteStockWeight">
+<span class="sig-name descname"><span class="pre">getIndexConstituteStockWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getIndexConstituteStockWeight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getIndexConstituteStockWeight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getIndexFutureForwardPremiumSeries">
+<span class="sig-name descname"><span class="pre">getIndexFutureForwardPremiumSeries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getIndexFutureForwardPremiumSeries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getIndexFutureForwardPremiumSeries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getIssuerCity">
+<span class="sig-name descname"><span class="pre">getIssuerCity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tradeDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getIssuerCity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getIssuerCity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getIssuerName">
+<span class="sig-name descname"><span class="pre">getIssuerName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getIssuerName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getIssuerName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getMaturityDate">
+<span class="sig-name descname"><span class="pre">getMaturityDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getMaturityDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getMaturityDate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getOptionExerciseDateOfBond">
+<span class="sig-name descname"><span class="pre">getOptionExerciseDateOfBond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getOptionExerciseDateOfBond"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getOptionExerciseDateOfBond" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getSecurityFromTheSameIssuer">
+<span class="sig-name descname"><span class="pre">getSecurityFromTheSameIssuer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getSecurityFromTheSameIssuer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getSecurityFromTheSameIssuer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getSecurityName">
+<span class="sig-name descname"><span class="pre">getSecurityName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getSecurityName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getSecurityName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getSettlementPrice">
+<span class="sig-name descname"><span class="pre">getSettlementPrice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getSettlementPrice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getSettlementPrice" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getStockIndustrySection">
+<span class="sig-name descname"><span class="pre">getStockIndustrySection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stockListString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codeType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'industry_gics'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">industryType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getStockIndustrySection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getStockIndustrySection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getTradingDayAndPreTradingDayClose">
+<span class="sig-name descname"><span class="pre">getTradingDayAndPreTradingDayClose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tradeDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getTradingDayAndPreTradingDayClose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getTradingDayAndPreTradingDayClose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.DataInputAPI.getDataFromWind.getYieldCurve">
+<span class="sig-name descname"><span class="pre">getYieldCurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">securityString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startDateString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/DataInputAPI/getDataFromWind.html#getYieldCurve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.DataInputAPI.getDataFromWind.getYieldCurve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="module-RiskQuantLib.DataInputAPI">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-RiskQuantLib.DataInputAPI" title="Permalink to this headline">¶</a></h2>

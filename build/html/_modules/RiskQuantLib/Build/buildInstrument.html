@@ -97,6 +97,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../Instrument_List.html">Instrument List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Tool.html">Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Project_Management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Variable_Type.html">Variable Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_Pandas.html">With Pandas</a></li>
 </ul>
 
             
@@ -666,10 +669,12 @@
     <span class="n">psb</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="n">setPath</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;set&#39;</span><span class="o">+</span><span class="n">c_instrumentNameString</span><span class="o">+</span><span class="s1">&#39;List&#39;</span><span class="p">)</span>
     <span class="n">parentClassList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;set&#39;</span><span class="o">+</span><span class="n">c_instrumentNameString</span><span class="o">+</span><span class="s1">&#39;List&#39;</span><span class="p">)</span>
     <span class="n">psb</span><span class="o">.</span><span class="n">startClass</span><span class="p">(</span><span class="n">instrumentNameString</span><span class="o">+</span><span class="s1">&#39;List&#39;</span><span class="p">,</span><span class="n">parentClassList</span><span class="p">)</span>
+    <span class="n">psb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s2">&quot;elementClass = &quot;</span> <span class="o">+</span> <span class="n">RQLpathObj</span><span class="o">.</span><span class="n">classNameDict</span><span class="p">[</span><span class="n">c_instrumentNameString</span><span class="p">])</span>
 
     <span class="k">if</span> <span class="n">parentRQLClassName</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span><span class="c1"># add self.__init__ to independent class</span>
         <span class="n">psb</span><span class="o">.</span><span class="n">startFunction</span><span class="p">(</span><span class="s1">&#39;__init__&#39;</span><span class="p">)</span>
         <span class="n">psb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s1">&#39;self.all = []&#39;</span><span class="p">)</span>
+        <span class="n">psb</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s2">&quot;self.listType = &#39;&quot;</span> <span class="o">+</span> <span class="n">securityType</span> <span class="o">+</span> <span class="s2">&quot; List&#39;&quot;</span><span class="p">)</span>
         <span class="n">psb</span><span class="o">.</span><span class="n">endFunction</span><span class="p">()</span>
     <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">parentRQLClassName</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="n">psb</span><span class="o">.</span><span class="n">startFunction</span><span class="p">(</span><span class="s1">&#39;__init__&#39;</span><span class="p">)</span>

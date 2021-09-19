@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>RiskQuantLib.DataInputAPI.getDataFromWind &mdash; RiskQuantLib 0.0.28 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/readthedocs-custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> RiskQuantLib
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">RiskQuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Create_Project.html">Create A New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Build_Project.html">Build Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument.html">Instrument</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument_List.html">Instrument List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tool.html">Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project_Management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Variable_Type.html">Variable Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_Pandas.html">With Pandas</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">RiskQuantLib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../RiskQuantLib.html">RiskQuantLib</a> &raquo;</li>
+        
+      <li>RiskQuantLib.DataInputAPI.getDataFromWind</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for RiskQuantLib.DataInputAPI.getDataFromWind</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#coding = utf-8</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">WindPy</span> <span class="kn">import</span> <span class="n">w</span>
+
+<span class="n">w</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">waitTime</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+
+<div class="viewcode-block" id="getHistoricalPCTReturn"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalPCTReturn">[docs]</a><span class="k">def</span> <span class="nf">getHistoricalPCTReturn</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">startDateString</span><span class="p">,</span><span class="n">endDateString</span><span class="p">):</span>
+	<span class="n">startDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">startDateString</span><span class="p">)</span>
+	<span class="n">endDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">endDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wsd</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;pct_chg&quot;</span><span class="p">,</span><span class="n">startDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">endDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getHistoricalClose"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalClose">[docs]</a><span class="k">def</span> <span class="nf">getHistoricalClose</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">startDateString</span><span class="p">,</span><span class="n">endDateString</span><span class="p">):</span>
+	<span class="n">startDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">startDateString</span><span class="p">)</span>
+	<span class="n">endDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">endDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wsd</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="n">startDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">endDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getFundHistoricalNav"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getFundHistoricalNav">[docs]</a><span class="k">def</span> <span class="nf">getFundHistoricalNav</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">startDateString</span><span class="p">,</span><span class="n">endDateString</span><span class="p">):</span>
+	<span class="n">startDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">startDateString</span><span class="p">)</span>
+	<span class="n">endDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">endDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wsd</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;nav&quot;</span><span class="p">,</span><span class="n">startDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">endDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getBondHTMAtDate"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getBondHTMAtDate">[docs]</a><span class="k">def</span> <span class="nf">getBondHTMAtDate</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">dateString</span><span class="p">,</span><span class="n">yieldType</span><span class="o">=</span><span class="s1">&#39;yield_shc&#39;</span><span class="p">):</span>
+	<span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dateString</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">yieldType</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;yield_shc&#39;</span><span class="p">,</span><span class="s1">&#39;yield_cnbd&#39;</span><span class="p">,</span><span class="s1">&#39;yield_csi1&#39;</span><span class="p">,</span><span class="s1">&#39;yield_cfets&#39;</span><span class="p">]:</span>
+		<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">yieldType</span><span class="p">,</span><span class="s2">&quot;tradeDate=&quot;</span><span class="o">+</span><span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;;credibility=1&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+	<span class="k">elif</span> <span class="n">yieldType</span> <span class="o">==</span> <span class="s1">&#39;YTM_ifexe&#39;</span><span class="p">:</span>
+		<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span> <span class="n">yieldType</span><span class="p">,</span> <span class="s2">&quot;tradeDate=&quot;</span> <span class="o">+</span> <span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="getYieldCurve"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getYieldCurve">[docs]</a><span class="k">def</span> <span class="nf">getYieldCurve</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">startDateString</span><span class="p">,</span><span class="n">endDateString</span><span class="p">):</span>
+	<span class="n">startDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">startDateString</span><span class="p">)</span>
+	<span class="n">endDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">endDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">edb</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">startDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">endDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="s2">&quot;Fill=Previous&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getCTD"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getCTD">[docs]</a><span class="k">def</span> <span class="nf">getCTD</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">startDateString</span><span class="p">,</span><span class="n">endDateString</span><span class="p">,</span><span class="n">exchangeType</span><span class="o">=</span><span class="s2">&quot;NIB&quot;</span><span class="p">,</span><span class="n">TradingCalendar</span> <span class="o">=</span> <span class="s2">&quot;CFFEX&quot;</span><span class="p">):</span>
+	<span class="n">startDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">startDateString</span><span class="p">)</span>
+	<span class="n">endDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">endDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wsd</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;tbf_CTD2&quot;</span><span class="p">,</span><span class="n">startDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">endDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="s2">&quot;exchangeType=&quot;</span><span class="o">+</span><span class="n">exchangeType</span><span class="o">+</span><span class="sa">r</span><span class="s2">&quot;;bondPriceType=1;TradingCalendar=&quot;</span><span class="o">+</span><span class="n">TradingCalendar</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getSettlementPrice"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getSettlementPrice">[docs]</a><span class="k">def</span> <span class="nf">getSettlementPrice</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">startDateString</span><span class="p">,</span><span class="n">endDateString</span><span class="p">):</span>
+	<span class="n">startDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">startDateString</span><span class="p">)</span>
+	<span class="n">endDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">endDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wsd</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;settle&quot;</span><span class="p">,</span><span class="n">startDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">endDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="convertMonthNumberToString"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.convertMonthNumberToString">[docs]</a><span class="k">def</span> <span class="nf">convertMonthNumberToString</span><span class="p">(</span><span class="n">monthNumber</span><span class="p">):</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">monthNumber</span><span class="p">)))</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+		<span class="k">return</span> <span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">monthNumber</span><span class="p">))</span>
+	<span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">monthNumber</span><span class="p">)))</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+		<span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">monthNumber</span><span class="p">))</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
+
+<div class="viewcode-block" id="generateDateStringOfPastMonths"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.generateDateStringOfPastMonths">[docs]</a><span class="k">def</span> <span class="nf">generateDateStringOfPastMonths</span><span class="p">(</span><span class="n">month</span><span class="p">,</span><span class="n">startDate</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">now</span><span class="p">()):</span>
+	<span class="n">yearStanding</span> <span class="o">=</span> <span class="n">startDate</span><span class="o">.</span><span class="n">year</span>
+	<span class="n">monthStanding</span>  <span class="o">=</span> <span class="n">startDate</span><span class="o">.</span><span class="n">month</span>
+	<span class="n">dateString</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">yearStanding</span><span class="p">)</span><span class="o">+</span><span class="n">convertMonthNumberToString</span><span class="p">(</span><span class="n">monthStanding</span><span class="p">)]</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">month</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">monthStanding</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="n">monthStanding</span> <span class="o">=</span> <span class="mi">13</span>
+			<span class="n">yearStanding</span> <span class="o">=</span> <span class="n">yearStanding</span> <span class="o">-</span> <span class="mi">1</span>
+		<span class="n">monthStanding</span> <span class="o">=</span> <span class="n">monthStanding</span> <span class="o">-</span> <span class="mi">1</span>
+		<span class="n">dateString</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">yearStanding</span><span class="p">)</span><span class="o">+</span><span class="n">convertMonthNumberToString</span><span class="p">(</span><span class="n">monthStanding</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">dateString</span></div>
+
+<div class="viewcode-block" id="getHistoricalReturnOfIndexFuture"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalReturnOfIndexFuture">[docs]</a><span class="k">def</span> <span class="nf">getHistoricalReturnOfIndexFuture</span><span class="p">(</span><span class="n">futureCodePastMonth</span><span class="p">,</span><span class="n">dataStartDateString</span><span class="p">,</span><span class="n">dataEndDateString</span><span class="p">,</span><span class="n">futuresCodeList</span> <span class="o">=</span> <span class="p">[],</span><span class="n">futuresDateStartDate</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">now</span><span class="p">()):</span>
+	<span class="n">codeDateString</span> <span class="o">=</span> <span class="n">generateDateStringOfPastMonths</span><span class="p">(</span><span class="n">futureCodePastMonth</span><span class="p">,</span><span class="n">startDate</span><span class="o">=</span><span class="n">futuresDateStartDate</span><span class="p">)</span>
+	<span class="n">dfDict</span> <span class="o">=</span> <span class="p">{}</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">futuresCodeList</span><span class="p">:</span>
+		<span class="n">futureFullCodeList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">j</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">+</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">codeDateString</span><span class="p">]</span>
+		<span class="n">futureFullCodeString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">j</span><span class="o">+</span><span class="s1">&#39;,&#39;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">futureFullCodeList</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+		<span class="n">dfDict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">getCTD</span><span class="p">(</span><span class="n">futureFullCodeString</span><span class="p">,</span><span class="n">dataStartDateString</span><span class="p">,</span><span class="n">dataEndDateString</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">dfDict</span></div>
+
+<div class="viewcode-block" id="getCTDOfBondIndexFuture"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getCTDOfBondIndexFuture">[docs]</a><span class="k">def</span> <span class="nf">getCTDOfBondIndexFuture</span><span class="p">(</span><span class="n">futureCodePastMonth</span><span class="p">,</span><span class="n">dataStartDateString</span><span class="p">,</span><span class="n">dataEndDateString</span><span class="p">,</span><span class="n">futureCodeList</span> <span class="o">=</span> <span class="p">[],</span><span class="n">futureDateStartDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="o">.</span><span class="n">now</span><span class="p">()):</span>
+	<span class="n">dataStartDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dataStartDateString</span><span class="p">)</span>
+	<span class="n">dataEndDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dataEndDateString</span><span class="p">)</span>
+	<span class="n">codeDateString</span> <span class="o">=</span> <span class="n">generateDateStringOfPastMonths</span><span class="p">(</span><span class="n">futureCodePastMonth</span><span class="p">,</span><span class="n">startDate</span><span class="o">=</span><span class="n">futureDateStartDate</span><span class="p">)</span>
+	<span class="n">dfDict</span> <span class="o">=</span> <span class="p">{}</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">futureCodeList</span><span class="p">:</span>
+		<span class="n">futureFullCodeList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">j</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">+</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">codeDateString</span><span class="p">]</span>
+		<span class="n">futureFullCodeString</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">j</span><span class="o">+</span><span class="s1">&#39;,&#39;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">futureFullCodeList</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+		<span class="n">dfDict</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">getCTD</span><span class="p">(</span><span class="n">futureFullCodeString</span><span class="p">,</span><span class="n">dataStartDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">dataEndDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">dfDict</span></div>
+
+<div class="viewcode-block" id="getHistoricalReturnOfIndex"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getHistoricalReturnOfIndex">[docs]</a><span class="k">def</span> <span class="nf">getHistoricalReturnOfIndex</span><span class="p">(</span><span class="n">indexCodeString</span><span class="p">,</span><span class="n">dataStartDateString</span><span class="p">,</span><span class="n">dataEndDateString</span><span class="p">):</span>
+	<span class="n">dataStartDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dataStartDateString</span><span class="p">)</span>
+	<span class="n">dataEndDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dataEndDateString</span><span class="p">)</span>
+	<span class="n">result</span> <span class="o">=</span> <span class="n">getHistoricalPCTReturn</span><span class="p">(</span><span class="n">indexCodeString</span><span class="p">,</span><span class="n">dataStartDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">dataEndDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="getStockIndustrySection"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getStockIndustrySection">[docs]</a><span class="k">def</span> <span class="nf">getStockIndustrySection</span><span class="p">(</span><span class="n">stockListString</span><span class="p">,</span><span class="n">codeType</span> <span class="o">=</span> <span class="s2">&quot;industry_gics&quot;</span><span class="p">,</span><span class="n">industryType</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">stockListString</span><span class="p">,</span><span class="n">codeType</span><span class="p">,</span><span class="s2">&quot;industryType=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">industryType</span><span class="p">),</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getIndexConstituteStockWeight"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getIndexConstituteStockWeight">[docs]</a><span class="k">def</span> <span class="nf">getIndexConstituteStockWeight</span><span class="p">(</span><span class="n">indexString</span><span class="p">,</span><span class="n">baseDateString</span><span class="p">):</span>
+	<span class="n">baseDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">baseDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wset</span><span class="p">(</span><span class="s2">&quot;indexconstituent&quot;</span><span class="p">,</span><span class="s2">&quot;date=&quot;</span><span class="o">+</span><span class="n">baseDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;;windcode=&quot;</span><span class="o">+</span><span class="n">indexString</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getIssuerName"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getIssuerName">[docs]</a><span class="k">def</span> <span class="nf">getIssuerName</span><span class="p">(</span><span class="n">securityString</span><span class="p">):</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;comp_name&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getIssuerCity"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getIssuerCity">[docs]</a><span class="k">def</span> <span class="nf">getIssuerCity</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">tradeDateString</span><span class="p">):</span>
+	<span class="n">tradeDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">tradeDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;province&quot;</span><span class="p">,</span><span class="s2">&quot;adminType=1;tradeDate=&quot;</span><span class="o">+</span><span class="n">tradeDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getBondCouponRate"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getBondCouponRate">[docs]</a><span class="k">def</span> <span class="nf">getBondCouponRate</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">couponRateType</span> <span class="o">=</span> <span class="s1">&#39;couponrate2&#39;</span><span class="p">):</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">couponRateType</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getTradingDayAndPreTradingDayClose"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getTradingDayAndPreTradingDayClose">[docs]</a><span class="k">def</span> <span class="nf">getTradingDayAndPreTradingDayClose</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">tradeDateString</span><span class="p">):</span>
+	<span class="n">tradeDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">tradeDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;pre_close,close&quot;</span><span class="p">,</span><span class="s2">&quot;tradeDate=&quot;</span><span class="o">+</span><span class="n">tradeDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;;priceAdj=U;cycle=D&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getBondWindClassificationType"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getBondWindClassificationType">[docs]</a><span class="k">def</span> <span class="nf">getBondWindClassificationType</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">classificationType</span> <span class="o">=</span> <span class="s2">&quot;windl2type&quot;</span><span class="p">):</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">classificationType</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getSecurityName"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getSecurityName">[docs]</a><span class="k">def</span> <span class="nf">getSecurityName</span><span class="p">(</span><span class="n">securityString</span><span class="p">):</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span> <span class="s2">&quot;sec_name&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getAvergaeTradingAmount"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getAvergaeTradingAmount">[docs]</a><span class="k">def</span> <span class="nf">getAvergaeTradingAmount</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">startDateString</span><span class="p">,</span><span class="n">endDateString</span><span class="p">):</span>
+	<span class="n">startDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">startDateString</span><span class="p">)</span>
+	<span class="n">endDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">endDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;vol_per,avg_vol_per&quot;</span><span class="p">,</span><span class="s2">&quot;unit=1;startDate=&quot;</span><span class="o">+</span><span class="n">startDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;;endDate=&quot;</span><span class="o">+</span><span class="n">endDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getBondIssuranceInfo"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getBondIssuranceInfo">[docs]</a><span class="k">def</span> <span class="nf">getBondIssuranceInfo</span><span class="p">(</span><span class="n">securityString</span><span class="p">):</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;agency_underwrittype,issue_firstissue,issue_lastissue,abs_creditnormal&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="n">windData</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">windData</span><span class="o">.</span><span class="n">columns</span><span class="p">,[</span><span class="s1">&#39;承销方式&#39;</span><span class="p">,</span><span class="s1">&#39;发行起始日期&#39;</span><span class="p">,</span><span class="s1">&#39;发行截止日期&#39;</span><span class="p">,</span><span class="s1">&#39;承销团成员&#39;</span><span class="p">])),</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getSecurityFromTheSameIssuer"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getSecurityFromTheSameIssuer">[docs]</a><span class="k">def</span> <span class="nf">getSecurityFromTheSameIssuer</span><span class="p">(</span><span class="n">securityString</span><span class="p">):</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wset</span><span class="p">(</span><span class="s2">&quot;identicalissuer&quot;</span><span class="p">,</span><span class="s2">&quot;windcode=&quot;</span><span class="o">+</span><span class="n">securityString</span><span class="o">+</span><span class="s2">&quot;;field=windcode,secname,issuedate,bondtype&quot;</span><span class="p">)</span>
+	<span class="n">issuerName</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;issuerupdated&quot;</span><span class="p">)</span>
+	<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">windData</span><span class="o">.</span><span class="n">Data</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="n">windData</span><span class="o">.</span><span class="n">Codes</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="n">windData</span><span class="o">.</span><span class="n">Fields</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+	<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Issuer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">issuerName</span><span class="o">.</span><span class="n">Data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+	<span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getIndexFutureForwardPremiumSeries"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getIndexFutureForwardPremiumSeries">[docs]</a><span class="k">def</span> <span class="nf">getIndexFutureForwardPremiumSeries</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="n">startDateString</span><span class="p">,</span><span class="n">endDateString</span><span class="p">):</span>
+	<span class="n">startDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">startDateString</span><span class="p">)</span>
+	<span class="n">endDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">endDateString</span><span class="p">)</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wsd</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;if_basis&quot;</span><span class="p">,</span><span class="n">startDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="n">endDate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getMaturityDate"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getMaturityDate">[docs]</a><span class="k">def</span> <span class="nf">getMaturityDate</span><span class="p">(</span><span class="n">securityString</span><span class="p">):</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;maturitydate&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="getOptionExerciseDateOfBond"><a class="viewcode-back" href="../../../RiskQuantLib.DataInputAPI.html#RiskQuantLib.DataInputAPI.getDataFromWind.getOptionExerciseDateOfBond">[docs]</a><span class="k">def</span> <span class="nf">getOptionExerciseDateOfBond</span><span class="p">(</span><span class="n">securityString</span><span class="p">):</span>
+	<span class="n">windData</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">wss</span><span class="p">(</span><span class="n">securityString</span><span class="p">,</span><span class="s2">&quot;repurchasedate,redemptiondate&quot;</span><span class="p">,</span><span class="n">usedf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">windData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright .
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
