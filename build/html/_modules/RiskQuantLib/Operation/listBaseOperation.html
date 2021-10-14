@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Operation.listBaseOperation &mdash; RiskQuantLib 0.0.28 documentation</title>
+  <title>RiskQuantLib.Operation.listBaseOperation &mdash; RiskQuantLib 0.0.31 documentation</title>
   
 
   
@@ -100,6 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../Variable_Type.html">Variable Type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../With_QuantLib.html">With QuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../With_Pandas.html">With Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_ORM.html">With ORM</a></li>
 </ul>
 
             
@@ -238,7 +239,7 @@
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">tmpList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">code</span> <span class="ow">in</span> <span class="n">item</span><span class="p">]</span>
+            <span class="n">tmpList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span><span class="o">.</span><span class="n">code</span> <span class="ow">in</span> <span class="n">item</span><span class="p">]</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmpList</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">tmpList</span>
             <span class="k">else</span><span class="p">:</span>
@@ -752,6 +753,59 @@
         <span class="n">valueObj</span> <span class="o">=</span> <span class="p">[</span><span class="n">anotherList</span><span class="o">.</span><span class="n">new</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">]</span>
         <span class="p">[</span><span class="n">obj</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">obj</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">valueObj</span><span class="p">,</span><span class="n">valueList</span><span class="p">)]</span>
         <span class="p">[</span><span class="nb">setattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">targetAttrName</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">,</span><span class="n">valueObj</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="listBase.connect"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.connect">[docs]</a>    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">anotherList</span><span class="p">,</span> <span class="n">targetAttrNameOnLeft</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">targetAttrNameOnRight</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">filterFunction</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="n">unsymmetrical</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">filterFunctionOnLeft</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">presentList</span><span class="p">,</span> <span class="n">anotherList</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="n">filterFunctionOnRight</span><span class="o">=</span><span class="k">lambda</span> <span class="n">presentList</span><span class="p">,</span><span class="n">anotherList</span><span class="p">:</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        For each element, find all elements that meet requirements from another RiskQuantLib</span>
+<span class="sd">        list object. The elements meeting requirement will be set as an attribute of present</span>
+<span class="sd">        list.</span>
+
+<span class="sd">        After this is down, for each element of another RiskQuantLib, find all elements that</span>
+<span class="sd">        meet requirements from present RiskQuantLib list object. The elements meeting requirement</span>
+<span class="sd">        will be set as an attribute of another list.</span>
+
+<span class="sd">        This function actually calls join twice, but it switch the position of two RiskQuantLib</span>
+<span class="sd">        list in the second call.</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        anotherList : RiskQuantLib list or list</span>
+<span class="sd">            Another list object, holding elements waiting to be selected.</span>
+<span class="sd">        targetAttrNameOnLeft : str</span>
+<span class="sd">            The attribute name of present list that you want to use to mark collected elements from another list.</span>
+<span class="sd">        filterFunction : function</span>
+<span class="sd">            This function has two parameter, left and right, and must return a bool value.</span>
+<span class="sd">            If true is returned, the element will be added to each other. False means not added.</span>
+<span class="sd">        unsymmetrical : bool</span>
+<span class="sd">            If true, different rules will be used when join two list, where filterFunctionOnLeft will be used</span>
+<span class="sd">            when present list join another list, and filterFunctionOnRight will be used when another list join</span>
+<span class="sd">            present list.</span>
+<span class="sd">        filterFunctionOnLeft : function</span>
+<span class="sd">            This function has two parameter, presentList and anotherList, and must return a bool value.</span>
+<span class="sd">            If true is returned, the element from another list will be added to present list. False means not added.</span>
+<span class="sd">        targetAttrNameOnRight : str</span>
+<span class="sd">            The attribute name of another list that you want to use to mark collected elements from present list.</span>
+<span class="sd">        filterFunctionOnRight : function</span>
+<span class="sd">            This function has two parameter, presentList and anotherList, and must return a bool value.</span>
+<span class="sd">            If true is returned, the element from present list will be added to another list. False means not added.</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">unsymmetrical</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">adjustedFilterFunctionOnRight</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">filterFunctionOnRight</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">anotherList</span><span class="p">,</span><span class="n">targetAttrNameOnLeft</span><span class="p">,</span><span class="n">filterFunctionOnLeft</span><span class="p">)</span>
+            <span class="n">anotherList</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">targetAttrNameOnRight</span><span class="p">,</span><span class="n">adjustedFilterFunctionOnRight</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">adjustedFilterFunctionOnRight</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">filterFunction</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">anotherList</span><span class="p">,</span><span class="n">targetAttrNameOnLeft</span><span class="p">,</span><span class="n">filterFunction</span><span class="p">)</span>
+            <span class="n">anotherList</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">targetAttrNameOnRight</span><span class="p">,</span><span class="n">adjustedFilterFunctionOnRight</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="listBase.scale"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.scale">[docs]</a>    <span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">attrName</span><span class="p">,</span><span class="n">targetAttrName</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">filterFunction</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

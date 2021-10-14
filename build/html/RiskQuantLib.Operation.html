@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Operation package &mdash; RiskQuantLib 0.0.28 documentation</title>
+  <title>RiskQuantLib.Operation package &mdash; RiskQuantLib 0.0.31 documentation</title>
   
 
   
@@ -127,6 +127,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">Variable Type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">With QuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">With Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_ORM.html">With ORM</a></li>
 </ul>
 
             
@@ -304,6 +305,41 @@ mark as ‘name’ in RiskQuantLib List Object.</p>
 <dd><p>This function will apply the given function to each element of RiskQuantLib list.
 Default settings will leave any change to element out. Your change to elements won’t
 be kept. Only the result of applyFunction is returned.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Operation.listBaseOperation.listBase.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">anotherList</span></em>, <em class="sig-param"><span class="pre">targetAttrNameOnLeft</span></em>, <em class="sig-param"><span class="pre">targetAttrNameOnRight</span></em>, <em class="sig-param"><span class="pre">filterFunction=&lt;function</span> <span class="pre">listBase.&lt;lambda&gt;&gt;</span></em>, <em class="sig-param"><span class="pre">unsymmetrical=False</span></em>, <em class="sig-param"><span class="pre">filterFunctionOnLeft=&lt;function</span> <span class="pre">listBase.&lt;lambda&gt;&gt;</span></em>, <em class="sig-param"><span class="pre">filterFunctionOnRight=&lt;function</span> <span class="pre">listBase.&lt;lambda&gt;&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/listBaseOperation.html#listBase.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.listBaseOperation.listBase.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each element, find all elements that meet requirements from another RiskQuantLib
+list object. The elements meeting requirement will be set as an attribute of present
+list.</p>
+<p>After this is down, for each element of another RiskQuantLib, find all elements that
+meet requirements from present RiskQuantLib list object. The elements meeting requirement
+will be set as an attribute of another list.</p>
+<p>This function actually calls join twice, but it switch the position of two RiskQuantLib
+list in the second call.</p>
+<dl class="simple">
+<dt>anotherList<span class="classifier">RiskQuantLib list or list</span></dt><dd><p>Another list object, holding elements waiting to be selected.</p>
+</dd>
+<dt>targetAttrNameOnLeft<span class="classifier">str</span></dt><dd><p>The attribute name of present list that you want to use to mark collected elements from another list.</p>
+</dd>
+<dt>filterFunction<span class="classifier">function</span></dt><dd><p>This function has two parameter, left and right, and must return a bool value.
+If true is returned, the element will be added to each other. False means not added.</p>
+</dd>
+<dt>unsymmetrical<span class="classifier">bool</span></dt><dd><p>If true, different rules will be used when join two list, where filterFunctionOnLeft will be used
+when present list join another list, and filterFunctionOnRight will be used when another list join
+present list.</p>
+</dd>
+<dt>filterFunctionOnLeft<span class="classifier">function</span></dt><dd><p>This function has two parameter, presentList and anotherList, and must return a bool value.
+If true is returned, the element from another list will be added to present list. False means not added.</p>
+</dd>
+<dt>targetAttrNameOnRight<span class="classifier">str</span></dt><dd><p>The attribute name of another list that you want to use to mark collected elements from present list.</p>
+</dd>
+<dt>filterFunctionOnRight<span class="classifier">function</span></dt><dd><p>This function has two parameter, presentList and anotherList, and must return a bool value.
+If true is returned, the element from present list will be added to another list. False means not added.</p>
+</dd>
+</dl>
+<p>None</p>
 </dd></dl>
 
 <dl class="py method">
