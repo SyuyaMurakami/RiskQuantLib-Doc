@@ -3,7 +3,7 @@
 import numpy as np
 import copy
 import multiprocessing as mp
-
+from collections import Iterable
 import pandas as pd
 from joblib import Parallel,delayed
 from RiskQuantLib.Operation.loc import loc
@@ -34,20 +34,74 @@ class listBase():
         """
         self.all = List
         self.__init_get_item__()
-
+    def _tunnelingGetitem(self, attrName):
+        """
+        Find the attribute of elements in present list which meet requirements and
+        find elements of that attribute, if it is iterable. If this attribute
+        is not iterable, it returns collection of this attribute itself.
+        """
+        subIndex = None
+        if type(attrName)==type(''):
+            filter = lambda x:True
+        elif type(attrName)==type(()) and len(attrName)==2:
+            if hasattr(attrName[1],"__call__"):
+                filter = attrName[1]
+            else:
+                filter = lambda x: True
+                subIndex = attrName[1]
+            attrName = attrName[0]
+        elif type(attrName)==type(()) and len(attrName)>=3:
+            if hasattr(attrName[1],"__call__"):
+                filter = attrName[1]
+                subIndex = attrName[2]
+            else:
+                filter = attrName[2]
+                subIndex = attrName[1]
+            attrName = attrName[0]
+        else:
+            attrName = attrName[0]
+            filter = lambda x:True
+        if (not type(subIndex)==type(None)) or subIndex:
+            try:
+                tmp = [getattr(i,attrName) for i in self.all if hasattr(i, attrName)]
+                thisLayer = sorted(set(tmp),key=tmp.index)
+            except:
+                thisLayer = [getattr(i, attrName) for i in self.all if hasattr(i, attrName)]
+            if type(subIndex) == slice:
+                try:
+                    tmp = [j for i in thisLayer if hasattr(i,'__getitem__') for j in i[subIndex] if isinstance(i[subIndex],Iterable)]
+                    nextLayer = sorted(set(tmp),key=tmp.index)
+                except:
+                    nextLayer = [j for i in thisLayer if hasattr(i,'__getitem__') for j in i[subIndex] if isinstance(i[subIndex],Iterable)]
+            else:
+                nextLayer = [i[subIndex] if hasattr(i,'__getitem__') else i for i in thisLayer]
+            if len(nextLayer)==0:
+                tmp = listBase()
+                tmp.setAll([i for i in thisLayer if filter(i)])
+                return tmp
+            else:
+                tmp = listBase()
+                tmp.setAll([i for i in nextLayer if filter(i)])
+                return tmp
+        else:
+            tmp = listBase()
+            thisLayer = [getattr(i, attrName,np.nan) for i in self.all]
+            tmp.setAll([i for i in thisLayer if filter(i)])
+            return tmp
     def __getitem__(self, item):
         """
         This function makes RiqkQuantLib list object selectable. Use [] to call this function.
-        Mixed index is used here. By calling [], you can index either element or attribute.
+        Mixed index is used here. By calling [], you can index either element or attribute, or
+        elements of attribute.
 
         Parameters
         ----------
-        item : str or list or slice
+        item : str or list or slice or tuple
             If a string is given, all elements will be examined, if 'code' attribute equals
             to the given string, return the first element that meets this requirement.
 
-            If no element code meets this requirement, try to return a list of attribute
-            value, whose name equals to the given string.
+            If no element code meets this requirement, try to return a listBase object,
+            holding values of attribute whose name equals to the given string.
 
             If a slice or int number is given, this function behaves like iloc, returns the
             item-th element or a collection of elements.
@@ -55,6 +109,21 @@ class listBase():
             If a list is given, return all elements whose code in the given list. If no code
             in the given list, return a 2-dimension array of attribute values, where attribute
             name is in the given list.
+
+            If a tuple is given, it returns a listBase object, but the elements of this object
+            depends on how you specify your parameter. For the first element of tuple, it must be
+            a string, specify the attribute you want to choose.
+
+            For the second element of tuple, you can pass a lambda function or any
+            function into tuple, if you do this, the function will be used to filter your results.
+
+            For the second element of tuple, you can also pass a slice. If you pass a slice into
+            tuple, RiskQuantLib will assume the attribute value is iterable, and again, get the
+            element of the attribute with this slice.
+
+            If you want to select some elements of the attribute, and do it for every element of
+            present list, and filter your result. You may pass a slice and a function at the same
+            time. In this case, your tuple has three elements.
 
         Returns
         -------
@@ -64,13 +133,21 @@ class listBase():
             try:
                 return [i for i in self.all if i.code == item][0]
             except Exception as e:
-                return [getattr(i,item,np.nan) for i in self.all]
-        elif isinstance(item,slice) or isinstance(item,int):
+                return self._tunnelingGetitem(item)
+        elif isinstance(item,tuple):
+            return self._tunnelingGetitem(item)
+        elif isinstance(item,int):
             return self.all[item]
+        elif isinstance(item,slice):
+            tmp = listBase()
+            tmp.setAll(self.all[item])
+            return tmp
         else:
             tmpList = [i for i in self.all if hasattr(i, 'code') and i.code in item]
             if len(tmpList)!=0:
-                return tmpList
+                tmp = listBase()
+                tmp.setAll(tmpList)
+                return tmp
             else:
                 propertyArray = [[getattr(i, j, np.nan) for i in self.all] for j in item]
                 return dict(zip(item,propertyArray))
@@ -269,7 +346,10 @@ class listBase():
         Default settings will leave any change to element out. Your change to elements won't
         be kept. Only the result of applyFunction is returned.
         """
-        return Parallel(n_jobs=mp.cpu_count())(delayed(applyFunction)(i,*args) for i in self.all)
+        result = Parallel(n_jobs=mp.cpu_count())(delayed(applyFunction)(i,*args) for i in self.all)
+        tmp = listBase()
+        tmp.setAll(result)
+        return tmp
 
     def groupBy(self, attrName:str, useObj = True, inplace = True):
         """
@@ -389,7 +469,9 @@ class listBase():
                 result = [getattr(i,functionName,lambda x:None)(*args) for i in self.all]
             else:
                 result = Parallel(n_jobs=mp.cpu_count(),require='sharedmem')(delayed(getattr(i,functionName,lambda x:None))(*args) for i in self.all)
-            return result
+            tmp = listBase()
+            tmp.setAll(result)
+            return tmp
         except Exception as e:
             print('Execution Failed:', e)
             pass

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Operation.listBaseOperation &mdash; RiskQuantLib 0.0.31 documentation</title>
+  <title>RiskQuantLib.Operation.listBaseOperation &mdash; RiskQuantLib 0.0.32 documentation</title>
   
 
   
@@ -174,7 +174,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
-
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Iterable</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span><span class="n">delayed</span>
 <span class="kn">from</span> <span class="nn">RiskQuantLib.Operation.loc</span> <span class="kn">import</span> <span class="n">loc</span>
@@ -205,20 +205,74 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="o">=</span> <span class="n">List</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__init_get_item__</span><span class="p">()</span></div>
-
+    <span class="k">def</span> <span class="nf">_tunnelingGetitem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrName</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Find the attribute of elements in present list which meet requirements and</span>
+<span class="sd">        find elements of that attribute, if it is iterable. If this attribute</span>
+<span class="sd">        is not iterable, it returns collection of this attribute itself.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">subIndex</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">attrName</span><span class="p">)</span><span class="o">==</span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <span class="nb">filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="kc">True</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">attrName</span><span class="p">)</span><span class="o">==</span><span class="nb">type</span><span class="p">(())</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">attrName</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">attrName</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;__call__&quot;</span><span class="p">):</span>
+                <span class="nb">filter</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">True</span>
+                <span class="n">subIndex</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">attrName</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">attrName</span><span class="p">)</span><span class="o">==</span><span class="nb">type</span><span class="p">(())</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">attrName</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">attrName</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;__call__&quot;</span><span class="p">):</span>
+                <span class="nb">filter</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">subIndex</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">filter</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">subIndex</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">attrName</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">attrName</span> <span class="o">=</span> <span class="n">attrName</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="nb">filter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="kc">True</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">subIndex</span><span class="p">)</span><span class="o">==</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span> <span class="ow">or</span> <span class="n">subIndex</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">attrName</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">attrName</span><span class="p">)]</span>
+                <span class="n">thisLayer</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span><span class="n">key</span><span class="o">=</span><span class="n">tmp</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">thisLayer</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">attrName</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">attrName</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">subIndex</span><span class="p">)</span> <span class="o">==</span> <span class="nb">slice</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">tmp</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">thisLayer</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;__getitem__&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="n">subIndex</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="n">subIndex</span><span class="p">],</span><span class="n">Iterable</span><span class="p">)]</span>
+                    <span class="n">nextLayer</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span><span class="n">key</span><span class="o">=</span><span class="n">tmp</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">nextLayer</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">thisLayer</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;__getitem__&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="n">subIndex</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="n">subIndex</span><span class="p">],</span><span class="n">Iterable</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">nextLayer</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="n">subIndex</span><span class="p">]</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;__getitem__&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">thisLayer</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nextLayer</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">listBase</span><span class="p">()</span>
+                <span class="n">tmp</span><span class="o">.</span><span class="n">setAll</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">thisLayer</span> <span class="k">if</span> <span class="nb">filter</span><span class="p">(</span><span class="n">i</span><span class="p">)])</span>
+                <span class="k">return</span> <span class="n">tmp</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">listBase</span><span class="p">()</span>
+                <span class="n">tmp</span><span class="o">.</span><span class="n">setAll</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nextLayer</span> <span class="k">if</span> <span class="nb">filter</span><span class="p">(</span><span class="n">i</span><span class="p">)])</span>
+                <span class="k">return</span> <span class="n">tmp</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">listBase</span><span class="p">()</span>
+            <span class="n">thisLayer</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">attrName</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">]</span>
+            <span class="n">tmp</span><span class="o">.</span><span class="n">setAll</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">thisLayer</span> <span class="k">if</span> <span class="nb">filter</span><span class="p">(</span><span class="n">i</span><span class="p">)])</span>
+            <span class="k">return</span> <span class="n">tmp</span>
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        This function makes RiqkQuantLib list object selectable. Use [] to call this function.</span>
-<span class="sd">        Mixed index is used here. By calling [], you can index either element or attribute.</span>
+<span class="sd">        Mixed index is used here. By calling [], you can index either element or attribute, or</span>
+<span class="sd">        elements of attribute.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        item : str or list or slice</span>
+<span class="sd">        item : str or list or slice or tuple</span>
 <span class="sd">            If a string is given, all elements will be examined, if &#39;code&#39; attribute equals</span>
 <span class="sd">            to the given string, return the first element that meets this requirement.</span>
 
-<span class="sd">            If no element code meets this requirement, try to return a list of attribute</span>
-<span class="sd">            value, whose name equals to the given string.</span>
+<span class="sd">            If no element code meets this requirement, try to return a listBase object,</span>
+<span class="sd">            holding values of attribute whose name equals to the given string.</span>
 
 <span class="sd">            If a slice or int number is given, this function behaves like iloc, returns the</span>
 <span class="sd">            item-th element or a collection of elements.</span>
@@ -226,6 +280,21 @@
 <span class="sd">            If a list is given, return all elements whose code in the given list. If no code</span>
 <span class="sd">            in the given list, return a 2-dimension array of attribute values, where attribute</span>
 <span class="sd">            name is in the given list.</span>
+
+<span class="sd">            If a tuple is given, it returns a listBase object, but the elements of this object</span>
+<span class="sd">            depends on how you specify your parameter. For the first element of tuple, it must be</span>
+<span class="sd">            a string, specify the attribute you want to choose.</span>
+
+<span class="sd">            For the second element of tuple, you can pass a lambda function or any</span>
+<span class="sd">            function into tuple, if you do this, the function will be used to filter your results.</span>
+
+<span class="sd">            For the second element of tuple, you can also pass a slice. If you pass a slice into</span>
+<span class="sd">            tuple, RiskQuantLib will assume the attribute value is iterable, and again, get the</span>
+<span class="sd">            element of the attribute with this slice.</span>
+
+<span class="sd">            If you want to select some elements of the attribute, and do it for every element of</span>
+<span class="sd">            present list, and filter your result. You may pass a slice and a function at the same</span>
+<span class="sd">            time. In this case, your tuple has three elements.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -235,13 +304,21 @@
             <span class="k">try</span><span class="p">:</span>
                 <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="n">item</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                <span class="k">return</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">item</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunnelingGetitem</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tunnelingGetitem</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="nb">slice</span><span class="p">):</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">listBase</span><span class="p">()</span>
+            <span class="n">tmp</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">tmp</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">tmpList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span><span class="o">.</span><span class="n">code</span> <span class="ow">in</span> <span class="n">item</span><span class="p">]</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmpList</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">tmpList</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">listBase</span><span class="p">()</span>
+                <span class="n">tmp</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="n">tmpList</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">tmp</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">propertyArray</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">item</span><span class="p">]</span>
                 <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="n">propertyArray</span><span class="p">))</span>
@@ -440,7 +517,10 @@
 <span class="sd">        Default settings will leave any change to element out. Your change to elements won&#39;t</span>
 <span class="sd">        be kept. Only the result of applyFunction is returned.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())(</span><span class="n">delayed</span><span class="p">(</span><span class="n">applyFunction</span><span class="p">)(</span><span class="n">i</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">)</span></div>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())(</span><span class="n">delayed</span><span class="p">(</span><span class="n">applyFunction</span><span class="p">)(</span><span class="n">i</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">)</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">listBase</span><span class="p">()</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tmp</span></div>
 
 <div class="viewcode-block" id="listBase.groupBy"><a class="viewcode-back" href="../../../RiskQuantLib.Operation.html#RiskQuantLib.Operation.listBaseOperation.listBase.groupBy">[docs]</a>    <span class="k">def</span> <span class="nf">groupBy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attrName</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">useObj</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -560,7 +640,9 @@
                 <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">functionName</span><span class="p">,</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="kc">None</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">(),</span><span class="n">require</span><span class="o">=</span><span class="s1">&#39;sharedmem&#39;</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">functionName</span><span class="p">,</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="kc">None</span><span class="p">))(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">result</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">listBase</span><span class="p">()</span>
+            <span class="n">tmp</span><span class="o">.</span><span class="n">setAll</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">tmp</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Execution Failed:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
             <span class="k">pass</span></div>

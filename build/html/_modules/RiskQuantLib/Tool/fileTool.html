@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Tool.fileTool &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>RiskQuantLib.Tool.fileTool &mdash; RiskQuantLib 0.0.32 documentation</title>
   
 
   
@@ -92,6 +92,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../modules.html">RiskQuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Create_Project.html">Create A New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Build_Project.html">Build Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument.html">Instrument</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument_List.html">Instrument List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tool.html">Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project_Management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Variable_Type.html">Variable Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_Pandas.html">With Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_ORM.html">With ORM</a></li>
 </ul>
 
             
@@ -203,6 +212,13 @@
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="kn">import</span> <span class="nn">pickle</span> <span class="k">as</span> <span class="nn">pkl</span>
 	<span class="n">pkl</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span><span class="nb">open</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span><span class="s2">&quot;wb&quot;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="loadVariable"><a class="viewcode-back" href="../../../RiskQuantLib.Tool.html#RiskQuantLib.Tool.fileTool.loadVariable">[docs]</a><span class="k">def</span> <span class="nf">loadVariable</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Use python module pickle to load variable.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="kn">import</span> <span class="nn">pickle</span> <span class="k">as</span> <span class="nn">pkl</span>
+	<span class="k">return</span> <span class="n">pkl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="dumpDictToJson"><a class="viewcode-back" href="../../../RiskQuantLib.Tool.html#RiskQuantLib.Tool.fileTool.dumpDictToJson">[docs]</a><span class="k">def</span> <span class="nf">dumpDictToJson</span><span class="p">(</span><span class="n">dictVariable</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span><span class="n">filePath</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;</span>
