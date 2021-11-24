@@ -231,7 +231,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.iloc.iloc">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">iloc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/iloc.html#iloc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.iloc.iloc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is the function class for RiskQuantLib list to use iloc function. It’s similar to
 that in pandas. Use it by calling stockList.iloc[number]. It returns the number-th element in
 that list.</p>
@@ -244,7 +244,7 @@ that list.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.listBaseOperation.listBase">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">listBase</span></span><a class="reference internal" href="_modules/RiskQuantLib/Operation/listBaseOperation.html#listBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.listBaseOperation.listBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>listBase() is the function class that makes all RiskQuantLib list object functional.
 Any RiskQuantLib list class should inherit from this class to own certain functions,
 such as groupBy, execFunc, etc.</p>
@@ -360,8 +360,6 @@ If true is returned, the element from present list will be added to another list
 <dd><p>This function will execute instance function for every element in present RiskQuantLib list object,
 given the function name. If some elements don’t have the function, a Null function will be used, and
 the result will skip the execution for that element.</p>
-<p>If the length of present list is not long, list comprehension will be used. If it’s a long
-list, joblib will be used to establish multiple threads.</p>
 <dl class="simple">
 <dt>functionName<span class="classifier">str</span></dt><dd><p>The function that element has, and you want to call.</p>
 </dd>
@@ -711,7 +709,7 @@ attribute whose name is in keys of codeValueDict, it will be updated.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.loc.loc">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">loc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/loc.html#loc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.loc.loc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is the function class for RiskQuantLib list to use loc function. It’s similar to
 that in pandas. Use it by calling stockList.loc[index]. It returns the element in
 that list whose index equals given value.</p>

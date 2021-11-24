@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Build.propertyObj &mdash; RiskQuantLib 0.0.28 documentation</title>
+  <title>RiskQuantLib.Build.propertyObj &mdash; RiskQuantLib 0.0.32 documentation</title>
   
 
   
@@ -100,6 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../Variable_Type.html">Variable Type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../With_QuantLib.html">With QuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../With_Pandas.html">With Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_ORM.html">With ORM</a></li>
 </ul>
 
             
@@ -241,19 +242,19 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyType</span> <span class="o">==</span> <span class="s1">&#39;String&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">buildStringFunction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">listCode</span> <span class="o">=</span> <span class="n">buildListSetFunction1D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listCode</span> <span class="o">=</span> <span class="n">buildListSetFunction1D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">variableType</span><span class="o">=</span><span class="s1">&#39;Str&#39;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyType</span> <span class="o">==</span> <span class="s1">&#39;Number&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">buildNumberFunction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">listCode</span> <span class="o">=</span> <span class="n">buildListSetFunction1D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listCode</span> <span class="o">=</span> <span class="n">buildListSetFunction1D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">variableType</span><span class="o">=</span><span class="s1">&#39;Num&#39;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyType</span> <span class="o">==</span> <span class="s1">&#39;Any&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">buildBaseFunction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">listCode</span> <span class="o">=</span> <span class="n">buildListSetFunction1D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listCode</span> <span class="o">=</span> <span class="n">buildListSetFunction1D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">variableType</span><span class="o">=</span><span class="s1">&#39;Base&#39;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">propertyType</span> <span class="o">==</span> <span class="s1">&#39;Series&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">buildBaseFunction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">listCode</span> <span class="o">=</span> <span class="n">buildListSetFunction2D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">buildSelfDefinedTypeFunction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">propertyType</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">listCode</span> <span class="o">=</span> <span class="n">buildListSetFunction1D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">listCode</span> <span class="o">=</span> <span class="n">buildListSetFunction1D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">variableType</span><span class="o">=</span><span class="s1">&#39;Base&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="propertyObj.buildTargetSourceFile"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.propertyObj.propertyObj.buildTargetSourceFile">[docs]</a>    <span class="k">def</span> <span class="nf">buildTargetSourceFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

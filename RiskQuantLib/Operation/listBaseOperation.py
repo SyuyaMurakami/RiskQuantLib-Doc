@@ -2,10 +2,8 @@
 #coding = utf-8
 import numpy as np
 import copy
-import multiprocessing as mp
 from collections import Iterable
 import pandas as pd
-from joblib import Parallel,delayed
 from RiskQuantLib.Operation.loc import loc
 from RiskQuantLib.Tool.strTool import changeSecurityListToStr
 
@@ -153,16 +151,14 @@ class listBase():
                 return dict(zip(item,propertyArray))
 
     def __iter__(self):
-        self.__iterNum = 0
-        return self
-
-    def __next__(self):
+        i = 0
         try:
-            target = self.all[self.__iterNum]
-            self.__iterNum += 1
-            return target
-        except:
-            raise StopIteration
+            while True:
+                v = self.all[i]
+                yield v
+                i += 1
+        except IndexError:
+            return
 
     def __add__(self, other, useObj = True):
         """
@@ -346,7 +342,7 @@ class listBase():
         Default settings will leave any change to element out. Your change to elements won't
         be kept. Only the result of applyFunction is returned.
         """
-        result = Parallel(n_jobs=mp.cpu_count())(delayed(applyFunction)(i,*args) for i in self.all)
+        result = [applyFunction(i,*args) for i in self.all]
         tmp = listBase()
         tmp.setAll(result)
         return tmp
@@ -456,19 +452,13 @@ class listBase():
         given the function name. If some elements don't have the function, a Null function will be used, and
         the result will skip the execution for that element.
 
-        If the length of present list is not long, list comprehension will be used. If it's a long
-        list, joblib will be used to establish multiple threads.
-
         Parameters
         ----------
         functionName : str
             The function that element has, and you want to call.
         """
         try:
-            if len(self.all)<1000:
-                result = [getattr(i,functionName,lambda x:None)(*args) for i in self.all]
-            else:
-                result = Parallel(n_jobs=mp.cpu_count(),require='sharedmem')(delayed(getattr(i,functionName,lambda x:None))(*args) for i in self.all)
+            result = [getattr(i,functionName,lambda x:None)(*args) for i in self.all]
             tmp = listBase()
             tmp.setAll(result)
             return tmp
