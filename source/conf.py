@@ -106,5 +106,3 @@ html_css_files = ["readthedocs-custom.css"] # Override some CSS settings
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-language = 'zh_CN'  # Chinese Version
-locale_dirs = ['locale/']  # Chinese Data

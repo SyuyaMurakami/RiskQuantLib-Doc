@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="zh-CN" >
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>编译你的工程 &mdash; RiskQuantLib 0.0.32 文档</title>
+  <title>Build Your Project &mdash; RiskQuantLib 0.0.32 documentation</title>
   
 
   
@@ -36,16 +36,15 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="模板类" href="Instrument.html" />
-    <link rel="prev" title="创建一个新的工程" href="Create_Project.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Instrument" href="Instrument.html" />
+    <link rel="prev" title="Create A New Project" href="Create_Project.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,11 +90,11 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">主页</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home page</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">RiskQuantLib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Install.html">安装</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Create_Project.html">创建一个新的工程</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">编译你的工程</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="Install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Create_Project.html">Create A New Project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Build Your Project</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#riskquantlib">RiskQuantLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-instrument-xlsx">Build_Instrument.xlsx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-attr-xlsx">Build_Attr.xlsx</a></li>
@@ -103,14 +102,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#main-py">main.py</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Instrument.html">模板类</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Instrument_List.html">模板列表类</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tool.html">工具</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Project_Management.html">模板管理</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">数据类型</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">与QuantLib配合使用</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">与Pandas配合使用</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_ORM.html">与ORM配合使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instrument.html">Instrument</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instrument_List.html">Instrument List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tool.html">Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project_Management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">Variable Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">With Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_ORM.html">With ORM</a></li>
 </ul>
 
             
@@ -159,7 +158,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>编译你的工程</li>
+      <li>Build Your Project</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,14 +200,14 @@
 }
 </style>
 <div class="section" id="build-your-project">
-<h1>编译你的工程<a class="headerlink" href="#build-your-project" title="永久链接至标题">¶</a></h1>
+<h1>Build Your Project<a class="headerlink" href="#build-your-project" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>当创建了一个工程之后，你应该对工程进行编译，来使得工程更适合你的数据分析任务。如果不适用RiskQuantLib的编译功能，仅仅适用RiskQuantLib的预置函数和数据接口，RiskQuantLib就像一辆马车，但如果开始使用编译功能，RiskQuantLib会变成一架飞机。编译是RiskQuantLib的核心概念。通过 <code class="docutils literal notranslate"><span class="pre">Build</span></code>，RiskQuantLib会自动生成你需要的类文件的python代码，设定好类之间的继承关系，设定类的属性类型与名称，并且规范类与类之间的接口。但在此之前，我们先约定一些术语：</p>
-<p><code class="docutils literal notranslate"><span class="pre">Build</span></code> 即编译，它会使得RiskQuantLib自动生成类相关的python源码。</p>
-<p><code class="docutils literal notranslate"><span class="pre">Instrument</span></code> 即模板类，它是你在数据分析任务中可能用到的类的名称。对于金融数据分析，<code class="docutils literal notranslate"><span class="pre">Instrument</span></code> 通常指的是股票，债券，或者其他金融工具，或者是利率和发债主体等。</p>
-<p>之后我们开始编译我们的第一个工程，其中最核心的一步是告诉RiskQuantLib如何编译，即告诉RiskQuantLib类之间的继承关系。这就需要用到工程中的 <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> and <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code> 两个文件。这两个文件在工程的根目录下。当编译完成后，大部分自动生成的代码会被写入 <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Set</span></code> 文件夹下的文件中。</p>
-<p>在上一章，我们创建了一个新的工程，它看起来像这样：:</p>
+<p>After create a project, you should build it to suit for your mission. By <code class="docutils literal notranslate"><span class="pre">Build</span></code>, RiskQuantLib will generate python source code automatically. It is the core conception of RiskQuantLib. Before moving on, let specify some definition in RiskQuantLib:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Build</span></code> means generate source code automatically.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Instrument</span></code> means any class you will use in your mission. For financial analysis, <code class="docutils literal notranslate"><span class="pre">Instrument</span></code> refers to stock, bond or other security type, or like interest rate or company, etc.</p>
+<p>Then we start to build our first project. The critical thing is to tell RiskQuantLib how to build it. This is done by specify key word in <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> and <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code>, which you can find in your project root dictionary once you create a project. The content of building will be written into <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Set</span></code>.</p>
+<p>In last chapter we create a project, it looks like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">your_project_path</span>
   <span class="o">--</span><span class="n">RiskQuantLib</span>
   <span class="o">--</span><span class="n">build</span><span class="o">.</span><span class="n">py</span>
@@ -217,10 +216,10 @@
   <span class="o">--</span><span class="n">Build_Instrument</span><span class="o">.</span><span class="n">xlsx</span>
 </pre></div>
 </div>
-<p>我们将介绍这个工程中每个文件或者文件夹的功能：</p>
+<p>We will explain the function of each term as follows:</p>
 <div class="section" id="riskquantlib">
-<h2>RiskQuantLib<a class="headerlink" href="#riskquantlib" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">RiskQuantLib</span></code> 是一个文件夹，它存放了所有RiskQuantLib的源代码文件，并且作为你项目工程的一个库存在。此时这个 <code class="docutils literal notranslate"><span class="pre">RiskQuantLib</span></code> 库完全是本地化的，任何工程都默认引用当前工程文件夹下的 <code class="docutils literal notranslate"><span class="pre">RiskQuantLib</span></code>，你可以更改其中的任何代码，来确保它适用于当前的工程。这种修改不会影响其他工程。这个文件夹的内容看起来像这样：:</p>
+<h2>RiskQuantLib<a class="headerlink" href="#riskquantlib" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">RiskQuantLib</span></code> is a dictionary holding all source files of RiskQuantLib, it looks like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">RiskQuantLib</span>
   <span class="o">--</span><span class="n">Build</span>
   <span class="o">--</span><span class="n">Company</span>
@@ -242,8 +241,8 @@
 </div>
 </div>
 <div class="section" id="build-instrument-xlsx">
-<h2>Build_Instrument.xlsx<a class="headerlink" href="#build-instrument-xlsx" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> 是告知RiskQuantLib如何编译生成模板类的excel文件，当运行 <code class="docutils literal notranslate"><span class="pre">build.py</span></code> 之后，你在此文件中声明的所有模板类都将被创建。这些模板类的python源文件位于 <code class="docutils literal notranslate"><span class="pre">RiskQuantLib</span></code> 文件夹中，并且处于该模板类继承的第一个父类的文件夹里。 <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> 看起来像这样：</p>
+<h2>Build_Instrument.xlsx<a class="headerlink" href="#build-instrument-xlsx" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> is the file to tell RiskQuantLib how to generate python source code of instrument class. After calling <code class="docutils literal notranslate"><span class="pre">build.py</span></code>, Any instrument specified will be created, the source file will be added into <code class="docutils literal notranslate"><span class="pre">RiskQuantLib</span></code> dictionary besides its first RiskQuantLib parent class. <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> looks like:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
@@ -275,10 +274,10 @@
 </tr>
 </tbody>
 </table>
-<p>你可以任意定义 <em>InstrumentName</em> 这一列的内容，但具体的定义方式应该取决于你的数据结构。当进行编译后，RiskQuantLib会在 <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Security.Bond.TreasureBond</span></code> 路径下创建 <code class="docutils literal notranslate"><span class="pre">treasureBond.py</span></code>。并且在 <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.SecurityList.BondList.TreasureBondList</span></code> 路径下创建 <code class="docutils literal notranslate"><span class="pre">treasureBondList.py</span></code>。</p>
-<p><em>ParentRQLClassName</em> 这一列声明了新创建的模板类如何继承自那些已经存在的类。这一列中可以填充的字符串包括 <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Fund</span></code>, <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, <code class="docutils literal notranslate"><span class="pre">Bond</span></code>, <code class="docutils literal notranslate"><span class="pre">Repo</span></code> 等，但是：</p>
-<p><strong>注意：ParentRQLClassName这一列中填充的字符串的首字母必须是大写的。</strong></p>
-<p><strong>注意：上一行的InstrumentName列声明的模板类可以立刻被继承，比如：</strong></p>
+<p>The <em>InstrumentName</em> column can be defined by your will, depending on your data. RiskQuantLib will create instrument class source file <code class="docutils literal notranslate"><span class="pre">treasureBond.py</span></code> under <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Security.Bond.TreasureBond</span></code>, and create list class source file <code class="docutils literal notranslate"><span class="pre">treasureBondList.py</span></code> under  <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.SecurityList.BondList.TreasureBondList</span></code> after your run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">build.py</span></code>.</p>
+<p>The <em>ParentRQLClassName</em> means this new instrument will inherit from this RiskQuantLib class. It can accept key word like: <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Fund</span></code>, <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, <code class="docutils literal notranslate"><span class="pre">Bond</span></code>, <code class="docutils literal notranslate"><span class="pre">Repo</span></code>, etc. However,</p>
+<p><strong>Notice: The first letter must be capitalized in ParentRQLClassName column.</strong></p>
+<p><strong>Notice: You can use the instrumentName you specified in last row to fill ParentRQLClassName column, like:</strong></p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
@@ -316,13 +315,13 @@
 </tr>
 </tbody>
 </table>
-<p><em>ParentQuantLibClassName</em> 一列是用来声明新的模板类如何继承自QuantLib的预置类。这一列中可以填充的字符串有：<code class="docutils literal notranslate"><span class="pre">Instrument</span></code>, <code class="docutils literal notranslate"><span class="pre">Bond</span></code> 等，你需要参考QuantLib的文档来查找到底可以继承自哪些QuantLib类。</p>
-<p><em>LibraryName</em> 一列是告诉RiskQuantLib调用哪些外部库，比如numpy，pandas等。</p>
-<p><em>DefaultInstrumentType</em> 一列中应该填写一个字符串，用来标记模板类的默认类型。你可以留空。</p>
+<p>The <em>ParentQuantLibClassName</em> means this new instrument will inherit from this QuantLib class. It can accept key word like: <code class="docutils literal notranslate"><span class="pre">Instrument</span></code>, <code class="docutils literal notranslate"><span class="pre">Bond</span></code>, etc. You can refer to QuantLib document to find what class QuantLib has.</p>
+<p>The <em>LibraryName</em> is other library that you will use in instrument class source file, like numpy and pandas.</p>
+<p>The <em>DefaultInstrumentType</em> is a string to mark your new instrument class. It can be any string or blank.</p>
 </div>
 <div class="section" id="build-attr-xlsx">
-<h2>Build_Attr.xlsx<a class="headerlink" href="#build-attr-xlsx" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code> 是用来告诉RiskQuantLib，在每个模板类中，有哪些属性需要存在。当运行 <code class="docutils literal notranslate"><span class="pre">build.py</span></code> 后，你在此excel文件中声明的属性将被添加到对应的模板类中，你可以使用 <code class="docutils literal notranslate"><span class="pre">set</span></code> 函数族来对这些属性进行操作。 <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code> 看起来像这样：</p>
+<h2>Build_Attr.xlsx<a class="headerlink" href="#build-attr-xlsx" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code> is the file used to tell RiskQuantLib what kind of attributes you need, when analysising your data, and which class these attributes belong to. After calling <code class="docutils literal notranslate"><span class="pre">build.py</span></code>, any attributes specified here will be registered and can be used with <code class="docutils literal notranslate"><span class="pre">set</span></code> function. This file looks like:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 29%" />
@@ -350,35 +349,35 @@
 </tr>
 </tbody>
 </table>
-<p><em>SecurityType</em> 列可以填充的字符串包括： <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Fund</span></code>, <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, <code class="docutils literal notranslate"><span class="pre">Bond</span></code>, <code class="docutils literal notranslate"><span class="pre">Repo</span></code> 等，但是：”</p>
-<p><strong>注意：在SecurityType列的字符串的首字母必须大写。</strong></p>
-<p>你在 <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> 文件中声明的模板类可以在 <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code> 文件中作为SecurityType列的值。此时相当于你对一个自定的模板类立刻设定属性。比如，如果你在 <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> 中声明了一个名为 <code class="docutils literal notranslate"><span class="pre">treasureBond</span></code> 的模板类，在 <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code>，你可以在SecurityType列中填写 <code class="docutils literal notranslate"><span class="pre">TreasureBond</span></code>。注意T必须大写。</p>
-<p><em>AttrType</em> 列可以填充的字符串包括 <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Series</span></code>。或者是其他任何你认为可以作为数据类型的字符串。它告诉RiskQuantLib在此属性上存储的值应该是什么数据类型。如果你为 <code class="docutils literal notranslate"><span class="pre">Stock</span></code> 模板类添加了名为sellPrice的属性，考虑到价格应该是一个数字，那么AttrType列中应该填 <code class="docutils literal notranslate"><span class="pre">Number</span></code>，但如果属性名为issuerName，数据类型应该是 <code class="docutils literal notranslate"><span class="pre">String</span></code>，如果属性名为sellPriceOfPastSixMonth，那么数据类型应该是 <code class="docutils literal notranslate"><span class="pre">Series</span></code>，如果你使用了RiskQuantLib预置的数据类型以外的数据类型，那么当编译之后，新的模板数据类型将会被创建，它也是一个类文件，你可以在 <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Property</span></code> 文件夹下找到。</p>
+<p>The <em>SecurityType</em> column can accept key word like: <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Fund</span></code>, <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, <code class="docutils literal notranslate"><span class="pre">Bond</span></code>, <code class="docutils literal notranslate"><span class="pre">Repo</span></code>, etc. However,</p>
+<p><strong>Notice: The first letter must be capitalized in SecurityType column.</strong></p>
+<p>Any instrument you specify in <em>Build_Instrument.xlsx</em> can also be used here. If you already create a class named <code class="docutils literal notranslate"><span class="pre">treasureBond</span></code> in <em>Build_Instrument.xlsx</em>, then here you can fill <code class="docutils literal notranslate"><span class="pre">TreasureBond</span></code> in <em>SecurityType</em> column.</p>
+<p>The <em>AttrType</em> column can accept key word of <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Series</span></code>, or any other string that you think it could be a type. It tells RiskQuantLib what kind of data will be stored by this attribute. If you add ‘sellPrice’ to <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, this should be a <code class="docutils literal notranslate"><span class="pre">Number</span></code> attribute, while an attribute like ‘issuerName’ is a <code class="docutils literal notranslate"><span class="pre">String</span></code> kind. <code class="docutils literal notranslate"><span class="pre">Series</span></code> is used if it’s an attribute like ‘sellPriceOfPastSixMonth’. If you specify a kind that is never used before, it will be created as a type class, located in <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Property</span></code>.</p>
 </div>
 <div class="section" id="build-py">
-<h2>build.py<a class="headerlink" href="#build-py" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">build.py</span></code> 是用于编译整个RiskQuantLib工程的，当你已经声明了编译的规则之后，通过在终端运行如下命令来进行编译：:</p>
+<h2>build.py<a class="headerlink" href="#build-py" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">build.py</span></code> is used to generate python source code automatically. After you specify what kind of class you want to create, how it inherit from other class in <em>Build_Instrument.xlsx</em>, and what attributes these class should have in <em>Build_Attr.xlsx</em>, you can call <em>build.py</em> by terminal:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p><strong>注意：通常项目只会在开始时执行一次编译，而不是在每次运行main.py的时候都执行编译，那样做是不必要的。（但复杂的项目可以在开发过程中反复编译）</strong></p>
+<p><strong>Notice: Usually this build.py will only be excuted once, at the begin of your project. Do not build your project every time you run main.py, it is not necessary.</strong></p>
 </div>
 <div class="section" id="main-py">
-<h2>main.py<a class="headerlink" href="#main-py" title="永久链接至标题">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">main.py</span></code> 是整个项目的入口，你可以在这个文件中开始编辑数据处理相关代码。</p>
+<h2>main.py<a class="headerlink" href="#main-py" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">main.py</span></code> is entrance of your project. You can start your coding here, by:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RiskQuantLib.Module</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
-<p>然后你可以直接使用模板类，只需要：:</p>
+<p>Then you can use the class directly by:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bondA</span> <span class="o">=</span> <span class="n">treasureBond</span><span class="p">(</span><span class="s1">&#39;firstBond&#39;</span><span class="p">,</span><span class="s1">&#39;nameOfFirstBond&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>你可以直接使用set函数族来设定属性，像这样：:</p>
+<p>You can also set attributes directly by:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stockA</span> <span class="o">=</span> <span class="n">stock</span><span class="p">(</span><span class="s1">&#39;firstStock&#39;</span><span class="p">,</span><span class="s1">&#39;nameOfFirstStock&#39;</span><span class="p">)</span>
 <span class="n">stockA</span><span class="o">.</span><span class="n">setAnotherAttribute</span><span class="p">(</span><span class="s1">&#39;valueOfAnotherAttribute&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>如果需要了解更多关于 <code class="docutils literal notranslate"><span class="pre">Instrument</span></code> （模板类）的信息，我们将在下一章介绍。</p>
+<p>For more information about the <code class="docutils literal notranslate"><span class="pre">Instrument</span></code>, we will introduce it in next chapter.</p>
 </div>
 </div>
 
@@ -388,15 +387,15 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Instrument.html" class="btn btn-neutral float-right" title="模板类" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Create_Project.html" class="btn btn-neutral float-left" title="创建一个新的工程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Instrument.html" class="btn btn-neutral float-right" title="Instrument" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Create_Project.html" class="btn btn-neutral float-left" title="Create A New Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; 版权所有 .
+        &#169; Copyright .
 
     </p>
   </div>

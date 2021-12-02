@@ -1,2 +1,2 @@
-# RiskQuantLib-Doc-zh-CN
-The Chinese document of RiskQuantLib
+# RiskQuantLib-Doc
+The document of RiskQuantLib
