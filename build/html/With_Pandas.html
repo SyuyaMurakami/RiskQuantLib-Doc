@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>With Pandas &mdash; RiskQuantLib 0.0.32 documentation</title>
+  <title>与Pandas配合使用 &mdash; RiskQuantLib 0.0.32 文档</title>
   
 
   
@@ -36,15 +36,16 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="With ORM" href="With_ORM.html" />
-    <link rel="prev" title="With QuantLib" href="With_QuantLib.html" /> 
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="与ORM配合使用" href="With_ORM.html" />
+    <link rel="prev" title="与QuantLib配合使用" href="With_QuantLib.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,25 +91,25 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Home page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">主页</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">RiskQuantLib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Create_Project.html">Create A New Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Build_Project.html">Build Your Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Instrument.html">Instrument</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Instrument_List.html">Instrument List</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tool.html">Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Project_Management.html">Project Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">Variable Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">With QuantLib</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">With Pandas</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#from-pandas-series">From Pandas Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#from-pandas-dataframe">From Pandas DataFrame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#update-with-dataframe">Update With DataFrame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#to-pandas-dataframe">To Pandas DataFrame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Create_Project.html">创建一个新的工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Build_Project.html">编译你的工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instrument.html">模板类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instrument_List.html">模板列表类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tool.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project_Management.html">模板管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">与QuantLib配合使用</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">与Pandas配合使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#from-pandas-series">从Pandas Series转换为RiskQuantLib模板列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#from-pandas-dataframe">从Pandas DataFrame转换为RiskQuantLib模板列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-with-dataframe">从DataFrame更新元素</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-pandas-dataframe">输出为Pandas DataFrame</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="With_ORM.html">With ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_ORM.html">与ORM配合使用</a></li>
 </ul>
 
             
@@ -157,7 +158,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>With Pandas</li>
+      <li>与Pandas配合使用</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -199,21 +200,21 @@
 }
 </style>
 <div class="section" id="with-pandas">
-<h1>With Pandas<a class="headerlink" href="#with-pandas" title="Permalink to this headline">¶</a></h1>
+<h1>与Pandas配合使用<a class="headerlink" href="#with-pandas" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>When I am inspired to start RiskQuantLib project, my friend asked me one question:</p>
+<p>当我受启发开始开发RiskQuantLib的时候，我的朋友问了我一个问题：</p>
 <blockquote>
-<div><p><cite>Are you trying to design another pandas?</cite></p>
+<div><p><cite>你是在试图重新造一个Pandas吗？</cite></p>
 </div></blockquote>
-<p>Well, I admit that in some way, RiskQuantLib is very similar to pandas, but at the very beginning, RiskQuantLib is designed to be based on pandas. It lies behind pandas because it is a data analysis core concentrating on dealing with data process, rather than an integrated tool to do things from data input to data output.</p>
-<p>But later after the day we discussed this issue, I realized that to jump out of the curse of pandas, I should get rid of more conventions. This leads me to this place, where RiskQuantLib has its own functions for iteration or merge, etc.</p>
-<p>However, there is one thing need to be noticed, that is:</p>
-<p><strong>RiskQuantLib is still based on pandas, it is not a substitute of pandas, the best practice is to code your data process logic with RiskQuantLib, and leave the rest to pandas.</strong></p>
-<p>For convience, RiskQuantLib provides with functions to interact with pandas, we shall introduce them as follows:</p>
+<p>我承认在某种意义上，RiskQuantLib和Pandas非常像，但在一开始，RiskQuantLib并不是被设计用于替代Pandas的，它被设计用于在Pandas之后进行进一步的数据处理时使用。RiskQuantLib应该是一个数据处理内核，专注于数据处理逻辑，而不是作为一个像Pandas一样的集成工具，涵盖从数据输入到输出的方方面面。</p>
+<p>但之后当我们重新讨论这个问题的时候，我意识到如果要摆脱Pandas的诅咒，我应该先摆脱更多的传统观念。这导致了你现在看到的RiskQuantLib，其中的模板列表类有和多默认的自定义函数，比如迭代函数和合并函数，这些函数有很多类似Pandas的地方。</p>
+<p>但是，始终有一件事值得注意：</p>
+<p><strong>RiskQuantLib依然不是Pandas的替代品，它是基于Pandas的。最好的方式是用RiskQuantLib来编写数据处理的逻辑内核，而把其余部分交给Pandas处理。</strong></p>
+<p>为了方便，RiskQuantLib提供了很多用于与Pandas交互的函数，它们如下：</p>
 <div class="section" id="from-pandas-series">
-<h2>From Pandas Series<a class="headerlink" href="#from-pandas-series" title="Permalink to this headline">¶</a></h2>
-<p>The most simple way to use pandas with RiskQuantLib is to use pandas.Series, remember what we have shown before, if you have a dataframe looks like:</p>
+<h2>从Pandas Series转换为RiskQuantLib模板列表<a class="headerlink" href="#from-pandas-series" title="永久链接至标题">¶</a></h2>
+<p>使用pandas最简单的方式是使用pandas.Series，如果你有一个数据表，看起来像这样：</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
@@ -261,7 +262,7 @@
 </tr>
 </tbody>
 </table>
-<p>After creating a project and building it with <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code>:</p>
+<p>当你创建了一个工程，并且通过如下 <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code> 对工程进行了编译：</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -297,7 +298,7 @@
 </tr>
 </tbody>
 </table>
-<p>You can open the <code class="docutils literal notranslate"><span class="pre">main.py</span></code> and use it directly:</p>
+<p>你可以打开 <code class="docutils literal notranslate"><span class="pre">main.py</span></code> 并且直接使用：:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RiskQuantLib.Module</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;European_Option.xlsx&#39;</span><span class="p">)</span>
 
@@ -310,12 +311,12 @@
 <span class="n">vanillaOptionList</span><span class="o">.</span><span class="n">setSigma</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;OptionCode&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sigma&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>We see here that <code class="docutils literal notranslate"><span class="pre">set</span></code> function in RiskQuantLib accept any iterable object as parameters, including pandas.Series. Usually, <code class="docutils literal notranslate"><span class="pre">set</span></code> function has two parameters, the first one should be the code used to identify elements, the second one should be the value you want to set.</p>
+<p>我们知道 <code class="docutils literal notranslate"><span class="pre">set</span></code> 函数族接受任何可迭代对象作为参数，自然，你可以传入pandas.Series给它。通常， <code class="docutils literal notranslate"><span class="pre">set</span></code> 函数族有两个参数，第一个参数用于声明哪些元素需要被改变，第二元素声明你想将属性的值改变为什么。</p>
 </div>
 <div class="section" id="from-pandas-dataframe">
-<h2>From Pandas DataFrame<a class="headerlink" href="#from-pandas-dataframe" title="Permalink to this headline">¶</a></h2>
-<p>You may ask, what if I have a dataframe that has thousands of columns? I can’t set them one by one, right?</p>
-<p>True, luckily, RiskQuantLib provides functions to read from pandas.DataFrame. Suppose we still want to import the dataframe mentioned before:</p>
+<h2>从Pandas DataFrame转换为RiskQuantLib模板列表<a class="headerlink" href="#from-pandas-dataframe" title="永久链接至标题">¶</a></h2>
+<p>你或许要问，我如果有一个数据表，它的列数非常多，甚至有一千多列，那么我总不能一列一列地使用Set函数吧？</p>
+<p>没错，好在RiskQuantLib提供了一个现成的函数，便于从pandas.DataFrame中读取数据，我们假设你想要读取的数据表依然是之前的样子：</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
@@ -363,7 +364,7 @@
 </tr>
 </tbody>
 </table>
-<p>Now we build it by change <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code> to:</p>
+<p>现在我们更改 <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code> 文件，使得它看起来像这样：</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
@@ -399,15 +400,15 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Noticed here, we have all attribute names that are the same with dataframe column names. This will help RiskQuantLib to identify column and set them automatically.</strong></p>
-<p>After building it, you can open the <code class="docutils literal notranslate"><span class="pre">main.py</span></code> and use it directly:</p>
+<p><strong>注意到这里，我们所有的属性名称都和数据表的列名相同。这会使得RiskQuantLib能够自动识别列，并对应Set函数，来自动使用它们。</strong></p>
+<p>当编译完成后，你可以打开 <code class="docutils literal notranslate"><span class="pre">main.py</span></code> 并且这样使用：:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RiskQuantLib.Module</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;European_Option.xlsx&#39;</span><span class="p">)</span>
 
 <span class="n">vanillaOptionList</span> <span class="o">=</span> <span class="n">myEuropeanOptionList</span><span class="p">()</span><span class="o">.</span><span class="n">fromDF</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;OptionCode&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Cool, isn’t it? However, I won’t suggest doing this, cause RiskQuantLib is not meant to be bonded with single excel file. If you do it like this, you will find that you may have another dataframe, whose column name is not the same with this one, but its meaning is the same. For example, in another dataframe <code class="docutils literal notranslate"><span class="pre">df2</span></code>, it may looks like:</p>
+<p>但我并不建议这样使用，因为RiskQuantLib并不应该与单个数据表绑定，如果你这样做，你有可能会遇见这样的情况，即你在数据处理中遇到了另一个数据表，他的列名和第一个数据表并不相同，但实际的意义是相同的，比如这里我们有一个数据表 <code class="docutils literal notranslate"><span class="pre">df2</span></code>，它看起来像这样：</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
@@ -455,16 +456,16 @@
 </tr>
 </tbody>
 </table>
-<p>If you want to add these contracts to your RiskQuantLib list, you should use <code class="docutils literal notranslate"><span class="pre">addFromDF</span></code>, rather than <code class="docutils literal notranslate"><span class="pre">fromDF</span></code>:</p>
+<p>如果你想要将这些合约添加到RiskQuantLib的模板列表，你可以使用 <code class="docutils literal notranslate"><span class="pre">addFromDF</span></code>，而不是 <code class="docutils literal notranslate"><span class="pre">fromDF</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vanillaOptionList</span><span class="o">.</span><span class="n">addFromDF</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span><span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;Code&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>However, because the column name in df2 is not the same with your registered attribute, you will find the new elements that you added just now don’t have any attribute value.</strong></p>
-<p>There are two ways to solve this problem, you can change the name of columns of df2 and update the elements, or mannually set the attribute value by set function. We explain the first one as follows.</p>
+<p><strong>但是，因为df2的列名并不完全等于你注册过的属性名，你会发现这些你添加的新元素没有任何属性值。</strong></p>
+<p>有两个办法来解决这一问题，一是是你可先更改df2的列名，并更新模板列表的元素。或者你可以手动使用Set函数族。我们先解释第一种方法。</p>
 </div>
 <div class="section" id="update-with-dataframe">
-<h2>Update With DataFrame<a class="headerlink" href="#update-with-dataframe" title="Permalink to this headline">¶</a></h2>
-<p>After you rename your df2, it looks like:</p>
+<h2>从DataFrame更新元素<a class="headerlink" href="#update-with-dataframe" title="永久链接至标题">¶</a></h2>
+<p>当你对df2重新命名后，它看起来像这样：</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 14%" />
@@ -512,21 +513,21 @@
 </tr>
 </tbody>
 </table>
-<p>Good, remember you have already added element C and D into <code class="docutils literal notranslate"><span class="pre">vanillaOptionList</span></code>, we should update the attribute value of them. Here, it is simple:</p>
+<p>如果你还记得，你已经添加了元素C和D到 <code class="docutils literal notranslate"><span class="pre">vanillaOptionList</span></code>，我们现在要做的是更新C和D的属性，我们可以这样做：:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vanillaOptionList</span><span class="o">.</span><span class="n">updateAttrFromDF</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;OptionCode&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>After doing this, the information of contract C and D is updated, while A and B are not changed. But it is necessary to mention here:</p>
-<p><strong>Try not to build your project based on data pattern, build it based on analysis logic.</strong></p>
-<p>That is, when you design your project, you should forget all your input files, forget what name the column is given, forget how many files you would have, forget how you get these data or how you want to output and show these data. You should try to think, what kind of intrument you would use, how they are related with each other, what kind of attribute you should use, could less attribute be used, what type of variable you should use, why using self-defined types can simplicify your task, etc.</p>
+<p>当这一步完成后，合约C和D的属性会被更新，A和B的属性则不受影响。但我们应该在此注意：</p>
+<p><strong>工程的编译不应该基于数据模型，而应该基于分析的逻辑。</strong></p>
+<p>也就是说，当你设计自己的工程时，你应该忘记你的输入文件是什么样子的，忘记你有几个输入文件，忘记你是如何得到这些输入文件的，忘记你打算如何输出你的运算结果，忘记你的运算结果应该以什么格式展现。你应该思考你的数据处理过程中，应该使用什么样的模板类，这些模板类之间应该怎样联系起来，每个模板类应该具有哪些属性，是否可以使用更少的属性来达成目的，每个属性应该对应什么数据类型，为什么自定义的数据类型可以简化这个数据处理任务，等等。</p>
 </div>
 <div class="section" id="to-pandas-dataframe">
-<h2>To Pandas DataFrame<a class="headerlink" href="#to-pandas-dataframe" title="Permalink to this headline">¶</a></h2>
-<p>The most simple way to do it is:</p>
+<h2>输出为Pandas DataFrame<a class="headerlink" href="#to-pandas-dataframe" title="永久链接至标题">¶</a></h2>
+<p>最简单的方法是这样：:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vanillaOptionList</span><span class="p">[</span><span class="n">attributeList</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Where <code class="docutils literal notranslate"><span class="pre">attributeList</span></code> is a python list whose elements is the name string of attribute. You can also pass an index when converting to pandas.DataFrame, like:</p>
+<p>这里的 <code class="docutils literal notranslate"><span class="pre">attributeList</span></code> 是一个python的list，它的元素是属性的名称。你也可以在使用此命令转换为pandas.DataFrame的时候指定索引，比如：:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">vanillaOptionList</span><span class="p">[</span><span class="n">attributeList</span><span class="p">],</span><span class="n">index</span> <span class="o">=</span> <span class="n">vanillaOptionList</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -539,15 +540,15 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="With_ORM.html" class="btn btn-neutral float-right" title="With ORM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="With_QuantLib.html" class="btn btn-neutral float-left" title="With QuantLib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="With_ORM.html" class="btn btn-neutral float-right" title="与ORM配合使用" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="With_QuantLib.html" class="btn btn-neutral float-left" title="与QuantLib配合使用" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright .
+        &#169; 版权所有 .
 
     </p>
   </div>

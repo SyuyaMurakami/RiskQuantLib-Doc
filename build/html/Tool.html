@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Tool &mdash; RiskQuantLib 0.0.32 documentation</title>
+  <title>工具 &mdash; RiskQuantLib 0.0.32 文档</title>
   
 
   
@@ -36,15 +36,16 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Project Management" href="Project_Management.html" />
-    <link rel="prev" title="Instrument List" href="Instrument_List.html" /> 
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="模板管理" href="Project_Management.html" />
+    <link rel="prev" title="模板列表类" href="Instrument_List.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,21 +91,21 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Home page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">主页</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">RiskQuantLib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Create_Project.html">Create A New Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Build_Project.html">Build Your Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Instrument.html">Instrument</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Instrument_List.html">Instrument List</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tool</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="Install.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Create_Project.html">创建一个新的工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Build_Project.html">编译你的工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instrument.html">模板类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instrument_List.html">模板列表类</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">工具</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Project_Management.html">Project Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">Variable Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">With QuantLib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">With Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_ORM.html">With ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project_Management.html">模板管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">与QuantLib配合使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">与Pandas配合使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_ORM.html">与ORM配合使用</a></li>
 </ul>
 
             
@@ -153,7 +154,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Tool</li>
+      <li>工具</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -195,11 +196,11 @@
 }
 </style>
 <div class="section" id="tool">
-<h1>Tool<a class="headerlink" href="#tool" title="Permalink to this headline">¶</a></h1>
+<h1>工具<a class="headerlink" href="#tool" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>RiskQuantLib provides different kinds of tools to do different work, like <code class="docutils literal notranslate"><span class="pre">strTool</span></code>, <code class="docutils literal notranslate"><span class="pre">fileTool</span></code>, <code class="docutils literal notranslate"><span class="pre">databaseTool</span></code>, etc. All these tools can be changed to suit your style of coding. You can refer to <a class="reference external" href="https://riskquantlib-doc.readthedocs.io/en/latest/RiskQuantLib.Tool.html">Details</a> for more information.</p>
-<p><strong>Notice: RiskQuantLib is not designed to provide with detail functions, such as connecting to database or dealing with string. It is designed as an scaffold, like a box where you put all your familiar tools into it. RiskQuantLib will package those tools into a template, and make it convient to use next time. So here, all these kinds of tools are more examples than tools, it help users to understand how RiskQuantLib organize a project.</strong></p>
+<p>为了适应不同的数据处理任务，RiskQuantLib提供了不同的工具包，比如 <code class="docutils literal notranslate"><span class="pre">strTool</span></code>, <code class="docutils literal notranslate"><span class="pre">fileTool</span></code>, <code class="docutils literal notranslate"><span class="pre">databaseTool</span></code> 等。这些工具包可以被任意修改，以便于适应你的数据分析项目。这些修改仅对于当前的工程有效。你可以参考 <a class="reference external" href="https://riskquantlib-doc.readthedocs.io/en/latest/RiskQuantLib.Tool.html">Details</a> 来获得更多信息。</p>
+<p><strong>注意：RiskQuantLib并不是被设计用于提供诸如连接数据库，进行字符串处理等具体的功能的。正如一开始所说，RiskQuantLib是一个脚手架，便于你收纳各种你习惯于使用的工具，并提供方便的接口来多次调用。RiskQuantLib通过模板来做到这一点，我们将在下面进行介绍。本章所说的工具包更多的作为例子，来展示如何利用RiskQuantLib规范地组织一个工程。</strong></p>
 </div>
 
 
@@ -208,15 +209,15 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Project_Management.html" class="btn btn-neutral float-right" title="Project Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Instrument_List.html" class="btn btn-neutral float-left" title="Instrument List" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Project_Management.html" class="btn btn-neutral float-right" title="模板管理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Instrument_List.html" class="btn btn-neutral float-left" title="模板列表类" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright .
+        &#169; 版权所有 .
 
     </p>
   </div>

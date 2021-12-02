@@ -1,13 +1,13 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="zh-CN" >
 <head>
   <meta charset="utf-8" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Create A New Project &mdash; RiskQuantLib 0.0.32 documentation</title>
+  <title>创建一个新的工程 &mdash; RiskQuantLib 0.0.32 文档</title>
   
 
   
@@ -36,15 +36,16 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Build Your Project" href="Build_Project.html" />
-    <link rel="prev" title="Install" href="Install.html" /> 
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="编译你的工程" href="Build_Project.html" />
+    <link rel="prev" title="安装" href="Install.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,21 +91,21 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Home page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">主页</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">RiskQuantLib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Install.html">Install</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Create A New Project</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="Install.html">安装</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">创建一个新的工程</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Build_Project.html">Build Your Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Instrument.html">Instrument</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Instrument_List.html">Instrument List</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tool.html">Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Project_Management.html">Project Management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">Variable Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">With QuantLib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">With Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_ORM.html">With ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Build_Project.html">编译你的工程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instrument.html">模板类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instrument_List.html">模板列表类</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tool.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project_Management.html">模板管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Variable_Type.html">数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">与QuantLib配合使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">与Pandas配合使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_ORM.html">与ORM配合使用</a></li>
 </ul>
 
             
@@ -153,7 +154,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Create A New Project</li>
+      <li>创建一个新的工程</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -195,16 +196,16 @@
 }
 </style>
 <div class="section" id="create-a-new-project">
-<h1>Create A New Project<a class="headerlink" href="#create-a-new-project" title="Permalink to this headline">¶</a></h1>
+<h1>创建一个新的工程<a class="headerlink" href="#create-a-new-project" title="永久链接至标题">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>RiskQuantLib is based on project. For any data analysis mission, you should create at least one project to do it.</p>
-<p>To create a new RiskQuantLib project, you can use <code class="docutils literal notranslate"><span class="pre">newRQL</span></code> command in terminal as follows:</p>
+<p>RiskQuantLib以工程的方式来进行数据分析。对于任何的数据分析任务，你应该首先创建一个工程。（至少一个工程）</p>
+<p>你可以通过终端命令来新建RiskQuantLib工程，新建工程的命令为 <code class="docutils literal notranslate"><span class="pre">newRQL</span></code>，它的后面应该紧接一个文件夹地址，你可以像这样使用：:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">newRQL</span> <span class="n">your_project_path</span>
 </pre></div>
 </div>
-<p><strong>Notice: If there is already a project in the target dictionary, all old files will be deleted, and replaced with brand new project files.</strong></p>
-<p>After this command, your dictionary should looks like:</p>
+<p><strong>注意：如果你把一个已经是RiskQuantLib工程的文件夹地址传给 ``newRQL`` 命令，所有的旧文件都会被删除，并且用新的工程文件替换。</strong></p>
+<p>当运行这条命令之后，你的文件夹应该多出许多文件，文件夹现在看起来像这样：:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">your_project_path</span>
   <span class="o">--</span><span class="n">RiskQuantLib</span>
   <span class="o">--</span><span class="n">build</span><span class="o">.</span><span class="n">py</span>
@@ -213,7 +214,7 @@
   <span class="o">--</span><span class="n">Build_Instrument</span><span class="o">.</span><span class="n">xlsx</span>
 </pre></div>
 </div>
-<p>Then you can build it to suit your mission, we will explain it in next chapter.</p>
+<p>在这之后你可以编译这个工程，来使得它符合你的数据处理任务的要求，我们将在下一章解释如何编译工程。</p>
 </div>
 
 
@@ -222,15 +223,15 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="Build_Project.html" class="btn btn-neutral float-right" title="Build Your Project" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="Install.html" class="btn btn-neutral float-left" title="Install" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Build_Project.html" class="btn btn-neutral float-right" title="编译你的工程" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Install.html" class="btn btn-neutral float-left" title="安装" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright .
+        &#169; 版权所有 .
 
     </p>
   </div>
