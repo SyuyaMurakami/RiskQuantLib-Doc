@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib &mdash; RiskQuantLib 0.0.28 documentation</title>
+  <title>RiskQuantLib &mdash; RiskQuantLib 0.2.9 documentation</title>
   
 
   
@@ -100,6 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../Variable_Type.html">Variable Type</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../With_QuantLib.html">With QuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../With_Pandas.html">With Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../With_ORM.html">With ORM</a></li>
 </ul>
 
             
@@ -168,10 +169,178 @@
   <h1>Source code for RiskQuantLib</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/python</span>
 <span class="c1">#coding = utf-8</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span><span class="nn">argparse</span>
+
+<div class="viewcode-block" id="initiateBuildFile"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.initiateBuildFile">[docs]</a><span class="k">def</span> <span class="nf">initiateBuildFile</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    initiateBuildFile() is a function to generate content of build.py source file.</span>
+
+<span class="sd">    build.py will be created in every RiskQuantLib project when initiating it. It is</span>
+<span class="sd">    the entrance of build and render action. Users can either call &#39;python build.py&#39;</span>
+<span class="sd">    directly or add some parameter from command line.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    PYB : pythonScriptBuilder</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">RiskQuantLib.Tool.codeBuilderTool</span> <span class="kn">import</span> <span class="n">pythonScriptBuilder</span><span class="p">,</span> <span class="n">codeBuilder</span>
+    <span class="n">PYB</span> <span class="o">=</span> <span class="n">pythonScriptBuilder</span><span class="p">()</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">setTitle</span><span class="p">()</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;os,sys,argparse&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;autoBuildProject,buildProject&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">codeBuilder</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path = sys.path[0] if not getattr(sys, &quot;frozen&quot;, False) else os.path.dirname(sys.executable)&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;parser = argparse.ArgumentParser()&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;parser.add_argument(&quot;-a&quot;,&quot;--auto&quot;, help=&quot;use auto build model to build project dynamically&quot;, action=&quot;store_true&quot;)&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;parser.add_argument(&quot;-t&quot;, &quot;--targetPath&quot;, type=str, help=&quot;the RiskQuantLib project you want to build&quot;)&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;parser.add_argument(&quot;-r&quot;, &quot;--renderFromPath&quot;, type=str, help=&quot;the dictionary of source code where the template code exists&quot;)&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;parser.add_argument(&quot;-c&quot;, &quot;--channel&quot;, type=str, help=&quot;if given a channel name, render action in this channel will not delete the result of render in other channel unless it is overwritten by current render&quot;)&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;parser.add_argument(&quot;-d&quot;, &quot;--debug&quot;, help=&quot;use debug mode, break point in Src will start to effect&quot;, action=&quot;store_true&quot;)&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;args = parser.parse_args()&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;targetPath = args.targetPath if args.targetPath else path&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;renderFromPath = args.renderFromPath if args.renderFromPath else targetPath+os.sep+&quot;Src&quot;&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;bindType = args.channel if args.channel else &quot;renderedSourceCode&quot;&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;autoBuildProject(targetPath,renderFromPath,bindType,args.debug) if args.auto else buildProject(targetPath,renderFromPath,bindType,args.debug)&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">PYB</span></div>
+
+<div class="viewcode-block" id="initiateMainFile"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.initiateMainFile">[docs]</a><span class="k">def</span> <span class="nf">initiateMainFile</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    initiateMainFile() is a function to generate content of main.py source file.</span>
+
+<span class="sd">    main.py will be created in every RiskQuantLib project when initiating it. It is</span>
+<span class="sd">    the entrance of all project. Users should call &#39;python main.py&#39; to run the project.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    PYB : pythonScriptBuilder</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">RiskQuantLib.Tool.codeBuilderTool</span> <span class="kn">import</span> <span class="n">pythonScriptBuilder</span><span class="p">,</span> <span class="n">codeBuilder</span>
+    <span class="n">PYB</span> <span class="o">=</span> <span class="n">pythonScriptBuilder</span><span class="p">()</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">setTitle</span><span class="p">()</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;os,sys&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib.module&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">codeBuilder</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;path = sys.path[0] if not getattr(sys, &quot;frozen&quot;, False) else os.path.dirname(sys.executable)&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">addLine</span><span class="p">(</span><span class="s1">&#39;print(&quot;Write Your Code Here : &quot;+path+os.sep+&quot;main.py&quot;)&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">PYB</span></div>
+
+<div class="viewcode-block" id="initiateInstrumentFile"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.initiateInstrumentFile">[docs]</a><span class="k">def</span> <span class="nf">initiateInstrumentFile</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    initiateInstrumentFile() is a function to generate content of Build_Instrument.xlsx.</span>
+
+<span class="sd">    Build_Instrument.xlsx will be created in every RiskQuantLib project when initiating it. It is</span>
+<span class="sd">    the declaration file of all instruments to be used in project and their inheritance relationship.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dfInstrument : pandas.DataFrame</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="n">dfInstrument</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;InstrumentName&#39;</span><span class="p">,</span> <span class="s1">&#39;ParentRQLClassName&#39;</span><span class="p">,</span> <span class="s1">&#39;ParentQuantLibClassName&#39;</span><span class="p">,</span> <span class="s1">&#39;LibraryName&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;DefaultInstrumentType&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">return</span> <span class="n">dfInstrument</span></div>
+
+<div class="viewcode-block" id="initiateAttributeFile"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.initiateAttributeFile">[docs]</a><span class="k">def</span> <span class="nf">initiateAttributeFile</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    initiateAttributeFile() is a function to generate content of Build_Attr.xlsx.</span>
+
+<span class="sd">    Build_Attr.xlsx will be created in every RiskQuantLib project when initiating it. It is</span>
+<span class="sd">    the declaration file of all attributes which will be bound into instruments.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dfAttr : pandas.DataFrame</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="n">dfAttr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SecurityType&#39;</span><span class="p">,</span> <span class="s1">&#39;AttrName&#39;</span><span class="p">,</span> <span class="s1">&#39;AttrType&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">return</span> <span class="n">dfAttr</span></div>
+
+<div class="viewcode-block" id="parseBuildPath"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.parseBuildPath">[docs]</a><span class="k">def</span> <span class="nf">parseBuildPath</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">checkExist</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    parseBuildPath() is a function to generate the paths of project related file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    targetPath : str</span>
+<span class="sd">        The path of target RiskQuantLib project dictionary.</span>
+<span class="sd">    checkExist : bool</span>
+<span class="sd">        If true, this function will check the existence of related path of</span>
+<span class="sd">        target project. It will raise exception iin case of absence.</span>
 
 
-<div class="viewcode-block" id="newProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.newProject">[docs]</a><span class="k">def</span> <span class="nf">newProject</span><span class="p">():</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    rqlPath : str</span>
+<span class="sd">        the path of RiskQuantLib dictionary</span>
+<span class="sd">    instrumentExcelPath : str</span>
+<span class="sd">        the path of instrument declaration file</span>
+<span class="sd">    attributeExcelPath : str</span>
+<span class="sd">        the path of attribute declaration file</span>
+<span class="sd">    buildCachePath : str</span>
+<span class="sd">        the path of building cache</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">rqlPath</span> <span class="o">=</span> <span class="n">targetPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s2">&quot;RiskQuantLib&quot;</span>
+    <span class="n">instrumentExcelPath</span> <span class="o">=</span> <span class="n">targetPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s2">&quot;Build_Instrument.xlsx&quot;</span>
+    <span class="n">attributeExcelPath</span> <span class="o">=</span> <span class="n">targetPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s2">&quot;Build_Attr.xlsx&quot;</span>
+    <span class="n">buildCachePath</span> <span class="o">=</span> <span class="n">rqlPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s2">&quot;Build&quot;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s2">&quot;buildInfo.pkl&quot;</span>
+    <span class="k">if</span> <span class="n">checkExist</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">rqlPath</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">instrumentExcelPath</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">attributeExcelPath</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;The target dictionary should be a RiskQuantLib project, with Build_Instrument.xlsx and Build_Attr.xlsx in it!&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rqlPath</span><span class="p">,</span> <span class="n">instrumentExcelPath</span><span class="p">,</span> <span class="n">attributeExcelPath</span><span class="p">,</span> <span class="n">buildCachePath</span></div>
+
+<div class="viewcode-block" id="buildProjectFromExcel"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.buildProjectFromExcel">[docs]</a><span class="k">def</span> <span class="nf">buildProjectFromExcel</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">buildCachePath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">instrumentExcelPath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">attributeExcelPath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                          <span class="n">renderFromPath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">bindType</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;renderedSourceCode&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    buildProjectFromExcel() is a function to build project according to excel declaration.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    targetPath : str</span>
+<span class="sd">        The path of target RiskQuantLib project dictionary.</span>
+<span class="sd">    buildCachePath : str</span>
+<span class="sd">        The path of building cache.</span>
+<span class="sd">    instrumentExcelPath : str</span>
+<span class="sd">        The path of Build_Instrument.xlsx.</span>
+<span class="sd">    attributeExcelPath : str</span>
+<span class="sd">        The path of Build_Attr.xlsx</span>
+<span class="sd">    renderFromPath : str</span>
+<span class="sd">        The path of source code dictionary</span>
+<span class="sd">    bindType : str</span>
+<span class="sd">        The channel of binding action. Source code are rendered and injected into project by different channels,</span>
+<span class="sd">        The source code injected by channel A will be not influenced by source code injected by channel B, unless</span>
+<span class="sd">        the content of tag is overwritten by code in channel B. This is used when you have several builders and</span>
+<span class="sd">        you want them to build into the same project. In this case, you should give a bindType for each render action</span>
+<span class="sd">        to make sure they do not conflict with each other.</span>
+<span class="sd">    debug : bool</span>
+<span class="sd">        If false, the break point in Src will not be effective, only break point within instrument class will effect.</span>
+<span class="sd">        If true, the class method defined in Src directory will be dynamically bound to instrument node class.</span>
+<span class="sd">        Then the program will take .py file under .Src directory as a module and import it, bind the class method into</span>
+<span class="sd">        specified class. This mode is useful when your code is still under development. You will not have to change between</span>
+<span class="sd">        ./Src/somecode.py and target instrument class .py file to edit any code error. The break point will stop right</span>
+<span class="sd">        under ./Src/somecode.py.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">from</span> <span class="nn">RiskQuantLib.Build.builder</span> <span class="kn">import</span> <span class="n">excelBuilder</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">buildCachePath</span><span class="p">):</span>
+        <span class="n">buildObj</span> <span class="o">=</span> <span class="n">excelBuilder</span><span class="o">.</span><span class="n">loadInfo</span><span class="p">(</span><span class="n">buildCachePath</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">buildObj</span> <span class="o">=</span> <span class="n">excelBuilder</span><span class="p">(</span><span class="n">targetProjectPath</span><span class="o">=</span><span class="n">targetPath</span><span class="p">)</span>
+    <span class="n">buildObj</span><span class="o">.</span><span class="n">buildProject</span><span class="p">(</span><span class="n">instrumentExcelPath</span><span class="o">=</span><span class="n">instrumentExcelPath</span><span class="p">,</span> <span class="n">attributeExcelPath</span><span class="o">=</span><span class="n">attributeExcelPath</span><span class="p">)</span>
+    <span class="n">buildObj</span><span class="o">.</span><span class="n">renderProject</span><span class="p">(</span><span class="n">renderFromPath</span><span class="p">,</span><span class="n">bindType</span><span class="p">,</span><span class="n">persist</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="n">debug</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Build Project Finished&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="newProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.newProject">[docs]</a><span class="k">def</span> <span class="nf">newProject</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    newProject() is a function to create a new RiskQuantLib project.</span>
 
@@ -181,7 +350,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    targetPathString : str</span>
+<span class="sd">    targetPath : str</span>
 <span class="sd">        A terminal command parameter, specify the path where you want to build a new project.</span>
 
 <span class="sd">    Returns</span>
@@ -189,62 +358,51 @@
 <span class="sd">    None</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">shutil</span>
-    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the target dictionary where you want to create a RiskQuantLib project&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">target</span>
+
+    <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">shutil</span>
+
     <span class="n">RiskQuantLibDictionary</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib&#39;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;__init__&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sourcePath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">RiskQuantLibDictionary</span><span class="p">)</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;RiskQuantLib&#39;</span>
+    <span class="n">rqlPath</span><span class="p">,</span> <span class="n">instrumentExcelPath</span><span class="p">,</span> <span class="n">attributeExcelPath</span><span class="p">,</span> <span class="n">buildCachePath</span> <span class="o">=</span> <span class="n">parseBuildPath</span><span class="p">(</span><span class="n">targetPath</span><span class="p">)</span>
 
-    <span class="n">source_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">RiskQuantLibDictionary</span><span class="p">)</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;RiskQuantLib&#39;</span>
-    <span class="c1"># target_path = os.getcwd()</span>
-    <span class="n">target_path</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;RiskQuantLib&#39;</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">target_path</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">rqlPath</span><span class="p">):</span>
         <span class="c1"># if there is no target path, create one</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">target_path</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">rqlPath</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">source_path</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">sourcePath</span><span class="p">):</span>
         <span class="c1"># if there is already a path, clear it</span>
-        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">target_path</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">rqlPath</span><span class="p">)</span>
 
-    <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">source_path</span><span class="p">,</span> <span class="n">target_path</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">sourcePath</span><span class="p">,</span> <span class="n">rqlPath</span><span class="p">)</span>
 
     <span class="c1"># create excel file for build</span>
-    <span class="n">df_attr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SecurityType&#39;</span><span class="p">,</span><span class="s1">&#39;AttrName&#39;</span><span class="p">,</span><span class="s1">&#39;AttrType&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">df_instrument</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;InstrumentName&#39;</span><span class="p">,</span><span class="s1">&#39;ParentRQLClassName&#39;</span><span class="p">,</span><span class="s1">&#39;ParentQuantLibClassName&#39;</span><span class="p">,</span><span class="s1">&#39;LibraryName&#39;</span><span class="p">,</span><span class="s1">&#39;DefaultInstrumentType&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">df_attr</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;Build_Attr.xlsx&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">df_instrument</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;Build_Instrument.xlsx&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">dfAttr</span> <span class="o">=</span> <span class="n">initiateAttributeFile</span><span class="p">()</span>
+    <span class="n">dfInstrument</span> <span class="o">=</span> <span class="n">initiateInstrumentFile</span><span class="p">()</span>
+    <span class="n">dfAttr</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">attributeExcelPath</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">dfInstrument</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">instrumentExcelPath</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="c1"># create build script</span>
     <span class="kn">from</span> <span class="nn">RiskQuantLib.Tool.codeBuilderTool</span> <span class="kn">import</span> <span class="n">pythonScriptBuilder</span><span class="p">,</span><span class="n">codeBuilder</span>
-    <span class="n">PYB</span> <span class="o">=</span> <span class="n">pythonScriptBuilder</span><span class="p">()</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setTitle</span><span class="p">()</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;sys&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib.Build.build&#39;</span><span class="p">,</span><span class="s1">&#39;BA&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;buildAttr&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib.Build.build&#39;</span><span class="p">,</span> <span class="s1">&#39;BI&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;buildInstrument&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">codeBuilder</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s1">&#39;path = sys.path[0]&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s1">&#39;BI(path + os.sep + &quot;Build_Instrument.xlsx&quot;)&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s1">&#39;time.sleep(2)&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s1">&#39;BA(path + os.sep + &quot;Build_Attr.xlsx&quot;)&#39;</span><span class="p">)</span>
-
-    <span class="n">PYB</span><span class="o">.</span><span class="n">writeToFile</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;build.py&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span> <span class="o">=</span> <span class="n">initiateBuildFile</span><span class="p">()</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">writeToFile</span><span class="p">(</span><span class="n">targetPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;build.py&#39;</span><span class="p">)</span>
 
     <span class="c1"># create program start point</span>
-    <span class="n">PYB</span> <span class="o">=</span> <span class="n">pythonScriptBuilder</span><span class="p">()</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setTitle</span><span class="p">()</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;sys&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">setImport</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib.Module&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">codeBuilder</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s1">&#39;path = sys.path[0]&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="s1">&#39;print(&quot;Write Your Code Here : &quot;+path+os.sep+&quot;main.py&quot;)&#39;</span><span class="p">)</span>
-    <span class="n">PYB</span><span class="o">.</span><span class="n">writeToFile</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;main.py&#39;</span><span class="p">)</span>
+    <span class="n">PYB</span> <span class="o">=</span> <span class="n">initiateMainFile</span><span class="p">()</span>
+    <span class="n">PYB</span><span class="o">.</span><span class="n">writeToFile</span><span class="p">(</span><span class="n">targetPath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;main.py&#39;</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New RiskQuantLib Project Created!&#39;</span><span class="p">)</span></div>
+    <span class="c1"># create python source file dictionary</span>
+    <span class="n">renderFromPath</span> <span class="o">=</span> <span class="n">targetPath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;Src&#39;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">renderFromPath</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">renderFromPath</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib project created!&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="packProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.packProject">[docs]</a><span class="k">def</span> <span class="nf">packProject</span><span class="p">():</span>
+<div class="viewcode-block" id="packProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.packProject">[docs]</a><span class="k">def</span> <span class="nf">packProject</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">targetName</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    packProject() is a function to pack a RiskQuantLib project into &#39;.zip&#39; file.</span>
 
@@ -255,31 +413,61 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    targetPathString : str</span>
+<span class="sd">    targetPath : str</span>
 <span class="sd">        A terminal command parameter, specify the RiskQuantLib project path which you want to package.</span>
+<span class="sd">    targetName : str</span>
+<span class="sd">        A terminal command parameter, specify the name you want to mark the project zip file with.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">projectPath</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">shutil</span>
-    <span class="k">if</span> <span class="n">name</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">projectPath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">targetName</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the RiskQuantLib project which you want to package into a zip file&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the name which you want to name the project by&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">target</span>
+        <span class="n">targetName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+
+    <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">logging</span>
+    <span class="k">if</span> <span class="n">targetName</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">targetPath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">nameList</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="n">nameList</span> <span class="o">=</span> <span class="n">targetName</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nameList</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nameList</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">nameList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">shutil</span><span class="o">.</span><span class="n">make_archive</span><span class="p">(</span><span class="n">projectPath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">name</span><span class="p">,</span><span class="s2">&quot;zip&quot;</span><span class="p">,</span><span class="n">projectPath</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib Project Packaged!&#39;</span><span class="p">)</span></div>
+    <span class="n">parentProjectPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">targetPath</span><span class="p">)</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;nameOfTheLogger&quot;</span><span class="p">)</span>
+    <span class="n">ConsoleOutputHandler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+    <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ConsoleOutputHandler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">ConsoleOutputHandler</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">make_archive</span><span class="p">(</span><span class="n">parentProjectPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="n">targetPath</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib project packaged!&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="addProjectTemplate"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.addProjectTemplate">[docs]</a><span class="k">def</span> <span class="nf">addProjectTemplate</span><span class="p">():</span>
+<div class="viewcode-block" id="checkAndCreateTemplatePath"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.checkAndCreateTemplatePath">[docs]</a><span class="k">def</span> <span class="nf">checkAndCreateTemplatePath</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    checkAndCreateTemplatePath() is a function to check whether the Template path exists.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    sourcePath : str</span>
+<span class="sd">        The path of RiskQuantLib template dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">RiskQuantLibDictionary</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib&#39;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;__init__&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sourcePath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">RiskQuantLibDictionary</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;RQLTemplate&#39;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">sourcePath</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">sourcePath</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sourcePath</span></div>
+
+<div class="viewcode-block" id="addProjectTemplate"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.addProjectTemplate">[docs]</a><span class="k">def</span> <span class="nf">addProjectTemplate</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">targetName</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    addProjectTemplate() is a function to add a RiskQuantLib project &#39;.zip&#39; file to library.</span>
 
@@ -290,37 +478,40 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    targetPathString : str</span>
+<span class="sd">    targetPath : str</span>
 <span class="sd">        A terminal command parameter, specify the RiskQuantLib project &#39;.zip&#39; file path which you want to add to library.</span>
+<span class="sd">    targetName : str</span>
+<span class="sd">        The name you want to use to save the .zip file as, it is not necessary to add .zip behind it.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">projectPackPath</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">targetName</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the zipped RiskQuantLib project file you want to add into RiskQuantLib library&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the name which you want to store the .zip file as&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">target</span>
+        <span class="n">targetName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+
     <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">shutil</span>
-    <span class="k">if</span> <span class="n">name</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">projectPackPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">targetPath</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">targetName</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
         <span class="n">name</span> <span class="o">=</span> <span class="n">projectPackPath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">nameList</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="n">nameList</span> <span class="o">=</span> <span class="n">targetName</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nameList</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nameList</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">nameList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">RiskQuantLibDictionary</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib&#39;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;__init__&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">source_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">RiskQuantLibDictionary</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;RQLTemplate&#39;</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">source_path</span><span class="p">):</span>
-        <span class="k">pass</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">source_path</span><span class="p">)</span>
-    <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">projectPackPath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="n">source_path</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib Project Template added!&#39;</span><span class="p">)</span></div>
+    <span class="n">sourcePath</span> <span class="o">=</span> <span class="n">checkAndCreateTemplatePath</span><span class="p">()</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">targetPath</span><span class="p">,</span><span class="n">sourcePath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">targetPath</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib project template added!&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="saveProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.saveProject">[docs]</a><span class="k">def</span> <span class="nf">saveProject</span><span class="p">():</span>
+<div class="viewcode-block" id="saveProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.saveProject">[docs]</a><span class="k">def</span> <span class="nf">saveProject</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">targetName</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    saveProject() is a function to save a RiskQuantLib project and add it to library.</span>
 
@@ -334,19 +525,32 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    targetPathString : str</span>
+<span class="sd">    targetPath : str</span>
 <span class="sd">        A terminal command parameter, specify the RiskQuantLib project path which you want to save as template.</span>
-<span class="sd">    projectName : str</span>
+<span class="sd">    targetName : str</span>
 <span class="sd">        A terminal command parameter, specify the name you want to save this project as.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">packProject</span><span class="p">()</span>
-    <span class="n">addProjectTemplate</span><span class="p">()</span></div>
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">targetName</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the path of RiskQuantLib project which you want to save into RiskQuantLib library&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-n&quot;</span><span class="p">,</span> <span class="s2">&quot;--name&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the name which you want to store the RiskQuantLib project as&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">target</span>
+        <span class="n">targetName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
 
-<div class="viewcode-block" id="unpackProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.unpackProject">[docs]</a><span class="k">def</span> <span class="nf">unpackProject</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+
+    <span class="n">parentDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">targetPath</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">targetPath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">targetName</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="n">targetName</span>
+
+    <span class="n">packProject</span><span class="p">(</span><span class="n">targetPath</span><span class="o">=</span><span class="n">targetPath</span><span class="p">,</span><span class="n">targetName</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">addProjectTemplate</span><span class="p">(</span><span class="n">targetPath</span><span class="o">=</span><span class="n">parentDir</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="n">targetName</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="unpackProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.unpackProject">[docs]</a><span class="k">def</span> <span class="nf">unpackProject</span><span class="p">(</span><span class="n">templateName</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    unpackProject() is a function to unpack a RiskQuantLib project from library and use it again.</span>
 
@@ -360,25 +564,39 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    projectName : str</span>
+<span class="sd">    templateName : str</span>
 <span class="sd">        A terminal command parameter, specify the project name you want to unpack from library.</span>
 
-<span class="sd">    targetPathString : str</span>
+<span class="sd">    targetPath : str</span>
 <span class="sd">        A terminal command parameter, specify the path where you want to unpack RiskQuantLib project.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">templateName</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;template&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the name of saved RiskQuantLib project&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the path where you want to unpack the template project into&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">templateName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">template</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">target</span>
+
+    <span class="c1"># use index number to locate template</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="o">.</span><span class="n">isdigit</span><span class="p">(</span><span class="n">templateName</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">os</span>
+        <span class="n">sourcePath</span> <span class="o">=</span> <span class="n">checkAndCreateTemplatePath</span><span class="p">()</span>
+        <span class="n">projectNameDict</span> <span class="o">=</span> <span class="p">{</span><span class="n">idx</span><span class="p">:</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">sourcePath</span><span class="p">))}</span>
+        <span class="n">templateIndex</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">templateName</span><span class="p">)</span>
+        <span class="n">templateName</span> <span class="o">=</span> <span class="n">projectNameDict</span><span class="p">[</span><span class="n">templateIndex</span><span class="p">]</span> <span class="k">if</span> <span class="n">templateIndex</span> <span class="ow">in</span> <span class="n">projectNameDict</span> <span class="k">else</span> <span class="n">templateName</span>
+
     <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">shutil</span>
     <span class="n">RiskQuantLibDictionary</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib&#39;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;__init__&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">source_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">RiskQuantLibDictionary</span><span class="p">)</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;RQLTemplate&#39;</span>
-    <span class="n">projectName</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">target_path</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">shutil</span><span class="o">.</span><span class="n">unpack_archive</span><span class="p">(</span><span class="n">source_path</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">projectName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="n">target_path</span><span class="p">,</span><span class="s2">&quot;zip&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">target_path</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">projectName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">target_path</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">projectName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib Project Template &#39;</span><span class="o">+</span><span class="n">projectName</span><span class="o">+</span><span class="s1">&#39; Unpack Finished!&#39;</span><span class="p">)</span></div>
+    <span class="n">sourcePath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">RiskQuantLibDictionary</span><span class="p">)</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;RQLTemplate&#39;</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">unpack_archive</span><span class="p">(</span><span class="n">sourcePath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">templateName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="n">targetPath</span><span class="p">,</span><span class="s2">&quot;zip&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">targetPath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">templateName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">targetPath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">templateName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib project template &#39;</span><span class="o">+</span><span class="n">templateName</span><span class="o">+</span><span class="s1">&#39; unpack finished!&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="listProjectTemplate"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.listProjectTemplate">[docs]</a><span class="k">def</span> <span class="nf">listProjectTemplate</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -391,14 +609,14 @@
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span> <span class="nn">os</span>
-    <span class="n">RiskQuantLibDictionary</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib&#39;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;__init__&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">source_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">RiskQuantLibDictionary</span><span class="p">)</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;RQLTemplate&#39;</span>
-    <span class="n">projectNameList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">source_path</span><span class="p">)]</span>
-    <span class="n">hints</span> <span class="o">=</span> <span class="s2">&quot;Show All RiskQuantLib Template Projects:&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">hints</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;-&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hints</span><span class="p">))]))</span>
+    <span class="n">sourcePath</span> <span class="o">=</span> <span class="n">checkAndCreateTemplatePath</span><span class="p">()</span>
+    <span class="n">projectNameList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">sourcePath</span><span class="p">)]</span>
+    <span class="n">hints</span> <span class="o">=</span> <span class="s2">&quot;Show all RiskQuantLib template projects:&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">hints</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;-&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hints</span><span class="p">))]))</span>
     <span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">projectNameList</span><span class="p">)]</span></div>
 
-<div class="viewcode-block" id="delProjectTemplate"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.delProjectTemplate">[docs]</a><span class="k">def</span> <span class="nf">delProjectTemplate</span><span class="p">():</span>
+<div class="viewcode-block" id="delProjectTemplate"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.delProjectTemplate">[docs]</a><span class="k">def</span> <span class="nf">delProjectTemplate</span><span class="p">(</span><span class="n">targetName</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    delProject() is a function to delete a RiskQuantLib project from library.</span>
 
@@ -409,23 +627,27 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    projectName : str</span>
+<span class="sd">    targetName : str</span>
 <span class="sd">        A terminal command parameter, specify the project name you want to delete from library.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">targetName</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;targetName&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the name of template project which you saved in RiskQuantLib library&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetName</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">targetName</span>
+
     <span class="kn">import</span> <span class="nn">os</span>
-    <span class="n">RiskQuantLibDictionary</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib&#39;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;__init__&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">source_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">RiskQuantLibDictionary</span><span class="p">)</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;RQLTemplate&#39;</span>
-    <span class="n">projectNameList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">source_path</span><span class="p">)]</span>
-    <span class="n">targetName</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">sourcePath</span> <span class="o">=</span> <span class="n">checkAndCreateTemplatePath</span><span class="p">()</span>
+    <span class="n">projectNameList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">sourcePath</span><span class="p">)]</span>
     <span class="k">if</span> <span class="n">targetName</span> <span class="ow">in</span> <span class="n">projectNameList</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">source_path</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">targetName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Delete RiskQuantLib Project: &quot;</span><span class="p">,</span><span class="n">targetName</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sourcePath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">targetName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Delete RiskQuantLib project succeeded: &quot;</span><span class="p">,</span><span class="n">targetName</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There Is No RiskQuantLib Project Named As &quot;</span><span class="p">,</span><span class="n">targetName</span><span class="p">)</span></div>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There is no RiskQuantLib project named as: &quot;</span><span class="p">,</span><span class="n">targetName</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="clearAllProjectTemplate"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.clearAllProjectTemplate">[docs]</a><span class="k">def</span> <span class="nf">clearAllProjectTemplate</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -443,12 +665,323 @@
         <span class="k">return</span> <span class="kc">None</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="kn">import</span> <span class="nn">os</span>
-        <span class="n">RiskQuantLibDictionary</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;RiskQuantLib&#39;</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;__init__&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">source_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">RiskQuantLibDictionary</span><span class="p">)</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;RQLTemplate&#39;</span>
-        <span class="n">projectNameList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">source_path</span><span class="p">)]</span>
-        <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">source_path</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">targetName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">targetName</span> <span class="ow">in</span> <span class="n">projectNameList</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Delete All RiskQuantLib Project Templates Finished! &quot;</span><span class="p">)</span></div>
+        <span class="n">sourcePath</span> <span class="o">=</span> <span class="n">checkAndCreateTemplatePath</span><span class="p">()</span>
+        <span class="n">projectNameList</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">sourcePath</span><span class="p">)]</span>
+        <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">sourcePath</span><span class="o">+</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="o">+</span><span class="n">targetName</span><span class="o">+</span><span class="s1">&#39;.zip&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">targetName</span> <span class="ow">in</span> <span class="n">projectNameList</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Delete all RiskQuantLib project templates finished!&quot;</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="addProjectTemplateFromGithub"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.addProjectTemplateFromGithub">[docs]</a><span class="k">def</span> <span class="nf">addProjectTemplateFromGithub</span><span class="p">(</span><span class="n">targetGithub</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    addProjectTemplateFromGithub() is a function to download template from Github to local disk.</span>
+<span class="sd">    Use terminal command &#39;getRQL&#39; to use this function.</span>
+<span class="sd">    After this function is called, the target repository will be saved as template project.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    targetGithub : str</span>
+<span class="sd">        A terminal command parameter, specify the project name you want to download from Github.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">targetGithub</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;targetGithub&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the name of Github repository or the link of Github repository&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetGithub</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">targetGithub</span>
+
+    <span class="n">sourcePath</span> <span class="o">=</span> <span class="n">checkAndCreateTemplatePath</span><span class="p">()</span>
+    <span class="kn">from</span> <span class="nn">RiskQuantLib.Tool.githubTool</span> <span class="kn">import</span> <span class="n">Github</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">Github</span><span class="p">()</span>
+    <span class="n">link</span><span class="o">.</span><span class="n">downloadRepositories</span><span class="p">(</span><span class="n">targetGithub</span><span class="p">,</span><span class="n">sourcePath</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="receiveProjectTemplate"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.receiveProjectTemplate">[docs]</a><span class="k">def</span> <span class="nf">receiveProjectTemplate</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    receiveProjectTemplate() is a function to receive any file or dictionary from your friend by</span>
+<span class="sd">    LOCAL AREA NETWORK (LAN).</span>
+
+<span class="sd">    Use terminal command &#39;recvRQL&#39; to use this function. You can also specify a path where your want to</span>
+<span class="sd">    save the shared file or dictionary, like &#39;recvRQL targetPath&#39;. If you do not give a path, the file will</span>
+<span class="sd">    be stored in current working dictionary.</span>
+
+<span class="sd">    After this function is called, you can receive the file shared from your friend, who is also in the</span>
+<span class="sd">    same LAN. You can not receive files or project from people outside your local network by this function. If you</span>
+<span class="sd">    want to share with friends who is across ocean, maybe you should use Github and getRQL command.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    targetPath : str</span>
+<span class="sd">        A terminal command parameter, specify the path where you want to hold the received file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-t&quot;</span><span class="p">,</span><span class="s2">&quot;--targetPath&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the path where you want to save the received files into, default as current working dictionary&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">targetPath</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">targetPath</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+    <span class="kn">from</span> <span class="nn">RiskQuantLib.Tool.fileTool</span> <span class="kn">import</span> <span class="n">fileReceiver</span>
+    <span class="n">receive</span> <span class="o">=</span> <span class="n">fileReceiver</span><span class="p">(</span><span class="n">targetPath</span><span class="p">)</span>
+    <span class="n">receive</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sendProjectTemplate"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.sendProjectTemplate">[docs]</a><span class="k">def</span> <span class="nf">sendProjectTemplate</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    sendProjectTemplate() is a function to send any file or dictionary to your friend by</span>
+<span class="sd">    LOCAL AREA NETWORK (LAN).</span>
+
+<span class="sd">    Use terminal command &#39;sendRQL targetProjectPath&#39; or &#39;sendRQL targetFilePath&#39; to use this function. If</span>
+<span class="sd">    you send a dictionary, it will be packed into a zip file at first, and sent to your friend.</span>
+
+<span class="sd">    After this function is called, you can send to your friend who is also in the same LAN.</span>
+<span class="sd">    You can not send files or project to people outside your local network by this function. If you</span>
+<span class="sd">    want to share with friends who is across ocean, maybe you should use Github and getRQL command.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    targetPath : str</span>
+<span class="sd">        A terminal command parameter, specify the path of file or dictionary you want to send.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;targetPath&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the path of dictionary or file you want to send, if it&#39;s a dictionary, it will be packaged into a zip file first&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">targetPath</span>
+
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">from</span> <span class="nn">RiskQuantLib.Tool.fileTool</span> <span class="kn">import</span> <span class="n">fileSender</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">targetPath</span><span class="p">):</span>
+        <span class="n">packProject</span><span class="p">(</span><span class="n">targetPath</span><span class="o">=</span><span class="n">targetPath</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">targetPath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">parentProjectPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">targetPath</span><span class="p">)</span>
+        <span class="n">filePath</span> <span class="o">=</span> <span class="n">parentProjectPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.zip&quot;</span>
+        <span class="n">send</span> <span class="o">=</span> <span class="n">fileSender</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+        <span class="n">send</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">parentProjectPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.zip&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">filePath</span> <span class="o">=</span> <span class="n">targetPath</span>
+        <span class="n">send</span> <span class="o">=</span> <span class="n">fileSender</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+        <span class="n">send</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="buildProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.buildProject">[docs]</a><span class="k">def</span> <span class="nf">buildProject</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">renderFromPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">channel</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    buildProject() is a function to build RiskQuantLib project.</span>
+
+<span class="sd">    Use terminal command &#39;bldRQL targetProjectPath&#39; to use this function. The project</span>
+<span class="sd">    will be built according to the Build_Instrument.xlsx and Build_Attr.xlsx in</span>
+<span class="sd">    the targetProjectPath.</span>
+
+<span class="sd">    After this function is called, the instrument class file and attribute API will be</span>
+<span class="sd">    automatically generated.</span>
+
+<span class="sd">    For old version user of RiskQuantLib, this function is totally the same as</span>
+<span class="sd">    command &#39;python build.py&#39; in terminal with working dictionary as targetProjectPath.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    targetPath : str</span>
+<span class="sd">        A terminal command parameter, specify the RiskQuantLib project path you want to build and render.</span>
+<span class="sd">    renderFromPath : str</span>
+<span class="sd">        The path of dictionary of source file used to render target project.</span>
+<span class="sd">    channel : str</span>
+<span class="sd">        render action in this channel will not delete the result of render in other channel</span>
+<span class="sd">        unless it is overwritten by current render.</span>
+<span class="sd">    debug : bool</span>
+<span class="sd">        If false, the break point in Src will not be effective, only break point within instrument class will effect.</span>
+<span class="sd">        If true, the class method defined in Src directory will be dynamically bound to instrument node class.</span>
+<span class="sd">        Then the program will take .py file under .Src directory as a module and import it, bind the class method into</span>
+<span class="sd">        specified class. This mode is useful when your code is still under development. You will not have to change between</span>
+<span class="sd">        ./Src/somecode.py and target instrument class .py file to edit any code error. The break point will stop right</span>
+<span class="sd">        under ./Src/somecode.py.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">renderFromPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;targetPath&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the RiskQuantLib project you want to build&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-r&quot;</span><span class="p">,</span><span class="s2">&quot;--renderFromPath&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the dictionary of source code where the template code exists&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--channel&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;if given a channel name, render action in this channel will not delete the result of render in other channel unless it is overwritten by current render&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="s2">&quot;--debug&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;use debug mode, break point in Src will start to effect&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">targetPath</span>
+        <span class="n">renderFromPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">renderFromPath</span>
+        <span class="n">channel</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">channel</span>
+        <span class="n">debug</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">debug</span>
+
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">renderFromPath</span> <span class="o">=</span> <span class="n">renderFromPath</span> <span class="k">if</span> <span class="n">renderFromPath</span> <span class="k">else</span> <span class="p">(</span><span class="n">targetPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s2">&quot;Src&quot;</span><span class="p">)</span>
+    <span class="n">bindType</span> <span class="o">=</span> <span class="n">channel</span> <span class="k">if</span> <span class="n">channel</span> <span class="k">else</span> <span class="s1">&#39;renderedSourceCode&#39;</span>
+    <span class="n">rqlPath</span><span class="p">,</span><span class="n">instrumentExcelPath</span><span class="p">,</span><span class="n">attributeExcelPath</span><span class="p">,</span><span class="n">buildCachePath</span> <span class="o">=</span> <span class="n">parseBuildPath</span><span class="p">(</span><span class="n">targetPath</span><span class="p">,</span> <span class="n">checkExist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">buildProjectFromExcel</span><span class="p">(</span><span class="n">targetPath</span><span class="p">,</span> <span class="n">buildCachePath</span><span class="p">,</span><span class="n">instrumentExcelPath</span><span class="p">,</span><span class="n">attributeExcelPath</span><span class="p">,</span> <span class="n">renderFromPath</span><span class="p">,</span> <span class="n">bindType</span><span class="p">,</span> <span class="n">debug</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="autoBuildProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.autoBuildProject">[docs]</a><span class="k">def</span> <span class="nf">autoBuildProject</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">renderFromPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">channel</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    autoBuildProject() is a function to build RiskQuantLib project. This function keeps</span>
+<span class="sd">    running until catch a KeyboardInterrupt Exception.</span>
+
+<span class="sd">    Use terminal command &#39;autoRQL targetProjectPath&#39; to use this function. The project</span>
+<span class="sd">    will be built according to the Build_Instrument.xlsx and Build_Attr.xlsx in</span>
+<span class="sd">    the targetProjectPath.</span>
+
+<span class="sd">    After this function is called, the instrument class file and attribute API will be</span>
+<span class="sd">    automatically generated and updated.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    targetPath : str</span>
+<span class="sd">        A terminal command parameter, specify the RiskQuantLib project path you want to build and render.</span>
+<span class="sd">    renderFromPath : str</span>
+<span class="sd">        The path of dictionary of source file used to render target project.</span>
+<span class="sd">    channel : str</span>
+<span class="sd">        render action in this channel will not delete the result of render in other channel</span>
+<span class="sd">        unless it is overwritten by current render.</span>
+<span class="sd">    debug : bool</span>
+<span class="sd">        If false, the break point in Src will not be effective, only break point within instrument class will effect.</span>
+<span class="sd">        If true, the class method defined in Src directory will be dynamically bound to instrument node class.</span>
+<span class="sd">        Then the program will take .py file under .Src directory as a module and import it, bind the class method into</span>
+<span class="sd">        specified class. This mode is useful when your code is still under development. You will not have to change between</span>
+<span class="sd">        ./Src/somecode.py and target instrument class .py file to edit any code error. The break point will stop right</span>
+<span class="sd">        under ./Src/somecode.py.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">renderFromPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;targetPath&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the RiskQuantLib project you want to build automatically&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-r&quot;</span><span class="p">,</span> <span class="s2">&quot;--renderFromPath&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the dictionary of source code where the template code exists&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--channel&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;if given a channel name, render action in this channel will not delete the result of render in other channel unless it is overwritten by current render&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="s2">&quot;--debug&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;use debug mode, break point in Src will start to effect&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">targetPath</span>
+        <span class="n">renderFromPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">renderFromPath</span>
+        <span class="n">channel</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">channel</span>
+        <span class="n">debug</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">debug</span>
+
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">renderFromPath</span> <span class="o">=</span> <span class="n">renderFromPath</span> <span class="k">if</span> <span class="n">renderFromPath</span> <span class="k">else</span> <span class="p">(</span><span class="n">targetPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s2">&quot;Src&quot;</span><span class="p">)</span>
+    <span class="n">bindType</span> <span class="o">=</span> <span class="n">channel</span> <span class="k">if</span> <span class="n">channel</span> <span class="k">else</span> <span class="s1">&#39;renderedSourceCode&#39;</span>
+    <span class="n">rqlPath</span><span class="p">,</span> <span class="n">instrumentExcelPath</span><span class="p">,</span> <span class="n">attributeExcelPath</span><span class="p">,</span> <span class="n">buildCachePath</span> <span class="o">=</span> <span class="n">parseBuildPath</span><span class="p">(</span><span class="n">targetPath</span><span class="p">,</span> <span class="n">checkExist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># The call back function must be a single parameter function</span>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">projectPath</span><span class="o">=</span><span class="n">targetPath</span><span class="p">):</span>
+        <span class="n">buildProjectFromExcel</span><span class="p">(</span><span class="n">targetPath</span><span class="p">,</span><span class="n">buildCachePath</span><span class="p">,</span><span class="n">instrumentExcelPath</span><span class="p">,</span><span class="n">attributeExcelPath</span><span class="p">,</span> <span class="n">renderFromPath</span><span class="p">,</span> <span class="n">bindType</span><span class="p">,</span> <span class="n">debug</span><span class="p">)</span>
+
+    <span class="kn">from</span> <span class="nn">RiskQuantLib.Tool.fileTool</span> <span class="kn">import</span> <span class="n">systemWatcher</span>
+    <span class="n">watchObj</span> <span class="o">=</span> <span class="n">systemWatcher</span><span class="p">([</span><span class="n">instrumentExcelPath</span><span class="p">,</span> <span class="n">attributeExcelPath</span><span class="p">,</span> <span class="n">renderFromPath</span><span class="p">],</span> <span class="n">call_back_function_on_any_change</span><span class="o">=</span><span class="n">build</span><span class="p">)</span>
+    <span class="n">watchObj</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="unBuildProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.unBuildProject">[docs]</a><span class="k">def</span> <span class="nf">unBuildProject</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    unBuildProject() is a function to un-build RiskQuantLib project.</span>
+
+<span class="sd">    Use terminal command &#39;ubldRQL targetProjectPath&#39; to use this function. The project</span>
+<span class="sd">    will be un-built and return to the initial status.</span>
+
+<span class="sd">    After this function is called, the attribute API will be automatically removed, any all registration</span>
+<span class="sd">    of instrument will be deleted. But, python source file will not be deleted until you do it by yourself.</span>
+
+<span class="sd">    After a project is un-built, you can not use instrument directly in main.py or create new instrument</span>
+<span class="sd">    inherited from those un-registered instrument. The file Build_Instrument.xlsx and Build_Attr.xlsx will not be</span>
+<span class="sd">    changed after you call this function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    targetPath : str</span>
+<span class="sd">        A terminal command parameter, specify the RiskQuantLib project path you want to un-build and un-render.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;targetPath&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the RiskQuantLib project you want to un-build&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">targetPath</span>
+
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">rqlPath</span><span class="p">,</span> <span class="n">instrumentExcelPath</span><span class="p">,</span> <span class="n">attributeExcelPath</span><span class="p">,</span> <span class="n">buildCachePath</span> <span class="o">=</span> <span class="n">parseBuildPath</span><span class="p">(</span><span class="n">targetPath</span><span class="p">,</span> <span class="n">checkExist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">RiskQuantLib.Build.builder</span> <span class="kn">import</span> <span class="n">excelBuilder</span>
+    <span class="n">buildObj</span> <span class="o">=</span> <span class="n">excelBuilder</span><span class="o">.</span><span class="n">loadInfo</span><span class="p">(</span><span class="n">buildCachePath</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">buildCachePath</span><span class="p">)</span> <span class="k">else</span> <span class="n">excelBuilder</span><span class="p">(</span><span class="n">targetProjectPath</span><span class="o">=</span><span class="n">targetPath</span><span class="p">)</span>
+    <span class="n">buildObj</span><span class="o">.</span><span class="n">clearProject</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Project un-build finished!&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="persistProject"><a class="viewcode-back" href="../RiskQuantLib.html#RiskQuantLib.persistProject">[docs]</a><span class="k">def</span> <span class="nf">persistProject</span><span class="p">(</span><span class="n">targetPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">renderFromPath</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">channel</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    persistProject() is a function to persist RiskQuantLib project.</span>
+
+<span class="sd">    Use terminal command &#39;pstRQL targetProjectPath&#39; to use this function. The project</span>
+<span class="sd">    will be changed into a permanent project, where all current attribute APIs and instrument registrations</span>
+<span class="sd">    will not be influenced by build.py anymore.</span>
+
+<span class="sd">    This function is like a snapshot of your project, it freezes all effective APIs into permanent ones.</span>
+
+<span class="sd">    Surely, you can still build the persisted project with new Build_Instrument.xlsx and Build_Attr.xlsx file.</span>
+<span class="sd">    Just remember, no matter how many times you build it, the persisted API will remain effective and will not be influenced.</span>
+
+<span class="sd">    This command is used when you want to distribute your project to someone else, but you do not want him to change your</span>
+<span class="sd">    current API. Or this command is used when you are quite sure your current code is stable and can be settled down so that</span>
+<span class="sd">    you can move on to next stage.</span>
+
+<span class="sd">    This function will remove the file Build_Instrument.xlsx and Build_Attr.xlsx and replace them with new ones.</span>
+
+<span class="sd">    This command can not be cancelled or un-done, use it carefully.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    targetPath : str</span>
+<span class="sd">        A terminal command parameter, specify the RiskQuantLib project path you want to persist.</span>
+<span class="sd">    renderFromPath : str</span>
+<span class="sd">        The path of dictionary of source file used to render target project.</span>
+<span class="sd">    channel : str</span>
+<span class="sd">        render action in this channel will not delete the result of render in other channel</span>
+<span class="sd">        unless it is overwritten by current render.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">targetPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">renderFromPath</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;targetPath&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the RiskQuantLib project whose code you want to change into permanent&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-r&quot;</span><span class="p">,</span> <span class="s2">&quot;--renderFromPath&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;the dictionary of source code where the template code exists&quot;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--channel&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;if given a channel name, render action in this channel will not delete the result of render in other channel unless it is overwritten by current render&quot;</span><span class="p">)</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+        <span class="n">targetPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">targetPath</span>
+        <span class="n">renderFromPath</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">renderFromPath</span>
+        <span class="n">channel</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">channel</span>
+
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">rqlPath</span><span class="p">,</span> <span class="n">instrumentExcelPath</span><span class="p">,</span> <span class="n">attributeExcelPath</span><span class="p">,</span> <span class="n">buildCachePath</span> <span class="o">=</span> <span class="n">parseBuildPath</span><span class="p">(</span><span class="n">targetPath</span><span class="p">,</span> <span class="n">checkExist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">renderFromPath</span> <span class="o">=</span> <span class="n">renderFromPath</span> <span class="k">if</span> <span class="n">renderFromPath</span> <span class="k">else</span> <span class="p">(</span><span class="n">targetPath</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s2">&quot;Src&quot;</span><span class="p">)</span>
+    <span class="n">bindType</span> <span class="o">=</span> <span class="n">channel</span> <span class="k">if</span> <span class="n">channel</span> <span class="k">else</span> <span class="s1">&#39;renderedSourceCode&#39;</span>
+    <span class="n">confirm</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;This action can not be Un-Done or Cancelled, do you confirm to continue? (y/n)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">confirm</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;y&#39;</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">RiskQuantLib.Build.builder</span> <span class="kn">import</span> <span class="n">excelBuilder</span>
+        <span class="n">buildObj</span> <span class="o">=</span> <span class="n">excelBuilder</span><span class="o">.</span><span class="n">loadInfo</span><span class="p">(</span><span class="n">buildCachePath</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">buildCachePath</span><span class="p">)</span> <span class="k">else</span> <span class="n">excelBuilder</span><span class="p">(</span><span class="n">targetProjectPath</span><span class="o">=</span><span class="n">targetPath</span><span class="p">)</span>
+        <span class="n">buildObj</span><span class="o">.</span><span class="n">persistProject</span><span class="p">(</span><span class="n">sourceCodeDirPath</span><span class="o">=</span><span class="n">renderFromPath</span><span class="p">,</span><span class="n">bindType</span><span class="o">=</span><span class="n">bindType</span><span class="p">)</span>
+        <span class="n">dfAttr</span> <span class="o">=</span> <span class="n">initiateAttributeFile</span><span class="p">()</span>
+        <span class="n">dfInstrument</span> <span class="o">=</span> <span class="n">initiateInstrumentFile</span><span class="p">()</span>
+        <span class="n">dfAttr</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">attributeExcelPath</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">dfInstrument</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">instrumentExcelPath</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Project persisted!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Action cancelled, nothing changed!&quot;</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

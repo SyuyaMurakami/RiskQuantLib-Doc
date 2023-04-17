@@ -4,7 +4,7 @@ Variable Type
 .. toctree::
    :maxdepth: 4
 
-Variable is the type of attribute, ususally it should be ``String``, ``Number``, ``Series``, ``Any``. However, RiskQuantLib allows to build your own variable type, for example, ``List``, or ``Blank``, or whatever you like.
+Variable is the type of attribute, ususally it should be ``string``, ``number``, ``series``, ``any``. However, RiskQuantLib allows to build your own variable type, for example, ``timeList``, or ``blank``, or whatever you like.
 
 This is a powerful design when you deal with some complicated situations. Somtimes, you may wonder why list in python doesn't have ``reduce`` function any more, or you want to reload the ``__add__`` function of list so that list objects can be added as you like. In RiskQuantLib, this is done by defining your own variable type class.
 
@@ -13,23 +13,23 @@ The way to build your own type is to use ``Build_Attr.xlsx``, remember we have a
 +--------------+-------------------+----------------+
 | SecurityType |    AttrName       |    AttrType    |
 +==============+===================+================+
-|     Fund     | yourAttribute     |     Number     |
+|     fund     | yourAttribute     |     number     |
 +--------------+-------------------+----------------+
-|     Stock    | anotherAttribute  |     String     |
+|     stock    | anotherAttribute  |     string     |
 +--------------+-------------------+----------------+
 |     ...      |         ...       |       ...      |
 +--------------+-------------------+----------------+
 
-In the column named *AttrType*, you specified variable type of *yourAttribute* is ``Number``, and variable type of *anotherAttribute* is ``String``. Now, we want to create a type named ``yourNewType``, and let variable type of *anotherAttribute* be ``yourNewType``. All we need to do is to change ``String`` to ``yourNewType``, and run ``build.py``, which is in your project root path.
+In the column named *AttrType*, you specified variable type of *yourAttribute* is ``number``, and variable type of *anotherAttribute* is ``string``. Now, we want to create a type named ``yourNewType``, and let variable type of *anotherAttribute* be ``yourNewType``. All we need to do is to change ``string`` to ``yourNewType``, and run ``build.py``, which is in your project root path.
 
 The modified file should look like:
 
 +--------------+-------------------+----------------+
 | SecurityType |    AttrName       |    AttrType    |
 +==============+===================+================+
-|     Fund     | yourAttribute     |     Number     |
+|     fund     | yourAttribute     |     number     |
 +--------------+-------------------+----------------+
-|     Stock    | anotherAttribute  |  yourNewType   |
+|     stock    | anotherAttribute  |  yourNewType   |
 +--------------+-------------------+----------------+
 |     ...      |         ...       |       ...      |
 +--------------+-------------------+----------------+

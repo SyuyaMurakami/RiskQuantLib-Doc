@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Tool.mathTool &mdash; RiskQuantLib 0.0.24 documentation</title>
+  <title>RiskQuantLib.Tool.mathTool &mdash; RiskQuantLib 0.2.9 documentation</title>
   
 
   
@@ -92,6 +92,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../modules.html">RiskQuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Install.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Create_Project.html">Create A New Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Build_Project.html">Build Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument.html">Instrument</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Instrument_List.html">Instrument List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tool.html">Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project_Management.html">Project Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Variable_Type.html">Variable Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_QuantLib.html">With QuantLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_Pandas.html">With Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../With_ORM.html">With ORM</a></li>
 </ul>
 
             
@@ -164,119 +173,122 @@
 <span class="c1">#coding = utf-8</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1">#&lt;import&gt;</span>
+<span class="c1">#&lt;/import&gt;</span>
 
 <div class="viewcode-block" id="percentageOfSeries"><a class="viewcode-back" href="../../../RiskQuantLib.Tool.html#RiskQuantLib.Tool.mathTool.percentageOfSeries">[docs]</a><span class="k">def</span> <span class="nf">percentageOfSeries</span><span class="p">(</span><span class="n">dataList</span><span class="p">:</span><span class="nb">list</span><span class="p">,</span><span class="n">percentage</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span>
-	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	This function returns the percentage of a list.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns the percentage of a list.</span>
 
-<span class="sd">	Parameters</span>
-<span class="sd">	----------</span>
-<span class="sd">	dataList : list</span>
-<span class="sd">		The list holding data</span>
-<span class="sd">	percentage : float</span>
-<span class="sd">		The percentage number. 99 means 99% percentage.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataList : list</span>
+<span class="sd">        The list holding data</span>
+<span class="sd">    percentage : float</span>
+<span class="sd">        The percentage number. 99 means 99% percentage.</span>
 
-<span class="sd">	Returns</span>
-<span class="sd">	-------</span>
-<span class="sd">	None</span>
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataList</span><span class="p">)</span>
-	<span class="n">sortedData</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dataList</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">sortedData</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">percentage</span><span class="o">/</span><span class="mi">100</span><span class="o">*</span><span class="n">length</span><span class="p">)]</span></div>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataList</span><span class="p">)</span>
+    <span class="n">sortedData</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dataList</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sortedData</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">percentage</span><span class="o">/</span><span class="mi">100</span><span class="o">*</span><span class="n">length</span><span class="p">)]</span></div>
 
 <div class="viewcode-block" id="interP1d"><a class="viewcode-back" href="../../../RiskQuantLib.Tool.html#RiskQuantLib.Tool.mathTool.interP1d">[docs]</a><span class="k">def</span> <span class="nf">interP1d</span><span class="p">(</span><span class="n">xList</span><span class="p">:</span><span class="nb">list</span><span class="p">,</span><span class="n">yList</span><span class="p">:</span><span class="nb">list</span><span class="p">,</span><span class="n">Kind</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">):</span>
-	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	This function returns a cubic interpolate of two lists.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns a cubic interpolate of two lists.</span>
 
-<span class="sd">	Parameters</span>
-<span class="sd">	----------</span>
-<span class="sd">	xList : list</span>
-<span class="sd">		The X list</span>
-<span class="sd">	yList : list</span>
-<span class="sd">		The Y list</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xList : list</span>
+<span class="sd">        The X list</span>
+<span class="sd">    yList : list</span>
+<span class="sd">        The Y list</span>
 
-<span class="sd">	Returns</span>
-<span class="sd">	-------</span>
-<span class="sd">	model : object</span>
-<span class="sd">		The scipy model.</span>
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
-	<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xList</span><span class="p">)</span>
-	<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">yList</span><span class="p">)</span>
-	<span class="n">model</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">Kind</span><span class="p">,</span><span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;extrapolate&#39;</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">model</span></div>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    model : object</span>
+<span class="sd">        The scipy model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xList</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">yList</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="n">Kind</span><span class="p">,</span><span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;extrapolate&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span></div>
 
 <div class="viewcode-block" id="linearRegression"><a class="viewcode-back" href="../../../RiskQuantLib.Tool.html#RiskQuantLib.Tool.mathTool.linearRegression">[docs]</a><span class="k">def</span> <span class="nf">linearRegression</span><span class="p">(</span><span class="n">xList</span><span class="p">:</span><span class="nb">list</span><span class="p">,</span><span class="n">yList</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
-	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	This function returns a linear regression of two lists.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns a linear regression of two lists.</span>
 
-<span class="sd">	Parameters</span>
-<span class="sd">	----------</span>
-<span class="sd">	xList : list</span>
-<span class="sd">		The X list</span>
-<span class="sd">	yList : list</span>
-<span class="sd">		The Y list</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xList : list</span>
+<span class="sd">        The X list</span>
+<span class="sd">    yList : list</span>
+<span class="sd">        The Y list</span>
 
-<span class="sd">	Returns</span>
-<span class="sd">	-------</span>
-<span class="sd">	model : object</span>
-<span class="sd">		The scipy model.</span>
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-	<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xList</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-	<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">yList</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    model : object</span>
+<span class="sd">        The scipy model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xList</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">yList</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-	<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-	<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-	<span class="k">return</span> <span class="n">model</span></div>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span></div>
 
 <div class="viewcode-block" id="maxDropDown"><a class="viewcode-back" href="../../../RiskQuantLib.Tool.html#RiskQuantLib.Tool.mathTool.maxDropDown">[docs]</a><span class="k">def</span> <span class="nf">maxDropDown</span><span class="p">(</span><span class="n">dataList</span><span class="p">:</span><span class="nb">list</span><span class="p">,</span><span class="n">valueType</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Relative&#39;</span><span class="p">):</span>
-	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	This function returns a max dropdown of given list.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns a max dropdown of given list.</span>
 
-<span class="sd">	Parameters</span>
-<span class="sd">	----------</span>
-<span class="sd">	dataList : list</span>
-<span class="sd">		The data list</span>
-<span class="sd">	valueType : str</span>
-<span class="sd">		The drop down type. &#39;Relative&#39; or &#39;Absolute&#39; can be used.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataList : list</span>
+<span class="sd">        The data list</span>
+<span class="sd">    valueType : str</span>
+<span class="sd">        The drop down type. &#39;Relative&#39; or &#39;Absolute&#39; can be used.</span>
 
-<span class="sd">	Returns</span>
-<span class="sd">	-------</span>
-<span class="sd">	model : np.float</span>
-<span class="sd">		The max drop down of given data.</span>
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="n">dropDownList</span> <span class="o">=</span> <span class="p">[]</span>
-	<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataList</span><span class="p">):</span>
-		<span class="n">historySeries</span> <span class="o">=</span> <span class="n">dataList</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-		<span class="k">if</span> <span class="n">valueType</span> <span class="o">==</span> <span class="s1">&#39;Relative&#39;</span><span class="p">:</span>
-			<span class="n">dropDownList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">historySeries</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
-		<span class="k">elif</span> <span class="n">valueType</span> <span class="o">==</span> <span class="s1">&#39;Absolute&#39;</span><span class="p">:</span>
-			<span class="n">dropDownList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">historySeries</span><span class="p">)]))</span>
-		<span class="k">else</span><span class="p">:</span>
-			<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;valueType can only be Relative or Absolute&quot;</span><span class="p">)</span>
-			<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-	<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">dropDownList</span><span class="p">)</span></div>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    model : np.float</span>
+<span class="sd">        The max drop down of given data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dropDownList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataList</span><span class="p">):</span>
+        <span class="n">historySeries</span> <span class="o">=</span> <span class="n">dataList</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">valueType</span> <span class="o">==</span> <span class="s1">&#39;Relative&#39;</span><span class="p">:</span>
+            <span class="n">dropDownList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">historySeries</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">elif</span> <span class="n">valueType</span> <span class="o">==</span> <span class="s1">&#39;Absolute&#39;</span><span class="p">:</span>
+            <span class="n">dropDownList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">historySeries</span><span class="p">)]))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;valueType can only be Relative or Absolute&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">dropDownList</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="isnan"><a class="viewcode-back" href="../../../RiskQuantLib.Tool.html#RiskQuantLib.Tool.mathTool.isnan">[docs]</a><span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	This function returns a bool value of given data.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns a bool value of given data.</span>
 
-<span class="sd">	Parameters</span>
-<span class="sd">	----------</span>
-<span class="sd">	x : Any</span>
-<span class="sd">		This is the data you want to tell whether it is a nan.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : Any</span>
+<span class="sd">        This is the data you want to tell whether it is a nan.</span>
 
-<span class="sd">	Returns</span>
-<span class="sd">	-------</span>
-<span class="sd">	bool</span>
-<span class="sd">	&quot;&quot;&quot;</span>
-	<span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-		<span class="k">return</span> <span class="kc">True</span>
-	<span class="k">else</span><span class="p">:</span>
-		<span class="k">return</span> <span class="kc">False</span></div>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
 
-
+<span class="c1">#&lt;mathTool&gt;</span>
+<span class="c1">#&lt;/mathTool&gt;</span>
 
 
 

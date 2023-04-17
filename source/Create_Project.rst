@@ -18,6 +18,7 @@ After this command, your dictionary should looks like:
 
    --your_project_path
      --RiskQuantLib
+     --Src
      --build.py
      --main.py
      --Build_Attr.xlsx

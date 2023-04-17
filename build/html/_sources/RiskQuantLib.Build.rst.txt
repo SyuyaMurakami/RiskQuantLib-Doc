@@ -1,101 +1,53 @@
 RiskQuantLib.Build package
 ==========================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   RiskQuantLib.Build.Component
+
 Submodules
 ----------
 
-RiskQuantLib.Build.build module
--------------------------------
-
-.. automodule:: RiskQuantLib.Build.build
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-RiskQuantLib.Build.buildFuction module
---------------------------------------
-
-.. automodule:: RiskQuantLib.Build.buildFuction
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-RiskQuantLib.Build.buildInstrument module
------------------------------------------
-
-.. automodule:: RiskQuantLib.Build.buildInstrument
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-RiskQuantLib.Build.buildPropertyType module
--------------------------------------------
-
-.. automodule:: RiskQuantLib.Build.buildPropertyType
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-RiskQuantLib.Build.buildShortcut module
----------------------------------------
-
-.. automodule:: RiskQuantLib.Build.buildShortcut
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-RiskQuantLib.Build.instrumentList module
-----------------------------------------
-
-.. automodule:: RiskQuantLib.Build.instrumentList
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-RiskQuantLib.Build.instrumentObj module
----------------------------------------
-
-.. automodule:: RiskQuantLib.Build.instrumentObj
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-RiskQuantLib.Build.pathObj module
+RiskQuantLib.Build.builder module
 ---------------------------------
 
-.. automodule:: RiskQuantLib.Build.pathObj
+.. automodule:: RiskQuantLib.Build.builder
    :members:
    :undoc-members:
    :show-inheritance:
 
-RiskQuantLib.Build.propertyList module
---------------------------------------
+RiskQuantLib.Build.debugger module
+----------------------------------
 
-.. automodule:: RiskQuantLib.Build.propertyList
+.. automodule:: RiskQuantLib.Build.debugger
    :members:
    :undoc-members:
    :show-inheritance:
 
-RiskQuantLib.Build.propertyObj module
--------------------------------------
+RiskQuantLib.Build.render module
+--------------------------------
 
-.. automodule:: RiskQuantLib.Build.propertyObj
+.. automodule:: RiskQuantLib.Build.render
    :members:
    :undoc-members:
    :show-inheritance:
 
-RiskQuantLib.Build.propertyTypeList module
-------------------------------------------
+RiskQuantLib.Build.router module
+--------------------------------
 
-.. automodule:: RiskQuantLib.Build.propertyTypeList
+.. automodule:: RiskQuantLib.Build.router
    :members:
    :undoc-members:
    :show-inheritance:
 
-RiskQuantLib.Build.propertyTypeObj module
------------------------------------------
+RiskQuantLib.Build.tree module
+------------------------------
 
-.. automodule:: RiskQuantLib.Build.propertyTypeObj
+.. automodule:: RiskQuantLib.Build.tree
    :members:
    :undoc-members:
    :show-inheritance:

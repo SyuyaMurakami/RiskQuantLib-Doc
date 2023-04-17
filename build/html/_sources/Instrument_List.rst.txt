@@ -10,7 +10,7 @@ Any ``Instrument List`` has an atrribute named ``all`` to hold its elements. It 
 
 ``Instrument List`` allows duplicate elements. You can add one element twice.
 
-Usually, ``Instrument List`` will inherit from ``RiskQuantLib.Operation.listBaseOperation.listBase``, which is a class containing all kinds of operations that can be done to list. You can read `Operation Of List <https://riskquantlib-doc.readthedocs.io/en/latest/RiskQuantLib.Operation.html#module-RiskQuantLib.Operation.listBaseOperation>`_ to know details.
+Usually, ``Instrument List`` will inherit from ``RiskQuantLib.Operation.operation.operation``, which is a class containing all kinds of operations that can be done to list. You can read `Operation Of List <https://riskquantlib-doc.readthedocs.io/en/latest/RiskQuantLib.Operation.html#module-RiskQuantLib.Operation.operation>`_ to know details.
 
 Useful functions of instrument list includes ``groupBy``, ``filter``, ``execFunc``, ``apply``, ``join``, ``merge``, ``sort``, etc.
 
@@ -89,7 +89,7 @@ After this, all elements in B will be added to A or deleted from A. However, any
 Iteration
 ^^^^^^^^^
 
-If ``rqlListA`` is a stockList, and in ``RiskQuantLib.Security.Stock.stock``, you defined an attribute function like:
+If ``rqlListA`` is a stockList, and in ``RiskQuantLib.Instrument.Security.Stock.stock``, you defined an attribute function like:
 ::
 
    class stock(base):

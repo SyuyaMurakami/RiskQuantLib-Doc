@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Property package &mdash; RiskQuantLib 0.0.32 documentation</title>
+  <title>RiskQuantLib.Property package &mdash; RiskQuantLib 0.2.9 documentation</title>
   
 
   
@@ -43,7 +43,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="RiskQuantLib.Property.Amount package" href="RiskQuantLib.Property.Amount.html" />
+    <link rel="next" title="RiskQuantLib.Tool package" href="RiskQuantLib.Tool.html" />
     <link rel="prev" title="RiskQuantLib.Operation package" href="RiskQuantLib.Operation.html" /> 
 </head>
 
@@ -94,24 +94,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">RiskQuantLib</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="RiskQuantLib.html">RiskQuantLib package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="RiskQuantLib.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Auto.html">RiskQuantLib.Auto package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Build.html">RiskQuantLib.Build package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Company.html">RiskQuantLib.Company package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.CompanyList.html">RiskQuantLib.CompanyList package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.DataInputAPI.html">RiskQuantLib.DataInputAPI package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Index.html">RiskQuantLib.Index package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.IndexList.html">RiskQuantLib.IndexList package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.InterestRate.html">RiskQuantLib.InterestRate package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Instrument.html">RiskQuantLib.Instrument package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.InstrumentList.html">RiskQuantLib.InstrumentList package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Model.html">RiskQuantLib.Model package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Operation.html">RiskQuantLib.Operation package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">RiskQuantLib.Property package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Security.html">RiskQuantLib.Security package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.SecurityList.html">RiskQuantLib.SecurityList package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Set.html">RiskQuantLib.Set package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Tool.html">RiskQuantLib.Tool package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib.Module">RiskQuantLib.Module module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib.module">RiskQuantLib.module module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib">Module contents</a></li>
 </ul>
 </li>
@@ -223,147 +217,35 @@
 </style>
 <div class="section" id="riskquantlib-property-package">
 <h1>RiskQuantLib.Property package<a class="headerlink" href="#riskquantlib-property-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.Amount.html">RiskQuantLib.Property.Amount package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Amount.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Amount.html#module-RiskQuantLib.Property.Amount.amount">RiskQuantLib.Property.Amount.amount module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Amount.html#module-RiskQuantLib.Property.Amount.averageAmount">RiskQuantLib.Property.Amount.averageAmount module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Amount.html#module-RiskQuantLib.Property.Amount">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.Aum.html">RiskQuantLib.Property.Aum package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Aum.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Aum.html#module-RiskQuantLib.Property.Aum.aum">RiskQuantLib.Property.Aum.aum module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Aum.html#module-RiskQuantLib.Property.Aum">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.Beta.html">RiskQuantLib.Property.Beta package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Beta.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Beta.html#module-RiskQuantLib.Property.Beta.beta">RiskQuantLib.Property.Beta.beta module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Beta.html#module-RiskQuantLib.Property.Beta">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.Cost.html">RiskQuantLib.Property.Cost package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Cost.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Cost.html#module-RiskQuantLib.Property.Cost.averageCost">RiskQuantLib.Property.Cost.averageCost module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Cost.html#module-RiskQuantLib.Property.Cost.cost">RiskQuantLib.Property.Cost.cost module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Cost.html#module-RiskQuantLib.Property.Cost">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.Duration.html">RiskQuantLib.Property.Duration package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Duration.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Duration.html#module-RiskQuantLib.Property.Duration.duration">RiskQuantLib.Property.Duration.duration module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Duration.html#module-RiskQuantLib.Property.Duration.macaulayDuration">RiskQuantLib.Property.Duration.macaulayDuration module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Duration.html#module-RiskQuantLib.Property.Duration.modifiedDuration">RiskQuantLib.Property.Duration.modifiedDuration module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Duration.html#module-RiskQuantLib.Property.Duration">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.Dv01.html">RiskQuantLib.Property.Dv01 package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Dv01.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Dv01.html#module-RiskQuantLib.Property.Dv01.dv01">RiskQuantLib.Property.Dv01.dv01 module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Dv01.html#module-RiskQuantLib.Property.Dv01">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.FaceValue.html">RiskQuantLib.Property.FaceValue package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.FaceValue.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.FaceValue.html#module-RiskQuantLib.Property.FaceValue.faceValue">RiskQuantLib.Property.FaceValue.faceValue module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.FaceValue.html#module-RiskQuantLib.Property.FaceValue">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.InterestRate.html">RiskQuantLib.Property.InterestRate package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.InterestRate.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.InterestRate.html#module-RiskQuantLib.Property.InterestRate.interestRate">RiskQuantLib.Property.InterestRate.interestRate module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.InterestRate.html#module-RiskQuantLib.Property.InterestRate">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.MarketValue.html">RiskQuantLib.Property.MarketValue package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.MarketValue.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.MarketValue.html#module-RiskQuantLib.Property.MarketValue.averageMarketValue">RiskQuantLib.Property.MarketValue.averageMarketValue module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.MarketValue.html#module-RiskQuantLib.Property.MarketValue.marketValue">RiskQuantLib.Property.MarketValue.marketValue module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.MarketValue.html#module-RiskQuantLib.Property.MarketValue">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.Nav.html">RiskQuantLib.Property.Nav package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Nav.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Nav.html#module-RiskQuantLib.Property.Nav.nav">RiskQuantLib.Property.Nav.nav module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Nav.html#module-RiskQuantLib.Property.Nav">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.NumberProperty.html">RiskQuantLib.Property.NumberProperty package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.NumberProperty.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.NumberProperty.html#module-RiskQuantLib.Property.NumberProperty.numberProperty">RiskQuantLib.Property.NumberProperty.numberProperty module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.NumberProperty.html#module-RiskQuantLib.Property.NumberProperty">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.Price.html">RiskQuantLib.Property.Price package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Price.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Price.html#module-RiskQuantLib.Property.Price.price">RiskQuantLib.Property.Price.price module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Price.html#module-RiskQuantLib.Property.Price">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.ProfitAndLoss.html">RiskQuantLib.Property.ProfitAndLoss package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.ProfitAndLoss.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.ProfitAndLoss.html#module-RiskQuantLib.Property.ProfitAndLoss.profitAndLoss">RiskQuantLib.Property.ProfitAndLoss.profitAndLoss module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.ProfitAndLoss.html#module-RiskQuantLib.Property.ProfitAndLoss">Module contents</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="RiskQuantLib.Property.Weight.html">RiskQuantLib.Property.Weight package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Weight.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Weight.html#module-RiskQuantLib.Property.Weight.weight">RiskQuantLib.Property.Weight.weight module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Property.Weight.html#module-RiskQuantLib.Property.Weight">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-RiskQuantLib.Property.average">
-<span id="riskquantlib-property-average-module"></span><h2>RiskQuantLib.Property.average module<a class="headerlink" href="#module-RiskQuantLib.Property.average" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-RiskQuantLib.Property.property">
+<span id="riskquantlib-property-property-module"></span><h2>RiskQuantLib.Property.property module<a class="headerlink" href="#module-RiskQuantLib.Property.property" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="RiskQuantLib.Property.average.average">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numberOfSamplesNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/average.html#average"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.average.average" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>This is the base class of average. Inherit from this class will make
-attribute into the average version.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Property.average.average.setNumberOfSamples">
-<span class="sig-name descname"><span class="pre">setNumberOfSamples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numberOfSamplesNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/average.html#average.setNumberOfSamples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.average.average.setNumberOfSamples" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-RiskQuantLib.Property.base">
-<span id="riskquantlib-property-base-module"></span><h2>RiskQuantLib.Property.base module<a class="headerlink" href="#module-RiskQuantLib.Property.base" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="RiskQuantLib.Property.base.base">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">base</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/base.html#base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.base.base" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dt class="sig sig-object py" id="RiskQuantLib.Property.property.property">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/property.html#property"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.property.property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This is the basic class of any kind of attribute, except string. Any attribute
 should have an effective date.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Property.base.base.commit">
-<span class="sig-name descname"><span class="pre">commit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/base.html#base.commit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.base.base.commit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.Property.property.property.commit">
+<span class="sig-name descname"><span class="pre">commit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/property.html#property.commit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.property.property.commit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Property.base.base.setBelongTo">
-<span class="sig-name descname"><span class="pre">setBelongTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">belongToObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">belongToAttrName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/base.html#base.setBelongTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.base.base.setBelongTo" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.Property.property.property.setBelongTo">
+<span class="sig-name descname"><span class="pre">setBelongTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">belongToObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">belongToAttrName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/property.html#property.setBelongTo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.property.property.setBelongTo" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Property.base.base.setEffectiveDate">
-<span class="sig-name descname"><span class="pre">setEffectiveDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">effectiveDateTimeStamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/base.html#base.setEffectiveDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.base.base.setEffectiveDate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.Property.property.property.setEffectiveDate">
+<span class="sig-name descname"><span class="pre">setEffectiveDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">effectiveDateTimeStamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/property.html#property.setEffectiveDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.property.property.setEffectiveDate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Property.base.base.setValue">
-<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/base.html#base.setValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.base.base.setValue" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.Property.property.property.setValue">
+<span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Property/property.html#property.setValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Property.property.property.setValue" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -380,7 +262,7 @@ should have an effective date.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="RiskQuantLib.Property.Amount.html" class="btn btn-neutral float-right" title="RiskQuantLib.Property.Amount package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="RiskQuantLib.Tool.html" class="btn btn-neutral float-right" title="RiskQuantLib.Tool package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="RiskQuantLib.Operation.html" class="btn btn-neutral float-left" title="RiskQuantLib.Operation package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

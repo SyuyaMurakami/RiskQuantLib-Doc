@@ -12,18 +12,18 @@ RiskQuantLib.Operation.iloc module
    :undoc-members:
    :show-inheritance:
 
-RiskQuantLib.Operation.listBaseOperation module
------------------------------------------------
-
-.. automodule:: RiskQuantLib.Operation.listBaseOperation
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 RiskQuantLib.Operation.loc module
 ---------------------------------
 
 .. automodule:: RiskQuantLib.Operation.loc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+RiskQuantLib.Operation.operation module
+---------------------------------------
+
+.. automodule:: RiskQuantLib.Operation.operation
    :members:
    :undoc-members:
    :show-inheritance:

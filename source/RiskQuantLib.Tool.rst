@@ -28,10 +28,26 @@ RiskQuantLib.Tool.databaseTool module
    :undoc-members:
    :show-inheritance:
 
+RiskQuantLib.Tool.excelTool module
+----------------------------------
+
+.. automodule:: RiskQuantLib.Tool.excelTool
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 RiskQuantLib.Tool.fileTool module
 ---------------------------------
 
 .. automodule:: RiskQuantLib.Tool.fileTool
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+RiskQuantLib.Tool.githubTool module
+-----------------------------------
+
+.. automodule:: RiskQuantLib.Tool.githubTool
    :members:
    :undoc-members:
    :show-inheritance:
@@ -60,14 +76,6 @@ RiskQuantLib.Tool.outlookTool module
    :undoc-members:
    :show-inheritance:
 
-RiskQuantLib.Tool.parallelComputingTool module
-----------------------------------------------
-
-.. automodule:: RiskQuantLib.Tool.parallelComputingTool
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 RiskQuantLib.Tool.plotTool module
 ---------------------------------
 
@@ -76,10 +84,26 @@ RiskQuantLib.Tool.plotTool module
    :undoc-members:
    :show-inheritance:
 
+RiskQuantLib.Tool.pptTool module
+--------------------------------
+
+.. automodule:: RiskQuantLib.Tool.pptTool
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 RiskQuantLib.Tool.strTool module
 --------------------------------
 
 .. automodule:: RiskQuantLib.Tool.strTool
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+RiskQuantLib.Tool.wordTool module
+---------------------------------
+
+.. automodule:: RiskQuantLib.Tool.wordTool
    :members:
    :undoc-members:
    :show-inheritance:

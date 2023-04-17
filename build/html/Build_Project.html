@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Build Your Project &mdash; RiskQuantLib 0.0.32 documentation</title>
+  <title>Build Your Project &mdash; RiskQuantLib 0.2.9 documentation</title>
   
 
   
@@ -96,6 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Create_Project.html">Create A New Project</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Build Your Project</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#riskquantlib">RiskQuantLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#src">Src</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-instrument-xlsx">Build_Instrument.xlsx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-attr-xlsx">Build_Attr.xlsx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-py">build.py</a></li>
@@ -206,10 +207,11 @@
 <p>After create a project, you should build it to suit for your mission. By <code class="docutils literal notranslate"><span class="pre">Build</span></code>, RiskQuantLib will generate python source code automatically. It is the core conception of RiskQuantLib. Before moving on, let specify some definition in RiskQuantLib:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Build</span></code> means generate source code automatically.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Instrument</span></code> means any class you will use in your mission. For financial analysis, <code class="docutils literal notranslate"><span class="pre">Instrument</span></code> refers to stock, bond or other security type, or like interest rate or company, etc.</p>
-<p>Then we start to build our first project. The critical thing is to tell RiskQuantLib how to build it. This is done by specify key word in <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> and <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code>, which you can find in your project root dictionary once you create a project. The content of building will be written into <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Set</span></code>.</p>
+<p>Then we start to build our first project. The critical thing is to tell RiskQuantLib how to build it. This is done by specify key word in <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> and <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code>, which you can find in your project root dictionary once you create a project. The content of building will be written into <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Auto</span></code>.</p>
 <p>In last chapter we create a project, it looks like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">your_project_path</span>
   <span class="o">--</span><span class="n">RiskQuantLib</span>
+  <span class="o">--</span><span class="n">Src</span>
   <span class="o">--</span><span class="n">build</span><span class="o">.</span><span class="n">py</span>
   <span class="o">--</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
   <span class="o">--</span><span class="n">Build_Attr</span><span class="o">.</span><span class="n">xlsx</span>
@@ -221,24 +223,41 @@
 <h2>RiskQuantLib<a class="headerlink" href="#riskquantlib" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">RiskQuantLib</span></code> is a dictionary holding all source files of RiskQuantLib, it looks like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">RiskQuantLib</span>
+  <span class="o">--</span><span class="n">Auto</span>
   <span class="o">--</span><span class="n">Build</span>
-  <span class="o">--</span><span class="n">Company</span>
-  <span class="o">--</span><span class="n">CompanyList</span>
-  <span class="o">--</span><span class="n">DataInputAPI</span>
-  <span class="o">--</span><span class="n">Index</span>
-  <span class="o">--</span><span class="n">IndexList</span>
-  <span class="o">--</span><span class="n">InterestRate</span>
+  <span class="o">--</span><span class="n">Instrument</span>
+  <span class="o">--</span><span class="n">InstrumentList</span>
   <span class="o">--</span><span class="n">Model</span>
   <span class="o">--</span><span class="n">Operation</span>
   <span class="o">--</span><span class="n">Property</span>
-  <span class="o">--</span><span class="n">Security</span>
-  <span class="o">--</span><span class="n">SecurityList</span>
-  <span class="o">--</span><span class="n">Set</span>
   <span class="o">--</span><span class="n">Tool</span>
   <span class="o">--</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
-  <span class="o">--</span><span class="n">Module</span><span class="o">.</span><span class="n">py</span>
+  <span class="o">--</span><span class="n">module</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="src">
+<h2>Src<a class="headerlink" href="#src" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Src</span></code> is a dictionary holding all source files that is needed in your project. You can leave <code class="docutils literal notranslate"><span class="pre">Src</span></code> alone and never use it. It won’t influence your project at all. Or you can put any python source code in it, run or import them as you always know in python, RiskQuantLib is also cool with that. However, if you want to try some new things, <code class="docutils literal notranslate"><span class="pre">Src</span></code> will give you a great way to manage your code.</p>
+<p><strong>In short, any code in</strong> <code class="docutils literal notranslate"><span class="pre">Src</span></code> <strong>can be parsed by RiskQuantLib according to the comment in source code, the control comment syntax will help to generate python code as you wish.</strong></p>
+<p>The most simple way to control your code is to tell RiskQuantLib where they should be insert. You can insert any code into any position of any file as long as this file is under <code class="docutils literal notranslate"><span class="pre">RiskQuantLib</span></code> directory. If you want to do this, use <code class="docutils literal notranslate"><span class="pre">#-&gt;</span></code> control comment.</p>
+<p>For example, you have a instrument class named as <code class="docutils literal notranslate"><span class="pre">stock</span></code>, and you want to add a class method to append a string <code class="docutils literal notranslate"><span class="pre">_hello</span></code> after the <code class="docutils literal notranslate"><span class="pre">name</span></code> attribute, and mark the value as a new attribute named as <code class="docutils literal notranslate"><span class="pre">greeting</span></code>. You can go to <code class="docutils literal notranslate"><span class="pre">RiskQuantLib/Instrument/Security/Stock.stock.py</span></code> to add this function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sayHello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">greeting</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_hello&quot;</span>
+</pre></div>
+</div>
+<p>This is usually what we do. But with <code class="docutils literal notranslate"><span class="pre">Src</span></code>, you can do it another way. First, create a file named <code class="docutils literal notranslate"><span class="pre">greeting.py</span></code> under <code class="docutils literal notranslate"><span class="pre">Src</span></code>, then open it and write:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#-&gt;stock</span>
+<span class="k">def</span> <span class="nf">sayHello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">greeting</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_hello&quot;</span>
+</pre></div>
+</div>
+<p>Then close this file and open your terminal, change working directory into current project, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>And this function will be inserted into <code class="docutils literal notranslate"><span class="pre">RiskQuantLib/Instrument/Security/Stock.stock.py</span></code> automatically. Cool, isn’t it?</p>
+<p><strong>For the automatically generated instrument by RiskQuantLib, use instrument name will be enough to specify a target destination, like</strong> <code class="docutils literal notranslate"><span class="pre">#-&gt;stock</span></code>. <strong>But if you create the source file by yourself, you should use the absolute import path to tell RiskQuantLib where this file is, like:</strong> <code class="docutils literal notranslate"><span class="pre">#-&gt;RiskQuantLib.Instrument.Security.Stock.stock</span></code></p>
 </div>
 <div class="section" id="build-instrument-xlsx">
 <h2>Build_Instrument.xlsx<a class="headerlink" href="#build-instrument-xlsx" title="Permalink to this headline">¶</a></h2>
@@ -274,9 +293,8 @@
 </tr>
 </tbody>
 </table>
-<p>The <em>InstrumentName</em> column can be defined by your will, depending on your data. RiskQuantLib will create instrument class source file <code class="docutils literal notranslate"><span class="pre">treasureBond.py</span></code> under <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Security.Bond.TreasureBond</span></code>, and create list class source file <code class="docutils literal notranslate"><span class="pre">treasureBondList.py</span></code> under  <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.SecurityList.BondList.TreasureBondList</span></code> after your run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">build.py</span></code>.</p>
+<p>The <em>InstrumentName</em> column can be defined by your will, depending on your data. RiskQuantLib will create instrument class source file <code class="docutils literal notranslate"><span class="pre">treasureBond.py</span></code> under <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Instrument.Security.Bond.TreasureBond</span></code>, and create list class source file <code class="docutils literal notranslate"><span class="pre">treasureBondList.py</span></code> under  <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.InstrumentList.SecurityList.BondList.TreasureBondList</span></code> after your run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">build.py</span></code>.</p>
 <p>The <em>ParentRQLClassName</em> means this new instrument will inherit from this RiskQuantLib class. It can accept key word like: <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Fund</span></code>, <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, <code class="docutils literal notranslate"><span class="pre">Bond</span></code>, <code class="docutils literal notranslate"><span class="pre">Repo</span></code>, etc. However,</p>
-<p><strong>Notice: The first letter must be capitalized in ParentRQLClassName column.</strong></p>
 <p><strong>Notice: You can use the instrumentName you specified in last row to fill ParentRQLClassName column, like:</strong></p>
 <table class="docutils align-default">
 <colgroup>
@@ -296,13 +314,13 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>treasureBond</p></td>
-<td><p>Bond</p></td>
+<td><p>bond</p></td>
 <td></td>
 <td><p>numpy</p></td>
 <td><p>Treasure Bond</p></td>
 </tr>
 <tr class="row-odd"><td><p>chinaTreaBond</p></td>
-<td><p>TreasureBond</p></td>
+<td><p>treasureBond</p></td>
 <td></td>
 <td></td>
 <td><p>Panda Bond</p></td>
@@ -335,13 +353,13 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Fund</p></td>
+<tr class="row-even"><td><p>fund</p></td>
 <td><p>yourAttribute</p></td>
-<td><p>Number</p></td>
+<td><p>number</p></td>
 </tr>
-<tr class="row-odd"><td><p>Stock</p></td>
+<tr class="row-odd"><td><p>stock</p></td>
 <td><p>anotherAttribute</p></td>
-<td><p>String</p></td>
+<td><p>string</p></td>
 </tr>
 <tr class="row-even"><td><p>…</p></td>
 <td><p>…</p></td>
@@ -350,8 +368,7 @@
 </tbody>
 </table>
 <p>The <em>SecurityType</em> column can accept key word like: <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Fund</span></code>, <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, <code class="docutils literal notranslate"><span class="pre">Bond</span></code>, <code class="docutils literal notranslate"><span class="pre">Repo</span></code>, etc. However,</p>
-<p><strong>Notice: The first letter must be capitalized in SecurityType column.</strong></p>
-<p>Any instrument you specify in <em>Build_Instrument.xlsx</em> can also be used here. If you already create a class named <code class="docutils literal notranslate"><span class="pre">treasureBond</span></code> in <em>Build_Instrument.xlsx</em>, then here you can fill <code class="docutils literal notranslate"><span class="pre">TreasureBond</span></code> in <em>SecurityType</em> column.</p>
+<p>Any instrument you specify in <em>Build_Instrument.xlsx</em> can also be used here. If you already create a class named <code class="docutils literal notranslate"><span class="pre">treasureBond</span></code> in <em>Build_Instrument.xlsx</em>, then here you can fill <code class="docutils literal notranslate"><span class="pre">treasureBond</span></code> in <em>SecurityType</em> column.</p>
 <p>The <em>AttrType</em> column can accept key word of <code class="docutils literal notranslate"><span class="pre">Number</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Any</span></code>, <code class="docutils literal notranslate"><span class="pre">Series</span></code>, or any other string that you think it could be a type. It tells RiskQuantLib what kind of data will be stored by this attribute. If you add ‘sellPrice’ to <code class="docutils literal notranslate"><span class="pre">Stock</span></code>, this should be a <code class="docutils literal notranslate"><span class="pre">Number</span></code> attribute, while an attribute like ‘issuerName’ is a <code class="docutils literal notranslate"><span class="pre">String</span></code> kind. <code class="docutils literal notranslate"><span class="pre">Series</span></code> is used if it’s an attribute like ‘sellPriceOfPastSixMonth’. If you specify a kind that is never used before, it will be created as a type class, located in <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Property</span></code>.</p>
 </div>
 <div class="section" id="build-py">
@@ -360,12 +377,19 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
-<p><strong>Notice: Usually this build.py will only be excuted once, at the begin of your project. Do not build your project every time you run main.py, it is not necessary.</strong></p>
+<p><strong>Notice: If you do not use control comment syntax in Src, this build.py will only need to be excuted once, at the begin of your project. Do not build your project every time you run main.py, it is not necessary. But if you use control comment in Src, you can use the following command so that the build action will be triggered every time you make change to Src directory:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>If your project is under development, it will be useful to use <code class="docutils literal notranslate"><span class="pre">debug</span></code> mode. With this mode, the python source code in <code class="docutils literal notranslate"><span class="pre">Src</span></code> will not be directly inserted into target file, it will be bound dynamically into target file. By this way, the break point in file under <code class="docutils literal notranslate"><span class="pre">Src</span></code> will start to effect, you can debug it directly. Surely, the <code class="docutils literal notranslate"><span class="pre">auto</span> <span class="pre">build</span></code> mode can be run at the same time, it will automatically build the whole project every time you make a change. To build project in automatically debug mode, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="main-py">
 <h2>main.py<a class="headerlink" href="#main-py" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">main.py</span></code> is entrance of your project. You can start your coding here, by:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RiskQuantLib.Module</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RiskQuantLib.module</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 <p>Then you can use the class directly by:</p>

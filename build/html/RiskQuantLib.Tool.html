@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Tool package &mdash; RiskQuantLib 0.0.32 documentation</title>
+  <title>RiskQuantLib.Tool package &mdash; RiskQuantLib 0.2.9 documentation</title>
   
 
   
@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Install" href="Install.html" />
-    <link rel="prev" title="RiskQuantLib.Set.SecurityList.StockList package" href="RiskQuantLib.Set.SecurityList.StockList.html" /> 
+    <link rel="prev" title="RiskQuantLib.Property package" href="RiskQuantLib.Property.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,24 +96,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">RiskQuantLib</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="RiskQuantLib.html">RiskQuantLib package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="RiskQuantLib.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Auto.html">RiskQuantLib.Auto package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Build.html">RiskQuantLib.Build package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Company.html">RiskQuantLib.Company package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.CompanyList.html">RiskQuantLib.CompanyList package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.DataInputAPI.html">RiskQuantLib.DataInputAPI package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Index.html">RiskQuantLib.Index package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.IndexList.html">RiskQuantLib.IndexList package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.InterestRate.html">RiskQuantLib.InterestRate package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Instrument.html">RiskQuantLib.Instrument package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.InstrumentList.html">RiskQuantLib.InstrumentList package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Model.html">RiskQuantLib.Model package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Operation.html">RiskQuantLib.Operation package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Property.html">RiskQuantLib.Property package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Security.html">RiskQuantLib.Security package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.SecurityList.html">RiskQuantLib.SecurityList package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="RiskQuantLib.Set.html">RiskQuantLib.Set package</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">RiskQuantLib.Tool package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib.Module">RiskQuantLib.Module module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib.module">RiskQuantLib.module module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib">Module contents</a></li>
 </ul>
 </li>
@@ -233,7 +227,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.GUITool.alertGUI">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">alertGUI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initTkObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windowTitle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tips</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/GUITool.html#alertGUI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.GUITool.alertGUI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is used to alert some information.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.GUITool.alertGUI.setInitWindow">
@@ -245,7 +239,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.GUITool.confirmGUI">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">confirmGUI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initTkObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windowTitle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tips</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valueString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/GUITool.html#confirmGUI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.GUITool.confirmGUI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This GUI is used to confirm some information.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.GUITool.confirmGUI.backFunction">
@@ -285,7 +279,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.GUITool.inputGUI">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">inputGUI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initTkObject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windowTitle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tips</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/GUITool.html#inputGUI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.GUITool.inputGUI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This GUI is used to input data.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.GUITool.inputGUI.backFunction">
@@ -304,17 +298,17 @@
 <span id="riskquantlib-tool-codebuildertool-module"></span><h2>RiskQuantLib.Tool.codeBuilderTool module<a class="headerlink" href="#module-RiskQuantLib.Tool.codeBuilderTool" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.codeBuilderTool.codeBuilder">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">codeBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_indent_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/codeBuilderTool.html#codeBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.codeBuilderTool.codeBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">codeBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">globalIndentStep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/codeBuilderTool.html#codeBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.codeBuilderTool.codeBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is the basic class used to generate source code of any language.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Tool.codeBuilderTool.codeBuilder.add_line">
-<span class="sig-name descname"><span class="pre">add_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/codeBuilderTool.html#codeBuilder.add_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.codeBuilderTool.codeBuilder.add_line" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.codeBuilderTool.codeBuilder.addLine">
+<span class="sig-name descname"><span class="pre">addLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/codeBuilderTool.html#codeBuilder.addLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.codeBuilderTool.codeBuilder.addLine" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Tool.codeBuilderTool.codeBuilder.add_section">
-<span class="sig-name descname"><span class="pre">add_section</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/codeBuilderTool.html#codeBuilder.add_section"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.codeBuilderTool.codeBuilder.add_section" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.codeBuilderTool.codeBuilder.addSection">
+<span class="sig-name descname"><span class="pre">addSection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/codeBuilderTool.html#codeBuilder.addSection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.codeBuilderTool.codeBuilder.addSection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -323,8 +317,8 @@
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Tool.codeBuilderTool.codeBuilder.get_globals">
-<span class="sig-name descname"><span class="pre">get_globals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">execute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/codeBuilderTool.html#codeBuilder.get_globals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.codeBuilderTool.codeBuilder.get_globals" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.codeBuilderTool.codeBuilder.getGlobals">
+<span class="sig-name descname"><span class="pre">getGlobals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">execute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/codeBuilderTool.html#codeBuilder.getGlobals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.codeBuilderTool.codeBuilder.getGlobals" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -337,7 +331,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.codeBuilderTool.pythonScriptBuilder">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">pythonScriptBuilder</span></span><a class="reference internal" href="_modules/RiskQuantLib/Tool/codeBuilderTool.html#pythonScriptBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.codeBuilderTool.pythonScriptBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is the python source code builder, used to generate python
 source code automatically.</p>
 <dl class="py method">
@@ -403,7 +397,7 @@ libraryNameString import subModuleName as libraryAbbrString’</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.databaseTool.mysqlTool">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">mysqlTool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">databaseNameString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hostAddress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passWord</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/databaseTool.html#mysqlTool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.databaseTool.mysqlTool" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This is the API to connect with mysql database.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.databaseTool.mysqlTool.getAllTables">
@@ -460,7 +454,7 @@ libraryNameString import subModuleName as libraryAbbrString’</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.databaseTool.neo4jTool">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">neo4jTool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hostAddress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/databaseTool.html#neo4jTool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.databaseTool.neo4jTool" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This is the API to connect with neo4j database.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.databaseTool.neo4jTool.addNodeFromDF">
@@ -542,13 +536,44 @@ libraryNameString import subModuleName as libraryAbbrString’</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.databaseTool.oracleTool">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">oracleTool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">databaseNameString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hostAddress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passWord</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/databaseTool.html#oracleTool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.databaseTool.oracleTool" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This is the API to connect with oracle database.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.databaseTool.oracleTool.readSql">
 <span class="sig-name descname"><span class="pre">readSql</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sql</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/databaseTool.html#oracleTool.readSql"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.databaseTool.oracleTool.readSql" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.databaseTool.sqlServerTool">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">sqlServerTool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">databaseNameString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hostAddress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passWord</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/databaseTool.html#sqlServerTool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.databaseTool.sqlServerTool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This is the API to connect with sql server database.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.databaseTool.sqlServerTool.readSql">
+<span class="sig-name descname"><span class="pre">readSql</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sql</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/databaseTool.html#sqlServerTool.readSql"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.databaseTool.sqlServerTool.readSql" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-RiskQuantLib.Tool.excelTool">
+<span id="riskquantlib-tool-exceltool-module"></span><h2>RiskQuantLib.Tool.excelTool module<a class="headerlink" href="#module-RiskQuantLib.Tool.excelTool" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.excelTool.formatExcelWithTemplate">
+<span class="sig-name descname"><span class="pre">formatExcelWithTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">templateExcelPathString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataExcelPathString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savePathString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/excelTool.html#formatExcelWithTemplate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.excelTool.formatExcelWithTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will use the format of templateExcel and the data of dataExcel to
+generate a new excel.</p>
+<dl class="simple">
+<dt>templateExcelPathString<span class="classifier">str</span></dt><dd><p>The xlsx file that specify the format of output.</p>
+</dd>
+<dt>dataExcelPathString<span class="classifier">str</span></dt><dd><p>The xlsx file that specify the content of output.</p>
+</dd>
+<dt>savePathString<span class="classifier">str</span></dt><dd><p>The path where the output should be saved.</p>
+</dd>
+</dl>
+<p>None</p>
 </dd></dl>
 
 </div>
@@ -601,6 +626,78 @@ sum the value for each group, and insert it as a new row before that group.</p>
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.dumpVariable">
 <span class="sig-name descname"><span class="pre">dumpVariable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filePath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#dumpVariable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.dumpVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use python module pickle to dump variable.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileReceiver">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">fileReceiver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetFilePath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileReceiver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileReceiver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileReceiver.receiveFile">
+<span class="sig-name descname"><span class="pre">receiveFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileReceiver.receiveFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileReceiver.receiveFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileReceiver.receiveFileContent">
+<span class="sig-name descname"><span class="pre">receiveFileContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileSize</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileReceiver.receiveFileContent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileReceiver.receiveFileContent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileReceiver.receiveFileInfo">
+<span class="sig-name descname"><span class="pre">receiveFileInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileReceiver.receiveFileInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileReceiver.receiveFileInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileReceiver.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileReceiver.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileReceiver.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileReceiver.sendIPInfo">
+<span class="sig-name descname"><span class="pre">sendIPInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileReceiver.sendIPInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileReceiver.sendIPInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileReceiver.sendOnLineInfo">
+<span class="sig-name descname"><span class="pre">sendOnLineInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileReceiver.sendOnLineInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileReceiver.sendOnLineInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileSender">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">fileSender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileSender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileSender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileSender.receiveIPInfo">
+<span class="sig-name descname"><span class="pre">receiveIPInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileSender.receiveIPInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileSender.receiveIPInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileSender.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileSender.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileSender.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileSender.sendFile">
+<span class="sig-name descname"><span class="pre">sendFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileSender.sendFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileSender.sendFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileSender.sendFileContent">
+<span class="sig-name descname"><span class="pre">sendFileContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileSender.sendFileContent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileSender.sendFileContent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileSender.sendFileInfo">
+<span class="sig-name descname"><span class="pre">sendFileInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileSender.sendFileInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileSender.sendFileInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.fileSender.sendOnLineInfo">
+<span class="sig-name descname"><span class="pre">sendOnLineInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#fileSender.sendOnLineInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.fileSender.sendOnLineInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py function">
@@ -671,10 +768,108 @@ file is modified on today.</p>
 <dd><p>Reset index by the first not nan value.</p>
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.systemGuardian">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">systemGuardian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path</span></em>, <em class="sig-param"><span class="pre">call_back_function=&lt;function</span> <span class="pre">systemGuardian.&lt;lambda&gt;&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#systemGuardian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.systemGuardian" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.systemGuardian.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#systemGuardian.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.systemGuardian.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.systemGuardian.watch">
+<span class="sig-name descname"><span class="pre">watch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#systemGuardian.watch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.systemGuardian.watch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.systemWatcher">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">systemWatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">monitorPath</span></em>, <em class="sig-param"><span class="pre">call_back_function_on_file=&lt;function</span> <span class="pre">systemWatcher.&lt;lambda&gt;&gt;</span></em>, <em class="sig-param"><span class="pre">call_back_function_on_dir=&lt;function</span> <span class="pre">systemWatcher.&lt;lambda&gt;&gt;</span></em>, <em class="sig-param"><span class="pre">call_back_function_on_any_change=&lt;function</span> <span class="pre">systemWatcher.&lt;lambda&gt;&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#systemWatcher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.systemWatcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.systemWatcher.createGuardian">
+<span class="sig-name descname"><span class="pre">createGuardian</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#systemWatcher.createGuardian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.systemWatcher.createGuardian" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.systemWatcher.scanMonitorPath">
+<span class="sig-name descname"><span class="pre">scanMonitorPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">monitorPath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#systemWatcher.scanMonitorPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.systemWatcher.scanMonitorPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.systemWatcher.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#systemWatcher.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.systemWatcher.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.systemWatcher.watch">
+<span class="sig-name descname"><span class="pre">watch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#systemWatcher.watch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.systemWatcher.watch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.fileTool.waitForFile">
 <span class="sig-name descname"><span class="pre">waitForFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileNameKeyWord</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/fileTool.html#waitForFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.fileTool.waitForFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will wait for the change or modification of a file.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-RiskQuantLib.Tool.githubTool">
+<span id="riskquantlib-tool-githubtool-module"></span><h2>RiskQuantLib.Tool.githubTool module<a class="headerlink" href="#module-RiskQuantLib.Tool.githubTool" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.githubTool.Github">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Github</span></span><a class="reference internal" href="_modules/RiskQuantLib/Tool/githubTool.html#Github"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.githubTool.Github" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>This class is used to do operations of Github with github api.</p>
+<p>For basic use of search, establish url.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.githubTool.Github.downloadRepositories">
+<span class="sig-name descname"><span class="pre">downloadRepositories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repositoryIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetPath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/githubTool.html#Github.downloadRepositories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.githubTool.Github.downloadRepositories" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will download the repository specified by repositoryIndex. The downloaded
+file is in zip form and will be saved to targetPath.</p>
+<dl class="simple">
+<dt>repositoryIndex<span class="classifier">int or str</span></dt><dd><p>The number of repository index. Or a string to specify the link of github web page.
+Or the name of a repository. Or any key word that can be used to search github.</p>
+</dd>
+<dt>targetPath<span class="classifier">str</span></dt><dd><p>The path where zip file will be saved.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.githubTool.Github.searchRepositories">
+<span class="sig-name descname"><span class="pre">searchRepositories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repositoryKeyWord</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/githubTool.html#Github.searchRepositories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.githubTool.Github.searchRepositories" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will send request to search Github and find all repositories that
+can be related to given key words. All repositories are sorted by star numbers.
+The first one is the most starred one.</p>
+<dl class="simple">
+<dt>repositoryKeyWord<span class="classifier">str</span></dt><dd><p>The key words used to search Github.</p>
+</dd>
+<dt>output<span class="classifier">bool</span></dt><dd><p>Whether to print all repositories names.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.githubTool.downloadRepo">
+<span class="sig-name descname"><span class="pre">downloadRepo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/githubTool.html#downloadRepo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.githubTool.downloadRepo" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will use Github api to download zip file of repositories.</p>
+<dl class="simple">
+<dt>url<span class="classifier">str</span></dt><dd><p>The total github api link of some repository</p>
+</dd>
+<dt>targetPath<span class="classifier">str</span></dt><dd><p>The file path where you want to save the zip clone</p>
+</dd>
+<dt>name<span class="classifier">str</span></dt><dd><p>The repository name you want to download</p>
+</dd>
+</dl>
+<p>None</p>
 </dd></dl>
 
 </div>
@@ -758,7 +953,7 @@ file is modified on today.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.multiThreadTool.functionMultiThread">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">functionMultiThread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threadID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/multiThreadTool.html#functionMultiThread"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.multiThreadTool.functionMultiThread" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.Thread" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.Thread" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></a></p>
 <p>This class is used to create multiple threads.</p>
 <p>This constructor should always be called with keyword arguments. Arguments are:</p>
 <p><em>group</em> should be None; reserved for future extension when a ThreadGroup
@@ -801,7 +996,7 @@ from the args and kwargs arguments, respectively.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.outlookTool.readMailFromOutlook">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">readMailFromOutlook</span></span><a class="reference internal" href="_modules/RiskQuantLib/Tool/outlookTool.html#readMailFromOutlook"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.outlookTool.readMailFromOutlook" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is used to control Outlook App in windows.
 Due to the difference of version of win32.com module, this class may not perform well.</p>
 <dl class="py method">
@@ -823,7 +1018,7 @@ Due to the difference of version of win32.com module, this class may not perform
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.outlookTool.sendMailFromOutlook">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">sendMailFromOutlook</span></span><a class="reference internal" href="_modules/RiskQuantLib/Tool/outlookTool.html#sendMailFromOutlook"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.outlookTool.sendMailFromOutlook" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is used to send mails by outlook.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.outlookTool.sendMailFromOutlook.sendMail">
@@ -833,9 +1028,6 @@ Due to the difference of version of win32.com module, this class may not perform
 
 </dd></dl>
 
-</div>
-<div class="section" id="riskquantlib-tool-parallelcomputingtool-module">
-<h2>RiskQuantLib.Tool.parallelComputingTool module<a class="headerlink" href="#riskquantlib-tool-parallelcomputingtool-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-RiskQuantLib.Tool.plotTool">
 <span id="riskquantlib-tool-plottool-module"></span><h2>RiskQuantLib.Tool.plotTool module<a class="headerlink" href="#module-RiskQuantLib.Tool.plotTool" title="Permalink to this headline">¶</a></h2>
@@ -874,7 +1066,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized beta distribution.</p>
 </dd>
 </dl>
-<p>Generator.beta: which should be used for new code.</p>
+<p>random.Generator.beta: which should be used for new code.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -911,7 +1103,7 @@ each sample is equal to the number of successes over the n trials.</p>
 <dt>scipy.stats.binom<span class="classifier">probability density function, distribution or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.binomial: which should be used for new code.</p>
+<p>random.Generator.binomial: which should be used for new code.</p>
 <p>The probability density for the binomial distribution is</p>
 <div class="math notranslate nohighlight">
 \[P(N) = \binom{n}{N}p^N(1-p)^{n-N},\]</div>
@@ -995,7 +1187,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 is given.</p>
 </dd>
 </dl>
-<p>Generator.chisquare: which should be used for new code.</p>
+<p>random.Generator.chisquare: which should be used for new code.</p>
 <p>The variable obtained by summing the squares of <cite>df</cite> independent,
 standard normally distributed random variables:</p>
 <div class="math notranslate nohighlight">
@@ -1036,17 +1228,18 @@ instance instead; please see the <span class="xref std std-ref">random-quick-sta
 </div>
 <dl class="simple">
 <dt>a<span class="classifier">1-D array-like or int</span></dt><dd><p>If an ndarray, a random sample is generated from its elements.
-If an int, the random sample is generated as if a were np.arange(a)</p>
+If an int, the random sample is generated as if it were <code class="docutils literal notranslate"><span class="pre">np.arange(a)</span></code></p>
 </dd>
 <dt>size<span class="classifier">int or tuple of ints, optional</span></dt><dd><p>Output shape.  If the given shape is, e.g., <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n,</span> <span class="pre">k)</span></code>, then
 <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">*</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">k</span></code> samples are drawn.  Default is None, in which case a
 single value is returned.</p>
 </dd>
-<dt>replace<span class="classifier">boolean, optional</span></dt><dd><p>Whether the sample is with or without replacement</p>
+<dt>replace<span class="classifier">boolean, optional</span></dt><dd><p>Whether the sample is with or without replacement. Default is True,
+meaning that a value of <code class="docutils literal notranslate"><span class="pre">a</span></code> can be selected multiple times.</p>
 </dd>
 <dt>p<span class="classifier">1-D array-like, optional</span></dt><dd><p>The probabilities associated with each entry in a.
-If not given the sample assumes a uniform distribution over all
-entries in a.</p>
+If not given, the sample assumes a uniform distribution over all
+entries in <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
 </dd>
 </dl>
 <dl class="simple">
@@ -1062,7 +1255,10 @@ size</p>
 </dd>
 </dl>
 <p>randint, shuffle, permutation
-Generator.choice: which should be used in new code</p>
+random.Generator.choice: which should be used in new code</p>
+<p>Setting user-specified probabilities through <code class="docutils literal notranslate"><span class="pre">p</span></code> uses a more general but less
+efficient sampler than the default. The general sampler produces a different sample
+than the optimized sampler even if each element of <code class="docutils literal notranslate"><span class="pre">p</span></code> is 1 / len(a).</p>
 <p>Sampling random rows from a 2-D array is not possible with this function,
 but is possible with <cite>Generator.choice</cite> through its <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword.</p>
 <p>Generate a uniform random sample from np.arange(5) of size 3:</p>
@@ -1130,7 +1326,7 @@ vector of length <code class="docutils literal notranslate"><span class="pre">k<
 <dt>ValueError</dt><dd><p>If any value in <code class="docutils literal notranslate"><span class="pre">alpha</span></code> is less than or equal to zero</p>
 </dd>
 </dl>
-<p>Generator.dirichlet: which should be used for new code.</p>
+<p>random.Generator.dirichlet: which should be used for new code.</p>
 <p>The Dirichlet distribution is a distribution over vectors
 <span class="math notranslate nohighlight">\(x\)</span> that fulfil the conditions <span class="math notranslate nohighlight">\(x_i&gt;0\)</span> and
 <span class="math notranslate nohighlight">\(\sum_{i=1}^k x_i = 1\)</span>.</p>
@@ -1207,7 +1403,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized exponential distribution.</p>
 </dd>
 </dl>
-<p>Generator.exponential: which should be used for new code.</p>
+<p>random.Generator.exponential: which should be used for new code.</p>
 <dl class="footnote brackets">
 <dt class="label" id="id12"><span class="brackets">1</span></dt>
 <dd><p>Peyton Z. Peebles Jr., “Probability, Random Variables and
@@ -1260,7 +1456,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>scipy.stats.f<span class="classifier">probability density function, distribution or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.f: which should be used for new code.</p>
+<p>random.Generator.f: which should be used for new code.</p>
 <p>The F statistic is used to compare in-group variances to between-group
 variances. Calculating the distribution depends on the sampling, and
 so it is a function of the respective degrees of freedom in the
@@ -1334,7 +1530,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>scipy.stats.gamma<span class="classifier">probability density function, distribution or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.gamma: which should be used for new code.</p>
+<p>random.Generator.gamma: which should be used for new code.</p>
 <p>The probability density for the Gamma distribution is</p>
 <div class="math notranslate nohighlight">
 \[p(x) = x^{k-1}\frac{e^{-x/\theta}}{\theta^k\Gamma(k)},\]</div>
@@ -1403,7 +1599,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized geometric distribution.</p>
 </dd>
 </dl>
-<p>Generator.geometric: which should be used for new code.</p>
+<p>random.Generator.geometric: which should be used for new code.</p>
 <p>Draw ten thousand values from the geometric distribution,
 with the probability of an individual success equal to 0.35:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">geometric</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
@@ -1477,7 +1673,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 scipy.stats.gumbel_r
 scipy.stats.genextreme
 weibull
-Generator.gumbel: which should be used for new code.</p>
+random.Generator.gumbel: which should be used for new code.</p>
 <p>The Gumbel (or Smallest Extreme Value (SEV) or the Smallest Extreme
 Value Type I) distribution is one of a class of Generalized Extreme
 Value (GEV) distributions used in modeling extreme value problems.
@@ -1588,7 +1784,7 @@ size <cite>nsample</cite> taken from a set of <cite>ngood</cite> good items and 
 <dt>scipy.stats.hypergeom<span class="classifier">probability density function, distribution or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.hypergeometric: which should be used for new code.</p>
+<p>random.Generator.hypergeometric: which should be used for new code.</p>
 <p>The probability density for the Hypergeometric distribution is</p>
 <div class="math notranslate nohighlight">
 \[P(x) = \frac{\binom{g}{x}\binom{b}{n-x}}{\binom{g+b}{n}},\]</div>
@@ -1668,7 +1864,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized Laplace distribution.</p>
 </dd>
 </dl>
-<p>Generator.laplace: which should be used for new code.</p>
+<p>random.Generator.laplace: which should be used for new code.</p>
 <p>It has the probability density function</p>
 <div class="math notranslate nohighlight">
 \[f(x; \mu, \lambda) = \frac{1}{2\lambda}
@@ -1752,7 +1948,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>scipy.stats.logistic<span class="classifier">probability density function, distribution or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.logistic: which should be used for new code.</p>
+<p>random.Generator.logistic: which should be used for new code.</p>
 <p>The probability density for the Logistic distribution is</p>
 <div class="math notranslate nohighlight">
 \[P(x) = P(x) = \frac{e^{-(x-\mu)/s}}{s(1+e^{-(x-\mu)/s})^2},\]</div>
@@ -1828,7 +2024,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>scipy.stats.lognorm<span class="classifier">probability density function, distribution,</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.lognormal: which should be used for new code.</p>
+<p>random.Generator.lognormal: which should be used for new code.</p>
 <p>A variable <cite>x</cite> has a log-normal distribution if <cite>log(x)</cite> is normally
 distributed.  The probability density function for the log-normal
 distribution is:</p>
@@ -1908,14 +2104,14 @@ function.</p>
 <span class="sig-name descname"><span class="pre">logseries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RiskQuantLib.Tool.plotTool.logseries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw samples from a logarithmic series distribution.</p>
 <p>Samples are drawn from a log series distribution with specified
-shape parameter, 0 &lt; <code class="docutils literal notranslate"><span class="pre">p</span></code> &lt; 1.</p>
+shape parameter, 0 &lt;= <code class="docutils literal notranslate"><span class="pre">p</span></code> &lt; 1.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>New code should use the <code class="docutils literal notranslate"><span class="pre">logseries</span></code> method of a <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code>
 instance instead; please see the <span class="xref std std-ref">random-quick-start</span>.</p>
 </div>
 <dl class="simple">
-<dt>p<span class="classifier">float or array_like of floats</span></dt><dd><p>Shape parameter for the distribution.  Must be in the range (0, 1).</p>
+<dt>p<span class="classifier">float or array_like of floats</span></dt><dd><p>Shape parameter for the distribution.  Must be in the range [0, 1).</p>
 </dd>
 <dt>size<span class="classifier">int or tuple of ints, optional</span></dt><dd><p>Output shape.  If the given shape is, e.g., <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n,</span> <span class="pre">k)</span></code>, then
 <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">*</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">k</span></code> samples are drawn.  If size is <code class="docutils literal notranslate"><span class="pre">None</span></code> (default),
@@ -1931,7 +2127,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 <dt>scipy.stats.logser<span class="classifier">probability density function, distribution or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.logseries: which should be used for new code.</p>
+<p>random.Generator.logseries: which should be used for new code.</p>
 <p>The probability density for the Log Series distribution is</p>
 <div class="math notranslate nohighlight">
 \[P(k) = \frac{-p^k}{k \ln(1-p)},\]</div>
@@ -2015,7 +2211,7 @@ the shape is <code class="docutils literal notranslate"><span class="pre">(N,)</
 value drawn from the distribution.</p>
 </dd>
 </dl>
-<p>Generator.multinomial: which should be used for new code.</p>
+<p>random.Generator.multinomial: which should be used for new code.</p>
 <p>Throw a dice 20 times:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multinomial</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mf">6.</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">array([[4, 1, 7, 5, 2, 1]]) # random</span>
@@ -2091,7 +2287,7 @@ the shape is <code class="docutils literal notranslate"><span class="pre">(N,)</
 value drawn from the distribution.</p>
 </dd>
 </dl>
-<p>Generator.multivariate_normal: which should be used for new code.</p>
+<p>random.Generator.multivariate_normal: which should be used for new code.</p>
 <p>The mean is a coordinate in N-dimensional space, which represents the
 location where samples are most likely to be generated.  This is
 analogous to the peak of the bell curve for the one-dimensional or
@@ -2145,10 +2341,34 @@ Classification,” 2nd ed., New York: Wiley, 2001.</p>
 <span class="go">(3, 3, 2)</span>
 </pre></div>
 </div>
-<p>The following is probably true, given that 0.6 is roughly twice the
-standard deviation:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.6</span><span class="p">)</span>
-<span class="go">[True, True] # random</span>
+<p>Here we generate 800 samples from the bivariate normal distribution
+with mean [0, 0] and covariance matrix [[6, -3], [-3, 3.5]].  The
+expected variances of the first and second components of the sample
+are 6 and 3.5, respectively, and the expected correlation
+coefficient is -3/sqrt(6*3.5) ≈ -0.65465.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cov</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">800</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Check that the mean, covariance, and correlation coefficient of the
+sample are close to the expected values:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">array([ 0.0326911 , -0.01280782])  # may vary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">pts</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="go">array([[ 5.96202397, -2.85602287],</span>
+<span class="go">       [-2.85602287,  3.47613949]])  # may vary</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">pts</span><span class="o">.</span><span class="n">T</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="go">-0.6273591314603949  # may vary</span>
+</pre></div>
+</div>
+<p>We can visualize this data with a scatter plot.  The orientation
+of the point cloud illustrates the negative correlation of the
+components of this sample.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2182,7 +2402,7 @@ where each sample is equal to N, the number of failures that
 occurred before a total of n successes was reached.</p>
 </dd>
 </dl>
-<p>Generator.negative_binomial: which should be used for new code.</p>
+<p>random.Generator.negative_binomial: which should be used for new code.</p>
 <p>The probability mass function of the negative binomial distribution is</p>
 <div class="math notranslate nohighlight">
 \[P(N;n,p) = \frac{\Gamma(N+n)}{N!\Gamma(n)}p^{n}(1-p)^{N},\]</div>
@@ -2250,7 +2470,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized noncentral chi-square distribution.</p>
 </dd>
 </dl>
-<p>Generator.noncentral_chisquare: which should be used for new code.</p>
+<p>random.Generator.noncentral_chisquare: which should be used for new code.</p>
 <p>The probability density function for the noncentral Chi-square
 distribution is</p>
 <div class="math notranslate nohighlight">
@@ -2327,7 +2547,7 @@ samples are drawn.</p>
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized noncentral Fisher distribution.</p>
 </dd>
 </dl>
-<p>Generator.noncentral_f: which should be used for new code.</p>
+<p>random.Generator.noncentral_f: which should be used for new code.</p>
 <p>When calculating the power of an experiment (power = probability of
 rejecting the null hypothesis when a specific alternative is true) the
 non-central F statistic becomes important.  When the null hypothesis is
@@ -2401,7 +2621,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>scipy.stats.norm<span class="classifier">probability density function, distribution or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.normal: which should be used for new code.</p>
+<p>random.Generator.normal: which should be used for new code.</p>
 <p>The probability density for the Gaussian distribution is</p>
 <div class="math notranslate nohighlight">
 \[p(x) = \frac{1}{\sqrt{ 2 \pi \sigma^2 }}
@@ -2501,7 +2721,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 <dt>scipy.stats.genpareto<span class="classifier">probability density function, distribution or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.pareto: which should be used for new code.</p>
+<p>random.Generator.pareto: which should be used for new code.</p>
 <p>The probability density for the Pareto distribution is</p>
 <div class="math notranslate nohighlight">
 \[p(x) = \frac{am^a}{x^{a+1}}\]</div>
@@ -2570,7 +2790,7 @@ randomly.</p>
 <dt>out<span class="classifier">ndarray</span></dt><dd><p>Permuted sequence or array range.</p>
 </dd>
 </dl>
-<p>Generator.permutation: which should be used for new code.</p>
+<p>random.Generator.permutation: which should be used for new code.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">array([1, 7, 4, 3, 0, 9, 2, 5, 8, 6]) # random</span>
 </pre></div>
@@ -2679,8 +2899,9 @@ for large N.</p>
 instance instead; please see the <span class="xref std std-ref">random-quick-start</span>.</p>
 </div>
 <dl class="simple">
-<dt>lam<span class="classifier">float or array_like of floats</span></dt><dd><p>Expectation of interval, must be &gt;= 0. A sequence of expectation
-intervals must be broadcastable over the requested size.</p>
+<dt>lam<span class="classifier">float or array_like of floats</span></dt><dd><p>Expected number of events occurring in a fixed-time interval,
+must be &gt;= 0. A sequence must be broadcastable over the requested
+size.</p>
 </dd>
 <dt>size<span class="classifier">int or tuple of ints, optional</span></dt><dd><p>Output shape.  If the given shape is, e.g., <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n,</span> <span class="pre">k)</span></code>, then
 <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">*</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">k</span></code> samples are drawn.  If size is <code class="docutils literal notranslate"><span class="pre">None</span></code> (default),
@@ -2692,7 +2913,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized Poisson distribution.</p>
 </dd>
 </dl>
-<p>Generator.poisson: which should be used for new code.</p>
+<p>random.Generator.poisson: which should be used for new code.</p>
 <p>The Poisson distribution</p>
 <div class="math notranslate nohighlight">
 \[f(k; \lambda)=\frac{\lambda^k e^{-\lambda}}{k!}\]</div>
@@ -2756,10 +2977,10 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 </dd>
 </dl>
 <dl class="simple">
-<dt>ValueError</dt><dd><p>If a &lt; 1.</p>
+<dt>ValueError</dt><dd><p>If a &lt;= 0.</p>
 </dd>
 </dl>
-<p>Generator.power: which should be used for new code.</p>
+<p>random.Generator.power: which should be used for new code.</p>
 <p>The probability density function is</p>
 <div class="math notranslate nohighlight">
 \[P(x; a) = ax^{a-1}, 0 \le x \le 1, a&gt;0.\]</div>
@@ -2900,7 +3121,7 @@ distribution, or a single such random int if <cite>size</cite> not provided.</p>
 omitted.</p>
 </dd>
 </dl>
-<p>Generator.integers: which should be used for new code.</p>
+<p>random.Generator.integers: which should be used for new code.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">array([1, 0, 0, 0, 1, 1, 0, 0, 1, 0]) # random</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -2965,7 +3186,7 @@ no parameters were supplied.</p>
 </dl>
 <p>standard_normal : Similar, but takes a tuple as its argument.
 normal : Also accepts mu and sigma arguments.
-Generator.standard_normal: which should be used for new code.</p>
+random.Generator.standard_normal: which should be used for new code.</p>
 <p>For random samples from <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span>, use:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">np.random.randn(...)</span> <span class="pre">+</span> <span class="pre">mu</span></code></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span>
@@ -3085,7 +3306,7 @@ single value is returned.</p>
 case a single float is returned).</p>
 </dd>
 </dl>
-<p>Generator.random: which should be used for new code.</p>
+<p>random.Generator.random: which should be used for new code.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">()</span>
 <span class="go">0.47108547995356098 # random</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">())</span>
@@ -3127,7 +3348,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized Rayleigh distribution.</p>
 </dd>
 </dl>
-<p>Generator.rayleigh: which should be used for new code.</p>
+<p>random.Generator.rayleigh: which should be used for new code.</p>
 <p>The probability density function for the Rayleigh distribution is</p>
 <div class="math notranslate nohighlight">
 \[P(x;scale) = \frac{x}{scale^2}e^{\frac{-x^2}{2 \cdotp scale^2}}\]</div>
@@ -3241,7 +3462,7 @@ instance instead; please see the <span class="xref std std-ref">random-quick-sta
 </dd>
 </dl>
 <p>None</p>
-<p>Generator.shuffle: which should be used for new code.</p>
+<p>random.Generator.shuffle: which should be used for new code.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span>
@@ -3279,7 +3500,7 @@ single value is returned.</p>
 <dt>samples<span class="classifier">ndarray or scalar</span></dt><dd><p>The drawn samples.</p>
 </dd>
 </dl>
-<p>Generator.standard_cauchy: which should be used for new code.</p>
+<p>random.Generator.standard_cauchy: which should be used for new code.</p>
 <p>The probability density function for the full Cauchy distribution is</p>
 <div class="math notranslate nohighlight">
 \[P(x; x_0, \gamma) = \frac{1}{\pi \gamma \bigl[ 1+
@@ -3341,7 +3562,7 @@ single value is returned.</p>
 <dt>out<span class="classifier">float or ndarray</span></dt><dd><p>Drawn samples.</p>
 </dd>
 </dl>
-<p>Generator.standard_exponential: which should be used for new code.</p>
+<p>random.Generator.standard_exponential: which should be used for new code.</p>
 <p>Output a 3x8000 array:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_exponential</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
 </pre></div>
@@ -3376,7 +3597,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 <dt>scipy.stats.gamma<span class="classifier">probability density function, distribution or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.standard_gamma: which should be used for new code.</p>
+<p>random.Generator.standard_gamma: which should be used for new code.</p>
 <p>The probability density for the Gamma distribution is</p>
 <div class="math notranslate nohighlight">
 \[p(x) = x^{k-1}\frac{e^{-x/\theta}}{\theta^k\Gamma(k)},\]</div>
@@ -3439,7 +3660,7 @@ single sample if <code class="docutils literal notranslate"><span class="pre">si
 for setting the mean and standard deviation.</p>
 </dd>
 </dl>
-<p>Generator.standard_normal: which should be used for new code.</p>
+<p>random.Generator.standard_normal: which should be used for new code.</p>
 <p>For random samples from <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span>, use one of:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=...</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=...</span><span class="p">)</span>
@@ -3494,7 +3715,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized standard Student’s t distribution.</p>
 </dd>
 </dl>
-<p>Generator.standard_t: which should be used for new code.</p>
+<p>random.Generator.standard_t: which should be used for new code.</p>
 <p>The probability density function for the t distribution is</p>
 <div class="math notranslate nohighlight">
 \[P(x, df) = \frac{\Gamma(\frac{df+1}{2})}{\sqrt{\pi df}
@@ -3524,32 +3745,43 @@ women in kilojoules (kJ) is:</p>
 </pre></div>
 </div>
 <p>Does their energy intake deviate systematically from the recommended
-value of 7725 kJ?</p>
-<p>We have 10 degrees of freedom, so is the sample mean within 95% of the
-recommended value?</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_t</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">intake</span><span class="p">)</span>
+value of 7725 kJ? Our null hypothesis will be the absence of deviation,
+and the alternate hypothesis will be the presence of an effect that could be
+either positive or negative, hence making our test 2-tailed.</p>
+<p>Because we are estimating the mean and we have N=11 values in our sample,
+we have N-1=10 degrees of freedom. We set our significance level to 95% and 
+compute the t statistic using the empirical mean and empirical standard 
+deviation of our intake. We use a ddof of 1 to base the computation of our 
+empirical standard deviation on an unbiased estimate of the variance (note:
+the final estimate is not unbiased due to the concave nature of the square 
+root).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">intake</span><span class="p">)</span>
 <span class="go">6753.636363636364</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">intake</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">1142.1232221373727</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">intake</span><span class="p">)</span><span class="o">-</span><span class="mi">7725</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">intake</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">intake</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span>
+<span class="go">-2.8207540608310198</span>
 </pre></div>
 </div>
-<p>Calculate the t statistic, setting the ddof parameter to the unbiased
-value so the divisor in the standard deviation will be degrees of
-freedom, N-1.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">intake</span><span class="p">)</span><span class="o">-</span><span class="mi">7725</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">intake</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">intake</span><span class="p">)))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<p>We draw 1000000 samples from Student’s t distribution with the adequate
+degrees of freedom.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_t</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For a one-sided t-test, how far out in the distribution does the t
-statistic appear?</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="o">&lt;</span><span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-<span class="go">0.0090699999999999999  #random</span>
+<p>Does our t statistic land in one of the two critical regions found at 
+both tails of the distribution?</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="go">0.018318  #random &lt; 0.05, statistic is in critical region</span>
 </pre></div>
 </div>
-<p>So the p-value is about 0.009, which says the null hypothesis has a
-probability of about 99% of being true.</p>
+<p>The probability value for this 2-tailed test is about 1.83%, which is 
+lower than the 5% pre-determined significance threshold.</p>
+<p>Therefore, the probability of observing values as extreme as our intake
+conditionally on the null hypothesis being true is too low, and we reject 
+the null hypothesis of no deviation.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -3585,7 +3817,7 @@ samples are drawn.</p>
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized triangular distribution.</p>
 </dd>
 </dl>
-<p>Generator.triangular: which should be used for new code.</p>
+<p>random.Generator.triangular: which should be used for new code.</p>
 <p>The probability density function for the triangular distribution is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}P(x;l, m, r) = \begin{cases}
@@ -3630,7 +3862,10 @@ instance instead; please see the <span class="xref std std-ref">random-quick-sta
 greater than or equal to low.  The default value is 0.</p>
 </dd>
 <dt>high<span class="classifier">float or array_like of floats</span></dt><dd><p>Upper boundary of the output interval.  All values generated will be
-less than or equal to high.  The default value is 1.0.</p>
+less than or equal to high.  The high limit may be included in the 
+returned array of floats due to floating-point rounding in the 
+equation <code class="docutils literal notranslate"><span class="pre">low</span> <span class="pre">+</span> <span class="pre">(high-low)</span> <span class="pre">*</span> <span class="pre">random_sample()</span></code>.  The default value 
+is 1.0.</p>
 </dd>
 <dt>size<span class="classifier">int or tuple of ints, optional</span></dt><dd><p>Output shape.  If the given shape is, e.g., <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">n,</span> <span class="pre">k)</span></code>, then
 <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">*</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">k</span></code> samples are drawn.  If size is <code class="docutils literal notranslate"><span class="pre">None</span></code> (default),
@@ -3654,7 +3889,7 @@ rand : Convenience function that accepts dimensions as input, e.g.,</p>
 <div><p><code class="docutils literal notranslate"><span class="pre">rand(2,2)</span></code> would generate a 2-by-2 array of floats,
 uniformly distributed over <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1)</span></code>.</p>
 </div></blockquote>
-<p>Generator.uniform: which should be used for new code.</p>
+<p>random.Generator.uniform: which should be used for new code.</p>
 <p>The probability density function of the uniform distribution is</p>
 <div class="math notranslate nohighlight">
 \[p(x) = \frac{1}{b - a}\]</div>
@@ -3726,7 +3961,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>scipy.stats.vonmises<span class="classifier">probability density function, distribution, or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.vonmises: which should be used for new code.</p>
+<p>random.Generator.vonmises: which should be used for new code.</p>
 <p>The probability density for the von Mises distribution is</p>
 <div class="math notranslate nohighlight">
 \[p(x) = \frac{e^{\kappa cos(x-\mu)}}{2\pi I_0(\kappa)},\]</div>
@@ -3797,7 +4032,7 @@ Otherwise, <code class="docutils literal notranslate"><span class="pre">np.broad
 <dt>out<span class="classifier">ndarray or scalar</span></dt><dd><p>Drawn samples from the parameterized Wald distribution.</p>
 </dd>
 </dl>
-<p>Generator.wald: which should be used for new code.</p>
+<p>random.Generator.wald: which should be used for new code.</p>
 <p>The probability density function for the Wald distribution is</p>
 <div class="math notranslate nohighlight">
 \[P(x;mean,scale) = \sqrt{\frac{scale}{2\pi x^3}}e^
@@ -3862,7 +4097,7 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 scipy.stats.weibull_min
 scipy.stats.genextreme
 gumbel
-Generator.weibull: which should be used for new code.</p>
+random.Generator.weibull: which should be used for new code.</p>
 <p>The Weibull (or Type III asymptotic extreme value distribution
 for smallest values, SEV Type III, or Rosin-Rammler
 distribution) is one of a class of Generalized Extreme Value
@@ -3923,7 +4158,7 @@ the probability density function:</p>
 <p>Samples are drawn from a Zipf distribution with specified parameter
 <cite>a</cite> &gt; 1.</p>
 <p>The Zipf distribution (also known as the zeta distribution) is a
-continuous probability distribution that satisfies Zipf’s law: the
+discrete probability distribution that satisfies Zipf’s law: the
 frequency of an item is inversely proportional to its rank in a
 frequency table.</p>
 <div class="admonition note">
@@ -3948,11 +4183,12 @@ a single value is returned if <code class="docutils literal notranslate"><span c
 <dt>scipy.stats.zipf<span class="classifier">probability density function, distribution, or</span></dt><dd><p>cumulative density function, etc.</p>
 </dd>
 </dl>
-<p>Generator.zipf: which should be used for new code.</p>
+<p>random.Generator.zipf: which should be used for new code.</p>
 <p>The probability density for the Zipf distribution is</p>
 <div class="math notranslate nohighlight">
-\[p(x) = \frac{x^{-a}}{\zeta(a)},\]</div>
-<p>where <span class="math notranslate nohighlight">\(\zeta\)</span> is the Riemann Zeta function.</p>
+\[p(k) = \frac{k^{-a}}{\zeta(a)},\]</div>
+<p>for integers <span class="math notranslate nohighlight">\(k \geq 1\)</span>, where <span class="math notranslate nohighlight">\(\zeta\)</span> is the Riemann Zeta
+function.</p>
 <p>It is named for the American linguist George Kingsley Zipf, who noted
 that the frequency of any word in a sample of a language is inversely
 proportional to its rank in the frequency table.</p>
@@ -3964,24 +4200,176 @@ Frequency in Language,” Cambridge, MA: Harvard Univ. Press,
 </dd>
 </dl>
 <p>Draw samples from the distribution:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mf">2.</span> <span class="c1"># parameter</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">zipf</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mf">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">20000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">zipf</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Display the histogram of the samples, along with
-the probability density function:</p>
+the expected histogram based on the probability
+density function:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">zeta</span>  
 </pre></div>
 </div>
-<p>Truncate s values at 50 so plot is interesting:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">count</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">ignored</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">s</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">],</span> <span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">50.</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">special</span><span class="o">.</span><span class="n">zetac</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>  
+<p><cite>bincount</cite> provides a fast histogram for small integers.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">count</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sample count&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">**-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">zeta</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="s1">&#39;k.-&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="gp">... </span>         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;expected count&#39;</span><span class="p">)</span>   
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Zipf sample, a=</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">, size=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-RiskQuantLib.Tool.pptTool">
+<span id="riskquantlib-tool-ppttool-module"></span><h2>RiskQuantLib.Tool.pptTool module<a class="headerlink" href="#module-RiskQuantLib.Tool.pptTool" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.pptTool.formatPpt">
+<span class="sig-name descname"><span class="pre">formatPpt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tableDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slideIndex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/pptTool.html#formatPpt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.pptTool.formatPpt" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will use the content of tableDict and textDict and graphDict to change given
+PPT. It will iterate across every slide and modify it. The first table in the slide will be
+changed into tableDict[0] and the second table in the slide will be changed into tableDict[1],
+etc… The first picture in the slide will be changed into graphDict[0] and the second table
+in the slide will be changed into graphDict[1], etc… Any symbols like {symbolName} will be
+changed into given string specified by textDict.</p>
+<p>After change is done, this PPT will be saved into target file. You can also specify the slideIndex
+so that only the specified slide will be changed.</p>
+<dl class="simple">
+<dt>filePath<span class="classifier">str</span></dt><dd><p>The path of PPT file which you want to change.</p>
+</dd>
+<dt>targetPath<span class="classifier">str</span></dt><dd><p>The path where you want to change the modified file.</p>
+</dd>
+<dt>tableDict :dict</dt><dd><p>The key-&gt;value pairs that declare what the table should be replaced to. The key
+of this dict should be int number and start from 0, like 0, 1, 2… and the value
+of this dict should be pandas.DataFrame object.</p>
+</dd>
+<dt>textDict<span class="classifier">dict</span></dt><dd><p>The key-&gt;value pairs that declare what the symbols should be replaced to.
+The key of this dict should be string type and like ‘{symbolName}’, and
+the value of this dict should be string type.</p>
+</dd>
+<dt>graphDict :dict</dt><dd><p>The key-&gt;value pairs that declare what the graph should be replaced to. The key
+of this dict should be int number and start from 0, like 0, 1, 2… and the value
+of this dict should be path string of pictures.</p>
+</dd>
+<dt>slideIndex<span class="classifier">int</span></dt><dd><p>The int number i which specify the i-th slide should be changed. If you specify this
+parameter, then all the rest will not be changed.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.pptTool.formatSlide">
+<span class="sig-name descname"><span class="pre">formatSlide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tableDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graphDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/pptTool.html#formatSlide"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.pptTool.formatSlide" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will use the content of tableDict and textDict and graphDict to change given
+slide. The first table in the slide will be changed into tableDict[0] and the second table
+in the slide will be changed into tableDict[1], etc… The first picture in the slide will
+be changed into graphDict[0] and the second table in the slide will be changed into graphDict[1],
+etc… Any symbols like {symbolName} will be changed into given string specified by textDict.</p>
+<dl class="simple">
+<dt>slide<span class="classifier">pptx.slide.Slide</span></dt><dd><p>The slide which you want to change.</p>
+</dd>
+<dt>tableDict :dict</dt><dd><p>The key-&gt;value pairs that declare what the table should be replaced to. The key
+of this dict should be int number and start from 0, like 0, 1, 2… and the value
+of this dict should be pandas.DataFrame object.</p>
+</dd>
+<dt>textDict<span class="classifier">dict</span></dt><dd><p>The key-&gt;value pairs that declare what the symbols should be replaced to.
+The key of this dict should be string type and like ‘{symbolName}’, and
+the value of this dict should be string type.</p>
+</dd>
+<dt>graphDict :dict</dt><dd><p>The key-&gt;value pairs that declare what the graph should be replaced to. The key
+of this dict should be int number and start from 0, like 0, 1, 2… and the value
+of this dict should be path string of pictures.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.pptTool.formatTableWithTemplate">
+<span class="sig-name descname"><span class="pre">formatTableWithTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paraDict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/pptTool.html#formatTableWithTemplate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.pptTool.formatTableWithTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will use the content of paraDict to fill the mark in shape object. If it
+find any mark like {symbolName}, it will replace it into the value declared by paraDict.</p>
+<dl class="simple">
+<dt>shape<span class="classifier">pptx.shapes.graphfrm.GraphicFrame</span></dt><dd><p>The shape object that you want to change, usually this shape is a table.</p>
+</dd>
+<dt>paraDict<span class="classifier">dict</span></dt><dd><p>The key-&gt;value pairs that declare what the symbols should be replaced to.
+The key of this dict should be string type and like ‘{symbolName}’, and
+the value of this dict should be string type.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.pptTool.formatTextFrameWithTemplate">
+<span class="sig-name descname"><span class="pre">formatTextFrameWithTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paraDict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/pptTool.html#formatTextFrameWithTemplate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.pptTool.formatTextFrameWithTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will use the content of paraDict to fill the mark in shape object. If it
+find any mark like {symbolName}, it will replace it into the value declared by paraDict.</p>
+<dl class="simple">
+<dt>shape<span class="classifier">pptx.shapes.graphfrm.GraphicFrame</span></dt><dd><p>The shape object that you want to change, usually this shape is a text frame.</p>
+</dd>
+<dt>paraDict<span class="classifier">dict</span></dt><dd><p>The key-&gt;value pairs that declare what the symbols should be replaced to.
+The key of this dict should be string type and like ‘{symbolName}’, and
+the value of this dict should be string type.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.pptTool.replaceChart">
+<span class="sig-name descname"><span class="pre">replaceChart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">picturePath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/pptTool.html#replaceChart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.pptTool.replaceChart" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will replace the chart in given slide into the given picture. This change is in place.</p>
+<dl class="simple">
+<dt>slide<span class="classifier">pptx.slide.Slide</span></dt><dd><p>The slide where the shape object lies.</p>
+</dd>
+<dt>shape<span class="classifier">pptx.shapes.graphfrm.GraphicFrame</span></dt><dd><p>The shape object that you want to change, usually this shape is a chart.</p>
+</dd>
+<dt>picturePath<span class="classifier">str</span></dt><dd><p>The path of picture that you want to use to replace the original chart.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.pptTool.replacePicture">
+<span class="sig-name descname"><span class="pre">replacePicture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slide</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">picturePath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/pptTool.html#replacePicture"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.pptTool.replacePicture" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will replace the old picture in given slide into the given picture. This change is in place.
+And the new picture has the same shape with the original one.</p>
+<dl class="simple">
+<dt>slide<span class="classifier">pptx.slide.Slide</span></dt><dd><p>The slide where the shape object lies.</p>
+</dd>
+<dt>shape<span class="classifier">pptx.shapes.graphfrm.GraphicFrame</span></dt><dd><p>The shape object that you want to change, usually this shape is a picture.</p>
+</dd>
+<dt>picturePath<span class="classifier">str</span></dt><dd><p>The path of new picture that you want to use to replace the original picture.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.pptTool.replaceTableContent">
+<span class="sig-name descname"><span class="pre">replaceTableContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfInput</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/pptTool.html#replaceTableContent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.pptTool.replaceTableContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will replace the content of table into given dataframe. If two tables have different
+shapes, then only the common part will be changed, other cells in original table will remain unchanged.
+The change is in place, but the shape of original table won’t be changed after this function is called.</p>
+<dl class="simple">
+<dt>shape<span class="classifier">pptx.shapes.graphfrm.GraphicFrame</span></dt><dd><p>The shape object that you want to change, usually this shape is a table.</p>
+</dd>
+<dt>dfInput<span class="classifier">pd.DataFrame</span></dt><dd><p>The dataframe that the original table should be changed to.</p>
+</dd>
+</dl>
+<p>None</p>
 </dd></dl>
 
 </div>
@@ -3997,15 +4385,6 @@ the probability density function:</p>
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.strTool.changeSeriesIndexTypeFromStrToTimestamp">
 <span class="sig-name descname"><span class="pre">changeSeriesIndexTypeFromStrToTimestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdSeries</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/strTool.html#changeSeriesIndexTypeFromStrToTimestamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.strTool.changeSeriesIndexTypeFromStrToTimestamp" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will change the data type of pd.Series.index into pd.Timestamp</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="RiskQuantLib.Tool.strTool.convertFutureCodeToExpirationDate">
-<span class="sig-name descname"><span class="pre">convertFutureCodeToExpirationDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">futureCodeString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/strTool.html#convertFutureCodeToExpirationDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.strTool.convertFutureCodeToExpirationDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert future code into expiration date. This function only applies in China.</p>
-<p>In China, future code is like T2108.CFE, this function will convert it into expiration
-date, which is 2021.08.21 in this case, the third Saturday in August. (Due to the rules
-of exchange.)</p>
 </dd></dl>
 
 <dl class="py function">
@@ -4065,14 +4444,6 @@ of exchange.)</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RiskQuantLib.Tool.strTool.getFutureTypeByExpirationDate">
-<span class="sig-name descname"><span class="pre">getFutureTypeByExpirationDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baseDateTimestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expirationDateTimestamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">futureIndexType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Stock_Index'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/strTool.html#getFutureTypeByExpirationDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.strTool.getFutureTypeByExpirationDate" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function will classify the future code into contract type, such as ‘Expired’,’Current’,’Month’,
-‘Season’,’Half Year’, etc, given the date where you stand and the expiration date of future.</p>
-<p>This function only applies in China.</p>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.strTool.getLastTradingDate">
 <span class="sig-name descname"><span class="pre">getLastTradingDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">presentTradingDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/strTool.html#getLastTradingDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.strTool.getLastTradingDate" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will return the last trading date given standing point,
@@ -4087,9 +4458,22 @@ the list where you choose string from.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.strTool.getNTradingDaysAfterTradingDate">
+<span class="sig-name descname"><span class="pre">getNTradingDaysAfterTradingDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">days</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">presentTradingDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/strTool.html#getNTradingDaysAfterTradingDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.strTool.getNTradingDaysAfterTradingDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will return the N-th trading day after standing point.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="RiskQuantLib.Tool.strTool.getNTradingDaysBeforeTradingDate">
 <span class="sig-name descname"><span class="pre">getNTradingDaysBeforeTradingDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">days</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">presentTradingDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/strTool.html#getNTradingDaysBeforeTradingDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.strTool.getNTradingDaysBeforeTradingDate" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will return the N-th trading day before standing point.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.strTool.getNextTradingDate">
+<span class="sig-name descname"><span class="pre">getNextTradingDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">presentTradingDateString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/strTool.html#getNextTradingDate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.strTool.getNextTradingDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will return the next trading date given standing point,
+using China exchange trading calendar.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -4137,6 +4521,65 @@ using China exchange trading calendar.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-RiskQuantLib.Tool.wordTool">
+<span id="riskquantlib-tool-wordtool-module"></span><h2>RiskQuantLib.Tool.wordTool module<a class="headerlink" href="#module-RiskQuantLib.Tool.wordTool" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.wordTool.formatTableWithTemplate">
+<span class="sig-name descname"><span class="pre">formatTableWithTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetFilePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tableIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfInput</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/wordTool.html#formatTableWithTemplate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.wordTool.formatTableWithTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will change the table in docx file into the given dataframe.
+This change is inplace. A new file will be generated and replace the original
+docx file.</p>
+<dl class="simple">
+<dt>targetFilePath<span class="classifier">str</span></dt><dd><p>The docx file path that you want to change one of its table into the given
+dataframe.</p>
+</dd>
+<dt>tableIndex<span class="classifier">int</span></dt><dd><p>The table index that showed which table you want to change.</p>
+</dd>
+<dt>dfInput<span class="classifier">pd.DataFrame</span></dt><dd><p>The dataframe that the original table should be changed to.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.wordTool.formatWordWithTemplate">
+<span class="sig-name descname"><span class="pre">formatWordWithTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">originFilePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetFilePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paraDict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/wordTool.html#formatWordWithTemplate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.wordTool.formatWordWithTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will iterate across the whole docx file and check for each paragraph
+and table, if it find any symbol like {symbolName}, it will replace it into the
+value declared by paraDict.</p>
+<dl class="simple">
+<dt>originFilePath<span class="classifier">str</span></dt><dd><p>The docx template file whose content you want to check and replace.</p>
+</dd>
+<dt>targetFilePath<span class="classifier">str</span></dt><dd><p>The path you want to save the after-replacement docx file.</p>
+</dd>
+<dt>paraDict<span class="classifier">dict</span></dt><dd><p>The key-&gt;value pairs that declare what the symbols should be replaced to.
+The key of this dict should be string type and like ‘{symbolName}’, and
+the value of this dict should be string type.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.Tool.wordTool.replaceParagraphContent">
+<span class="sig-name descname"><span class="pre">replaceParagraphContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paragraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paraDict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Tool/wordTool.html#replaceParagraphContent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Tool.wordTool.replaceParagraphContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will replace the paragraph content of word Document object.
+This replace is inplace, so this function returns None. This function is very
+like the str.format() function in python, it replace any symbol like {symbolName}
+according to key-&gt;value relation in paraDict, if there is a {code} showed in
+word, and paraDict declares ‘{code}’:’000001’, then the content of {code} will
+be replaced to 000001.</p>
+<dl class="simple">
+<dt>paragraph<span class="classifier">Object</span></dt><dd><p>The python-docx paragraph object.</p>
+</dd>
+<dt>paraDict<span class="classifier">dict</span></dt><dd><p>A python dict used to declare which symbol should be replaced and how should
+it be replaced.</p>
+</dd>
+</dl>
+<p>None</p>
+</dd></dl>
+
+</div>
 <div class="section" id="module-RiskQuantLib.Tool">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-RiskQuantLib.Tool" title="Permalink to this headline">¶</a></h2>
 </div>
@@ -4149,7 +4592,7 @@ using China exchange trading calendar.</p>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="Install.html" class="btn btn-neutral float-right" title="Install" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="RiskQuantLib.Set.SecurityList.StockList.html" class="btn btn-neutral float-left" title="RiskQuantLib.Set.SecurityList.StockList package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="RiskQuantLib.Property.html" class="btn btn-neutral float-left" title="RiskQuantLib.Property package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

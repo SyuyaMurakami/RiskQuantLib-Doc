@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>With ORM &mdash; RiskQuantLib 0.0.32 documentation</title>
+  <title>With ORM &mdash; RiskQuantLib 0.2.9 documentation</title>
   
 
   
@@ -217,23 +217,23 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>MyEuropeanOption</p></td>
+<tr class="row-even"><td><p>myEuropeanOption</p></td>
 <td><p>PayOff</p></td>
 <td><p>qlPayOff</p></td>
 </tr>
-<tr class="row-odd"><td><p>MyEuropeanOption</p></td>
+<tr class="row-odd"><td><p>myEuropeanOption</p></td>
 <td><p>ExerciseDate</p></td>
 <td><p>qlExercise</p></td>
 </tr>
-<tr class="row-even"><td><p>MyEuropeanOption</p></td>
+<tr class="row-even"><td><p>myEuropeanOption</p></td>
 <td><p>StockPrice</p></td>
 <td><p>qlQuote</p></td>
 </tr>
-<tr class="row-odd"><td><p>MyEuropeanOption</p></td>
+<tr class="row-odd"><td><p>myEuropeanOption</p></td>
 <td><p>RiskFreeRate</p></td>
 <td><p>qlQuote</p></td>
 </tr>
-<tr class="row-even"><td><p>MyEuropeanOption</p></td>
+<tr class="row-even"><td><p>myEuropeanOption</p></td>
 <td><p>Sigma</p></td>
 <td><p>qlQuote</p></td>
 </tr>
@@ -241,7 +241,7 @@
 </table>
 <p><strong>Noticed here, we have all attribute names that are the same with ORM list element attribute names. This will help RiskQuantLib to identify attribute and set them automatically.</strong></p>
 <p>After building it, you can open the <code class="docutils literal notranslate"><span class="pre">main.py</span></code> and use it directly:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RiskQuantLib.Module</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RiskQuantLib.module</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">vanillaOptionList</span> <span class="o">=</span> <span class="n">myEuropeanOptionList</span><span class="p">()</span><span class="o">.</span><span class="n">fromIterable</span><span class="p">(</span><span class="n">ORM</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;OptionCode&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
