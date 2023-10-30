@@ -10,8 +10,6 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.8"
-  apt_packages:
-    - sphinx_autodoc_typehints
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
