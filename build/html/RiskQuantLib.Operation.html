@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Operation package &mdash; RiskQuantLib 0.2.9 documentation</title>
+  <title>RiskQuantLib.Operation package &mdash; RiskQuantLib 0.3.6 documentation</title>
   
 
   
@@ -225,7 +225,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.iloc.iloc">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">iloc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/iloc.html#iloc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.iloc.iloc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is the function class for RiskQuantLib list to use iloc function. It’s similar to
 that in pandas. Use it by calling stockList.iloc[number]. It returns the number-th element in
 that list.</p>
@@ -238,7 +238,7 @@ that list.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.loc.loc">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">loc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/loc.html#loc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.loc.loc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class is the function class for RiskQuantLib list to use loc function. It’s similar to
 that in pandas. Use it by calling stockList.loc[index]. It returns the element in
 that list whose index equals given value.</p>
@@ -251,7 +251,7 @@ that list whose index equals given value.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">operation</span></span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>operation() is the function class that makes all RiskQuantLib list object functional.
 Any RiskQuantLib list class should inherit from this class to own certain functions,
 such as groupBy, execFunc, etc.</p>
@@ -363,7 +363,7 @@ If true is returned, the element from present list will be added to another list
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.execFunc">
-<span class="sig-name descname"><span class="pre">execFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">functionName</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.execFunc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.execFunc" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">execFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">functionName</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.execFunc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.execFunc" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will execute instance function for every element in present RiskQuantLib list object,
 given the function name. If some elements don’t have the function, a Null function will be used, and
 the result will skip the execution for that element.</p>
@@ -509,6 +509,54 @@ If true is returned, the element will be added. False means not added.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.link">
+<span class="sig-name descname"><span class="pre">link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">anotherList</span></em>, <em class="sig-param"><span class="pre">targetAttrNameOnLeft</span></em>, <em class="sig-param"><span class="pre">targetAttrNameOnRight</span></em>, <em class="sig-param"><span class="pre">matchFunctionOnLeft=&lt;function</span> <span class="pre">operation.&lt;lambda&gt;&gt;</span></em>, <em class="sig-param"><span class="pre">matchFunctionOnRight=&lt;function</span> <span class="pre">operation.&lt;lambda&gt;&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.link"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.link" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each element in current rqlList, find all elements that meet requirement
+matchFunctionOnRight(element_in_another_list) == matchFunctionOnLeft(element_in_this_list)
+from another RiskQuantLib list object. The elements meeting requirement will be set as an attribute
+of element_in_this_list.</p>
+<p>After this is done, for each element in another rqlList, find all elements that meet requirement
+matchFunctionOnLeft(element_in_this_list) == matchFunctionOnRight(element_in_another_list)
+from current RiskQuantLib list object. The elements meeting requirement will be set as an attribute
+of element_in_another_list.</p>
+<dl class="simple">
+<dt>anotherList<span class="classifier">RiskQuantLib list or list</span></dt><dd><p>Another list object, holding elements waiting to be selected.</p>
+</dd>
+<dt>targetAttrNameOnLeft<span class="classifier">str</span></dt><dd><p>The attribute name of present list that you want to use to mark collected elements from another list.</p>
+</dd>
+<dt>targetAttrNameOnRight<span class="classifier">str</span></dt><dd><p>The attribute name of another list that you want to use to mark collected elements from present list.</p>
+</dd>
+<dt>matchFunctionOnLeft<span class="classifier">function</span></dt><dd><p>This function has and only has one parameter, which stands for element in current list.</p>
+</dd>
+<dt>matchFunctionOnRight<span class="classifier">function</span></dt><dd><p>This function has and only has one parameter, which stands for element in another list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.match">
+<span class="sig-name descname"><span class="pre">match</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">anotherList</span></em>, <em class="sig-param"><span class="pre">targetAttrName</span></em>, <em class="sig-param"><span class="pre">matchFunctionOnLeft=&lt;function</span> <span class="pre">operation.&lt;lambda&gt;&gt;</span></em>, <em class="sig-param"><span class="pre">matchFunctionOnRight=&lt;function</span> <span class="pre">operation.&lt;lambda&gt;&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.match"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.match" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each element in current rqlList, find all elements that meet requirement
+matchFunctionOnRight(element_in_another_list) == matchFunctionOnLeft(element_in_this_list)
+from another RiskQuantLib list object. The elements meeting requirement will be set as an attribute
+of element_in_this_list.</p>
+<p>This function is very like rqlList.join, the only difference is that this function is
+vectorized, thus run with faster speed. Of cause, this function has some drawbacks, it
+can not deal with complicated relation which is described as coupled equation, while
+rqlList.join can do it.</p>
+<dl class="simple">
+<dt>anotherList<span class="classifier">RiskQuantLib list or list</span></dt><dd><p>Another list object, holding elements waiting to be selected.</p>
+</dd>
+<dt>targetAttrName<span class="classifier">str</span></dt><dd><p>The attribute name that you want to use to mark collected elements from another list.</p>
+</dd>
+<dt>matchFunctionOnLeft<span class="classifier">function</span></dt><dd><p>This function has and only has one parameter, which stands for element in current list.</p>
+</dd>
+<dt>matchFunctionOnRight<span class="classifier">function</span></dt><dd><p>This function has and only has one parameter, which stands for element in another list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.mean">
 <span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.mean" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function will average the value of each element, given the attribute name.
@@ -560,6 +608,30 @@ in present list will be returned.</p>
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.new">
 <span class="sig-name descname"><span class="pre">new</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.new"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.new" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a totally new RiskQuantLib list object like this.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.paraFunc">
+<span class="sig-name descname"><span class="pre">paraFunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">functionName</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.paraFunc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.paraFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will execute instance function for every element in present RiskQuantLib list object by parallel,
+which means elements will be serialized and sent to different processes.</p>
+<p>If some elements don’t have the function which named as you specify, a Null function will be used, and
+the result will skip the execution for that element.</p>
+<p>The call will be delayed until you run currentRiskQuantLibList.paraRun().</p>
+<dl class="simple">
+<dt>functionName<span class="classifier">str</span></dt><dd><p>The function that element has, and you want to call.</p>
+</dd>
+</dl>
+<p>operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.paraRun">
+<span class="sig-name descname"><span class="pre">paraRun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nJobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.paraRun"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.paraRun" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the trigger of run paralleled function for every element in this RiskQuantLib list. Before you use
+this function, you should call someList.paraFunc(‘functionName’) for more than one time to tell RiskQuantLib
+what function you want to parallel.</p>
+<p>operation</p>
 </dd></dl>
 
 <dl class="py method">

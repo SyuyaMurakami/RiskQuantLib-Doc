@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib package &mdash; RiskQuantLib 0.2.9 documentation</title>
+  <title>RiskQuantLib package &mdash; RiskQuantLib 0.3.6 documentation</title>
   
 
   
@@ -249,6 +249,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Build.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Build.html#module-RiskQuantLib.Build.builder">RiskQuantLib.Build.builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Build.html#module-RiskQuantLib.Build.controller">RiskQuantLib.Build.controller module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Build.html#module-RiskQuantLib.Build.debugger">RiskQuantLib.Build.debugger module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Build.html#module-RiskQuantLib.Build.render">RiskQuantLib.Build.render module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Build.html#module-RiskQuantLib.Build.router">RiskQuantLib.Build.router module</a></li>
@@ -308,6 +309,7 @@
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.GUITool">RiskQuantLib.Tool.GUITool module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.codeBuilderTool">RiskQuantLib.Tool.codeBuilderTool module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.databaseTool">RiskQuantLib.Tool.databaseTool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.decoratorTool">RiskQuantLib.Tool.decoratorTool module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.excelTool">RiskQuantLib.Tool.excelTool module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.fileTool">RiskQuantLib.Tool.fileTool module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.githubTool">RiskQuantLib.Tool.githubTool module</a></li>
@@ -368,14 +370,13 @@ After this function is called, the target repository will be saved as template p
 <dd><p>autoBuildProject() is a function to build RiskQuantLib project. This function keeps
 running until catch a KeyboardInterrupt Exception.</p>
 <p>Use terminal command ‘autoRQL targetProjectPath’ to use this function. The project
-will be built according to the Build_Instrument.xlsx and Build_Attr.xlsx in
-the targetProjectPath.</p>
+will be built according to the targetProjectPath/config.py in the targetProjectPath.</p>
 <p>After this function is called, the instrument class file and attribute API will be
 automatically generated and updated.</p>
 <dl class="simple">
 <dt>targetPath<span class="classifier">str</span></dt><dd><p>A terminal command parameter, specify the RiskQuantLib project path you want to build and render.</p>
 </dd>
-<dt>renderFromPath<span class="classifier">str</span></dt><dd><p>The path of dictionary of source file used to render target project.</p>
+<dt>renderFromPath<span class="classifier">str</span></dt><dd><p>The path of directory of source file used to render target project.</p>
 </dd>
 <dt>channel<span class="classifier">str</span></dt><dd><p>render action in this channel will not delete the result of render in other channel
 unless it is overwritten by current render.</p>
@@ -396,16 +397,15 @@ under ./Src/somecode.py.</p>
 <span class="sig-name descname"><span class="pre">buildProject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderFromPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#buildProject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.buildProject" title="Permalink to this definition">¶</a></dt>
 <dd><p>buildProject() is a function to build RiskQuantLib project.</p>
 <p>Use terminal command ‘bldRQL targetProjectPath’ to use this function. The project
-will be built according to the Build_Instrument.xlsx and Build_Attr.xlsx in
-the targetProjectPath.</p>
+will be built according to the targetProjectPath/config.py in the targetProjectPath.</p>
 <p>After this function is called, the instrument class file and attribute API will be
 automatically generated.</p>
 <p>For old version user of RiskQuantLib, this function is totally the same as
-command ‘python build.py’ in terminal with working dictionary as targetProjectPath.</p>
+command ‘python build.py’ in terminal with working directory as targetProjectPath.</p>
 <dl class="simple">
 <dt>targetPath<span class="classifier">str</span></dt><dd><p>A terminal command parameter, specify the RiskQuantLib project path you want to build and render.</p>
 </dd>
-<dt>renderFromPath<span class="classifier">str</span></dt><dd><p>The path of dictionary of source file used to render target project.</p>
+<dt>renderFromPath<span class="classifier">str</span></dt><dd><p>The path of directory of source file used to render target project.</p>
 </dd>
 <dt>channel<span class="classifier">str</span></dt><dd><p>render action in this channel will not delete the result of render in other channel
 unless it is overwritten by current render.</p>
@@ -422,19 +422,17 @@ under ./Src/somecode.py.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RiskQuantLib.buildProjectFromExcel">
-<span class="sig-name descname"><span class="pre">buildProjectFromExcel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buildCachePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrumentExcelPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributeExcelPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderFromPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bindType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'renderedSourceCode'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#buildProjectFromExcel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.buildProjectFromExcel" title="Permalink to this definition">¶</a></dt>
-<dd><p>buildProjectFromExcel() is a function to build project according to excel declaration.</p>
+<dt class="sig sig-object py" id="RiskQuantLib.buildProjectFromConfig">
+<span class="sig-name descname"><span class="pre">buildProjectFromConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buildCachePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configFilePath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderFromPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bindType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'renderedSourceCode'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#buildProjectFromConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.buildProjectFromConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>buildProjectFromConfig() is a function to build project according to config.py declaration.</p>
 <dl class="simple">
-<dt>targetPath<span class="classifier">str</span></dt><dd><p>The path of target RiskQuantLib project dictionary.</p>
+<dt>targetPath<span class="classifier">str</span></dt><dd><p>The path of target RiskQuantLib project directory.</p>
 </dd>
 <dt>buildCachePath<span class="classifier">str</span></dt><dd><p>The path of building cache.</p>
 </dd>
-<dt>instrumentExcelPath<span class="classifier">str</span></dt><dd><p>The path of Build_Instrument.xlsx.</p>
+<dt>configFilePath<span class="classifier">str</span></dt><dd><p>The path of config.py used as default build config file.</p>
 </dd>
-<dt>attributeExcelPath<span class="classifier">str</span></dt><dd><p>The path of Build_Attr.xlsx</p>
-</dd>
-<dt>renderFromPath<span class="classifier">str</span></dt><dd><p>The path of source code dictionary</p>
+<dt>renderFromPath<span class="classifier">str</span></dt><dd><p>The path of source code directory</p>
 </dd>
 <dt>bindType<span class="classifier">str</span></dt><dd><p>The channel of binding action. Source code are rendered and injected into project by different channels,
 The source code injected by channel A will be not influenced by source code injected by channel B, unless
@@ -458,7 +456,7 @@ under ./Src/somecode.py.</p>
 <span class="sig-name descname"><span class="pre">checkAndCreateTemplatePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#checkAndCreateTemplatePath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.checkAndCreateTemplatePath" title="Permalink to this definition">¶</a></dt>
 <dd><p>checkAndCreateTemplatePath() is a function to check whether the Template path exists.</p>
 <dl class="simple">
-<dt>sourcePath<span class="classifier">str</span></dt><dd><p>The path of RiskQuantLib template dictionary.</p>
+<dt>sourcePath<span class="classifier">str</span></dt><dd><p>The path of RiskQuantLib template directory.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -488,15 +486,6 @@ After calling this function, the existing RiskQuantLib project will be removed f
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RiskQuantLib.initiateAttributeFile">
-<span class="sig-name descname"><span class="pre">initiateAttributeFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#initiateAttributeFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.initiateAttributeFile" title="Permalink to this definition">¶</a></dt>
-<dd><p>initiateAttributeFile() is a function to generate content of Build_Attr.xlsx.</p>
-<p>Build_Attr.xlsx will be created in every RiskQuantLib project when initiating it. It is
-the declaration file of all attributes which will be bound into instruments.</p>
-<p>dfAttr : pandas.DataFrame</p>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="RiskQuantLib.initiateBuildFile">
 <span class="sig-name descname"><span class="pre">initiateBuildFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#initiateBuildFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.initiateBuildFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>initiateBuildFile() is a function to generate content of build.py source file.</p>
@@ -507,12 +496,31 @@ directly or add some parameter from command line.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RiskQuantLib.initiateInstrumentFile">
-<span class="sig-name descname"><span class="pre">initiateInstrumentFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#initiateInstrumentFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.initiateInstrumentFile" title="Permalink to this definition">¶</a></dt>
-<dd><p>initiateInstrumentFile() is a function to generate content of Build_Instrument.xlsx.</p>
-<p>Build_Instrument.xlsx will be created in every RiskQuantLib project when initiating it. It is
-the declaration file of all instruments to be used in project and their inheritance relationship.</p>
-<p>dfInstrument : pandas.DataFrame</p>
+<dt class="sig sig-object py" id="RiskQuantLib.initiateConfigFile">
+<span class="sig-name descname"><span class="pre">initiateConfigFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#initiateConfigFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.initiateConfigFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>initiateConfigFile() is a function to generate content of config.py source file.</p>
+<p>config.py will be created in every RiskQuantLib project when initiating it. It is the declaration file
+of all instruments to be used in project and their inheritance relationship, it also contains the attribute
+the would be used in this project.</p>
+<p>PYB : pythonScriptBuilder</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.initiateExecutableBuildShortcutFile">
+<span class="sig-name descname"><span class="pre">initiateExecutableBuildShortcutFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#initiateExecutableBuildShortcutFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.initiateExecutableBuildShortcutFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>initiateExecutableBuildShortcutFile() is a function to generate executable shortcut for different system.</p>
+<p>build.bat or build.sh will be created in every RiskQuantLib project when initiating it on Windows or linux. It is the shortcut
+of run build.py by console.</p>
+<p>PYB : pythonScriptBuilder</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RiskQuantLib.initiateExecutableDebugShortcutFile">
+<span class="sig-name descname"><span class="pre">initiateExecutableDebugShortcutFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#initiateExecutableDebugShortcutFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.initiateExecutableDebugShortcutFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>initiateExecutableDebugShortcutFile() is a function to generate executable shortcut for different system.</p>
+<p>debug.bat or debug.sh will be created in every RiskQuantLib project when initiating it on Windows or linux. It is the shortcut
+of run build.py by console.</p>
+<p>PYB : pythonScriptBuilder</p>
 </dd></dl>
 
 <dl class="py function">
@@ -553,7 +561,7 @@ If there is already a RiskQuantLib project in target path, it will be deleted an
 <p>Use terminal command ‘pkgRQL’ to use this function.
 The terminal command ‘pkgRQL’ accept a parameter ‘targetPathString’,
 which is the RiskQuantLib project path that you want to package.
-It doesn’t need to have a dictionary named ‘RiskQuantLib’ to be packaged.</p>
+It doesn’t need to have a directory named ‘RiskQuantLib’ to be packaged.</p>
 <dl class="simple">
 <dt>targetPath<span class="classifier">str</span></dt><dd><p>A terminal command parameter, specify the RiskQuantLib project path which you want to package.</p>
 </dd>
@@ -568,18 +576,16 @@ It doesn’t need to have a dictionary named ‘RiskQuantLib’ to be packaged.<
 <span class="sig-name descname"><span class="pre">parseBuildPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetPath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkExist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#parseBuildPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.parseBuildPath" title="Permalink to this definition">¶</a></dt>
 <dd><p>parseBuildPath() is a function to generate the paths of project related file.</p>
 <dl class="simple">
-<dt>targetPath<span class="classifier">str</span></dt><dd><p>The path of target RiskQuantLib project dictionary.</p>
+<dt>targetPath<span class="classifier">str</span></dt><dd><p>The path of target RiskQuantLib project directory.</p>
 </dd>
 <dt>checkExist<span class="classifier">bool</span></dt><dd><p>If true, this function will check the existence of related path of
 target project. It will raise exception iin case of absence.</p>
 </dd>
 </dl>
 <dl class="simple">
-<dt>rqlPath<span class="classifier">str</span></dt><dd><p>the path of RiskQuantLib dictionary</p>
+<dt>rqlPath<span class="classifier">str</span></dt><dd><p>the path of RiskQuantLib directory</p>
 </dd>
-<dt>instrumentExcelPath<span class="classifier">str</span></dt><dd><p>the path of instrument declaration file</p>
-</dd>
-<dt>attributeExcelPath<span class="classifier">str</span></dt><dd><p>the path of attribute declaration file</p>
+<dt>configFilePath<span class="classifier">str</span></dt><dd><p>The path of config.py used as default build config file.</p>
 </dd>
 <dt>buildCachePath<span class="classifier">str</span></dt><dd><p>the path of building cache</p>
 </dd>
@@ -594,17 +600,16 @@ target project. It will raise exception iin case of absence.</p>
 will be changed into a permanent project, where all current attribute APIs and instrument registrations
 will not be influenced by build.py anymore.</p>
 <p>This function is like a snapshot of your project, it freezes all effective APIs into permanent ones.</p>
-<p>Surely, you can still build the persisted project with new Build_Instrument.xlsx and Build_Attr.xlsx file.
+<p>Surely, you can still build the persisted project with new config.py file.
 Just remember, no matter how many times you build it, the persisted API will remain effective and will not be influenced.</p>
 <p>This command is used when you want to distribute your project to someone else, but you do not want him to change your
 current API. Or this command is used when you are quite sure your current code is stable and can be settled down so that
 you can move on to next stage.</p>
-<p>This function will remove the file Build_Instrument.xlsx and Build_Attr.xlsx and replace them with new ones.</p>
 <p>This command can not be cancelled or un-done, use it carefully.</p>
 <dl class="simple">
 <dt>targetPath<span class="classifier">str</span></dt><dd><p>A terminal command parameter, specify the RiskQuantLib project path you want to persist.</p>
 </dd>
-<dt>renderFromPath<span class="classifier">str</span></dt><dd><p>The path of dictionary of source file used to render target project.</p>
+<dt>renderFromPath<span class="classifier">str</span></dt><dd><p>The path of directory of source file used to render target project.</p>
 </dd>
 <dt>channel<span class="classifier">str</span></dt><dd><p>render action in this channel will not delete the result of render in other channel
 unless it is overwritten by current render.</p>
@@ -616,11 +621,11 @@ unless it is overwritten by current render.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="RiskQuantLib.receiveProjectTemplate">
 <span class="sig-name descname"><span class="pre">receiveProjectTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#receiveProjectTemplate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.receiveProjectTemplate" title="Permalink to this definition">¶</a></dt>
-<dd><p>receiveProjectTemplate() is a function to receive any file or dictionary from your friend by
+<dd><p>receiveProjectTemplate() is a function to receive any file or directory from your friend by
 LOCAL AREA NETWORK (LAN).</p>
 <p>Use terminal command ‘recvRQL’ to use this function. You can also specify a path where your want to
-save the shared file or dictionary, like ‘recvRQL targetPath’. If you do not give a path, the file will
-be stored in current working dictionary.</p>
+save the shared file or directory, like ‘recvRQL targetPath’. If you do not give a path, the file will
+be stored in current working directory.</p>
 <p>After this function is called, you can receive the file shared from your friend, who is also in the
 same LAN. You can not receive files or project from people outside your local network by this function. If you
 want to share with friends who is across ocean, maybe you should use Github and getRQL command.</p>
@@ -640,7 +645,7 @@ The terminal command ‘saveRQL’ accept a parameter ‘targetPathString’,
 which is the RiskQuantLib project path that you want to save,
 and an optional parameter ‘projectName’,
 which is the name you want to give to this project.
-After calling this function, a ‘.zip’ file will be created in RiskQuantLib project dictionary,
+After calling this function, a ‘.zip’ file will be created in RiskQuantLib project directory,
 and this project will be stored as a template.</p>
 <dl class="simple">
 <dt>targetPath<span class="classifier">str</span></dt><dd><p>A terminal command parameter, specify the RiskQuantLib project path which you want to save as template.</p>
@@ -654,15 +659,15 @@ and this project will be stored as a template.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="RiskQuantLib.sendProjectTemplate">
 <span class="sig-name descname"><span class="pre">sendProjectTemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetPath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib.html#sendProjectTemplate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.sendProjectTemplate" title="Permalink to this definition">¶</a></dt>
-<dd><p>sendProjectTemplate() is a function to send any file or dictionary to your friend by
+<dd><p>sendProjectTemplate() is a function to send any file or directory to your friend by
 LOCAL AREA NETWORK (LAN).</p>
 <p>Use terminal command ‘sendRQL targetProjectPath’ or ‘sendRQL targetFilePath’ to use this function. If
-you send a dictionary, it will be packed into a zip file at first, and sent to your friend.</p>
+you send a directory, it will be packed into a zip file at first, and sent to your friend.</p>
 <p>After this function is called, you can send to your friend who is also in the same LAN.
 You can not send files or project to people outside your local network by this function. If you
 want to share with friends who is across ocean, maybe you should use Github and getRQL command.</p>
 <dl class="simple">
-<dt>targetPath<span class="classifier">str</span></dt><dd><p>A terminal command parameter, specify the path of file or dictionary you want to send.</p>
+<dt>targetPath<span class="classifier">str</span></dt><dd><p>A terminal command parameter, specify the path of file or directory you want to send.</p>
 </dd>
 </dl>
 <p>None</p>
@@ -677,7 +682,7 @@ will be un-built and return to the initial status.</p>
 <p>After this function is called, the attribute API will be automatically removed, any all registration
 of instrument will be deleted. But, python source file will not be deleted until you do it by yourself.</p>
 <p>After a project is un-built, you can not use instrument directly in main.py or create new instrument
-inherited from those un-registered instrument. The file Build_Instrument.xlsx and Build_Attr.xlsx will not be
+inherited from those un-registered instrument. The file config.py will not be
 changed after you call this function.</p>
 <dl class="simple">
 <dt>targetPath<span class="classifier">str</span></dt><dd><p>A terminal command parameter, specify the RiskQuantLib project path you want to un-build and un-render.</p>

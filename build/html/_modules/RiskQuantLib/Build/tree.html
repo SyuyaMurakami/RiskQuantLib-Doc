@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Build.tree &mdash; RiskQuantLib 0.2.9 documentation</title>
+  <title>RiskQuantLib.Build.tree &mdash; RiskQuantLib 0.3.6 documentation</title>
   
 
   
@@ -172,7 +172,18 @@
 <span></span><span class="ch">#!/usr/bin/python</span>
 <span class="c1"># coding = utf-8</span>
 
-<div class="viewcode-block" id="inheritNode"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritNode">[docs]</a><span class="k">class</span> <span class="nc">inheritNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="treeOperation"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.treeOperation">[docs]</a><span class="k">class</span> <span class="nc">treeOperation</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<div class="viewcode-block" id="treeOperation.copy"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.treeOperation.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a copy of present tree object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">copy</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">if</span> <span class="n">deep</span> <span class="k">else</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="inheritNode"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritNode">[docs]</a><span class="k">class</span> <span class="nc">inheritNode</span><span class="p">(</span><span class="n">treeOperation</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A link chain node used to hold inherit information.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -185,17 +196,35 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">outsideParentNode</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">outsideDependence</span> <span class="o">=</span> <span class="p">[]</span>
 
+<div class="viewcode-block" id="inheritNode.extendInheritTree"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritNode.extendInheritTree">[docs]</a>    <span class="k">def</span> <span class="nf">extendInheritTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parentNode</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given a inheritNode object, this function will append the name of inheritNode after the</span>
+<span class="sd">        inheritTree of that node, then return the new list as extended inheritTree.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">inheritTreeNode</span> <span class="o">=</span> <span class="p">[</span><span class="n">parentNode</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="k">if</span> <span class="n">parentNode</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inheritTree</span> <span class="o">=</span> <span class="n">parentNode</span><span class="o">.</span><span class="n">inheritTree</span> <span class="o">+</span> <span class="n">inheritTreeNode</span></div>
+
+<div class="viewcode-block" id="inheritNode.updateInheritTree"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritNode.updateInheritTree">[docs]</a>    <span class="k">def</span> <span class="nf">updateInheritTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inheritTree</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given a list, this function will insert this list before the</span>
+<span class="sd">        inheritTree of that node and its any child node.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">[</span><span class="nb">setattr</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s1">&#39;inheritTree&#39;</span><span class="p">,</span> <span class="n">inheritTree</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">inheritTree</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">childNode</span><span class="p">]</span>
+        <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">updateInheritTree</span><span class="p">(</span><span class="n">inheritTree</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">childNode</span><span class="p">]</span></div>
+
 <div class="viewcode-block" id="inheritNode.inheritFrom"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritNode.inheritFrom">[docs]</a>    <span class="k">def</span> <span class="nf">inheritFrom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parentNode</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Inherit from one or more node.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parentNode</span><span class="p">,</span> <span class="n">inheritNode</span><span class="p">):</span>
             <span class="n">parentNode</span> <span class="o">=</span> <span class="p">[</span><span class="n">parentNode</span><span class="p">]</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parentNode</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">parentNode</span> <span class="o">+=</span> <span class="n">parentNode</span>
-            <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">childNode</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parentNode</span><span class="p">]</span>
-            <span class="n">inheritTreeNode</span> <span class="o">=</span> <span class="p">[</span><span class="n">parentNode</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="k">if</span> <span class="n">parentNode</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="p">[]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">inheritTree</span> <span class="o">=</span> <span class="n">parentNode</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">inheritTree</span> <span class="o">+</span> <span class="n">inheritTreeNode</span></div>
+        <span class="n">parentNodeAdd</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">parentNode</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parentNode</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parentNodeAdd</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parentNode</span> <span class="o">+=</span> <span class="n">parentNodeAdd</span>
+            <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">childNode</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parentNodeAdd</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inheritTree</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">extendInheritTree</span><span class="p">(</span><span class="n">parentNodeAdd</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">updateInheritTree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inheritTree</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="inheritNode.inheritFromOutside"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritNode.inheritFromOutside">[docs]</a>    <span class="k">def</span> <span class="nf">inheritFromOutside</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outsideParentName</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -233,9 +262,7 @@
         <span class="n">fromDict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">fromDict</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="p">[</span><span class="n">childNode</span><span class="o">.</span><span class="n">destroyNode</span><span class="p">(</span><span class="n">fromDict</span><span class="o">=</span><span class="n">fromDict</span><span class="p">)</span> <span class="k">for</span> <span class="n">childNode</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">childNode</span><span class="p">]</span></div></div>
 
-
-
-<div class="viewcode-block" id="inheritTree"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritTree">[docs]</a><span class="k">class</span> <span class="nc">inheritTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="inheritTree"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritTree">[docs]</a><span class="k">class</span> <span class="nc">inheritTree</span><span class="p">(</span><span class="n">treeOperation</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A link chain used to hold inherit information.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -244,13 +271,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nodeDict</span> <span class="o">=</span> <span class="p">{}</span>
 
-<div class="viewcode-block" id="inheritTree.addNode"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritTree.addNode">[docs]</a>    <span class="k">def</span> <span class="nf">addNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<div class="viewcode-block" id="inheritTree.addNode"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritTree.addNode">[docs]</a>    <span class="k">def</span> <span class="nf">addNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">setActive</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Add a single node into current inherit tree.</span>
+<span class="sd">        Add a single node into current inherit tree, if it already exists, set that node into active, if it does not</span>
+<span class="sd">        exist, a new node will be created as set as active.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodeDict</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span> <span class="o">=</span> <span class="n">inheritNode</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nodeDict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodeDict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">inheritNode</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodeDict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">if</span> <span class="n">setActive</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
 <div class="viewcode-block" id="inheritTree.delNode"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritTree.delNode">[docs]</a>    <span class="k">def</span> <span class="nf">delNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
@@ -274,7 +302,7 @@
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">parentNode</span><span class="p">)</span><span class="o">==</span><span class="nb">str</span><span class="p">:</span>
             <span class="n">parentNode</span> <span class="o">=</span> <span class="p">[</span><span class="n">parentNode</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parentNode</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span><span class="o">.</span><span class="n">inheritFrom</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nodeDict</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parentNode</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodeDict</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span><span class="o">.</span><span class="n">inheritFrom</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">nodeDict</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="k">if</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodeDict</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">addNode</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">setActive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">getNode</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parentNode</span><span class="p">])</span>
             <span class="n">deActivitiedNode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">activeNode</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">return</span> <span class="n">deActivitiedNode</span></div>

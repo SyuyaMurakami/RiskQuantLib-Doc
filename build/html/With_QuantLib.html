@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>With QuantLib &mdash; RiskQuantLib 0.2.9 documentation</title>
+  <title>With QuantLib &mdash; RiskQuantLib 0.3.6 documentation</title>
   
 
   
@@ -292,68 +292,16 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">newRQL</span> <span class="n">yourProjectPath</span>
 </pre></div>
 </div>
-<p>After it, we open <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code>, and edit it like:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 20%" />
-<col style="width: 26%" />
-<col style="width: 13%" />
-<col style="width: 23%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>InstrumentName</p></th>
-<th class="head"><p>ParentRQLClassName</p></th>
-<th class="head"><p>ParentQuantLibClassName</p></th>
-<th class="head"><p>LibararyName</p></th>
-<th class="head"><p>DefaultInstrumentType</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>myEuropeanOption</p></td>
-<td></td>
-<td><p>EuropeanOption</p></td>
-<td></td>
-<td><p>myEuropeanOption</p></td>
-</tr>
-</tbody>
-</table>
-<p>Then we open <code class="docutils literal notranslate"><span class="pre">Build_Attr.xlsx</span></code>, and make it look like:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 37%" />
-<col style="width: 30%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>SecurityType</p></th>
-<th class="head"><p>AttrName</p></th>
-<th class="head"><p>AttrType</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>myEuropeanOption</p></td>
-<td><p>myPayOff</p></td>
-<td><p>qlPayOff</p></td>
-</tr>
-<tr class="row-odd"><td><p>myEuropeanOption</p></td>
-<td><p>myExercise</p></td>
-<td><p>qlExercise</p></td>
-</tr>
-<tr class="row-even"><td><p>myEuropeanOption</p></td>
-<td><p>underlyingStockPrice</p></td>
-<td><p>qlQuote</p></td>
-</tr>
-<tr class="row-odd"><td><p>myEuropeanOption</p></td>
-<td><p>riskFreeRate</p></td>
-<td><p>qlQuote</p></td>
-</tr>
-<tr class="row-even"><td><p>myEuropeanOption</p></td>
-<td><p>sigma</p></td>
-<td><p>qlQuote</p></td>
-</tr>
-</tbody>
-</table>
+<p>After it, we open <code class="docutils literal notranslate"><span class="pre">config.py</span></code>, and edit it like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#-|instrument: myEuropeanOption</span>
+<span class="c1">#-|instrument-ParentQuantLibClassName: myEuropeanOption@EuropeanOption</span>
+<span class="c1">#-|instrument-DefaultInstrumentType: myEuropeanOption@myEuropeanOption</span>
+</pre></div>
+</div>
+<p>Then we continue to add contents into <code class="docutils literal notranslate"><span class="pre">config.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#-|attribute: myEuropeanOption.myPayOff@qlPayOff, myEuropeanOption.myExercise@qlExercise, myEuropeanOption.underlyingStockPrice@qlQuote, myEuropeanOption.riskFreeRate@qlQuote, myEuropeanOption.sigma@qlQuote</span>
+</pre></div>
+</div>
 <p>Then we build it by using terminal command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">yourProjectPath</span>
 <span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span>

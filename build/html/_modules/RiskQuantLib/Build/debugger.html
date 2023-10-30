@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RiskQuantLib.Build.debugger &mdash; RiskQuantLib 0.2.9 documentation</title>
+  <title>RiskQuantLib.Build.debugger &mdash; RiskQuantLib 0.3.6 documentation</title>
   
 
   
@@ -270,12 +270,13 @@
 <span class="sd">        endLineNum : int</span>
 <span class="sd">            The total line number of source code.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">chunkOfGiven</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">functionChunk</span><span class="p">)</span>
+        <span class="n">chunkOfGiven</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">functionChunk</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">functionChunk</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span> <span class="k">else</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
         <span class="n">chunkOfGivenNum</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunkOfGiven</span><span class="p">)</span>
         <span class="n">chunkOfOthersBody</span> <span class="o">=</span> <span class="p">[(</span><span class="n">chunkOfGiven</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">chunkOfGiven</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">chunkOfGivenNum</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">chunkOfGivenNum</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">chunkOfOthersHead</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="n">chunkOfGiven</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])]</span>
         <span class="n">chunkOfOthersTail</span> <span class="o">=</span> <span class="p">[(</span><span class="n">chunkOfGiven</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">endLineNum</span><span class="p">)]</span>
         <span class="n">chunkOfOthers</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">chunkOfOthersHead</span> <span class="o">+</span> <span class="n">chunkOfOthersBody</span> <span class="o">+</span> <span class="n">chunkOfOthersTail</span> <span class="k">if</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="n">j</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">chunkOfGiven</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">chunkOfGiven</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">!=</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
         <span class="k">return</span> <span class="n">chunkOfGiven</span><span class="p">,</span><span class="n">chunkOfOthers</span></div>
 
 <div class="viewcode-block" id="debugger.findControlCommentLineId"><a class="viewcode-back" href="../../../RiskQuantLib.Build.html#RiskQuantLib.Build.debugger.debugger.findControlCommentLineId">[docs]</a>    <span class="nd">@staticmethod</span>

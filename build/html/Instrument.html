@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Instrument &mdash; RiskQuantLib 0.2.9 documentation</title>
+  <title>Instrument &mdash; RiskQuantLib 0.3.6 documentation</title>
   
 
   
@@ -199,7 +199,7 @@
 <div class="toctree-wrapper compound">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">Instrument</span></code> is any class you will use in your mission. For financial analysis, Instrument refers to stock, bond or other security type, or like interest rate or company, etc.</p>
-<p>If you choose to inherit from <code class="docutils literal notranslate"><span class="pre">Security</span></code> in <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code>, Instrument will be like security type. Or you inherit from <code class="docutils literal notranslate"><span class="pre">Index</span></code> or <code class="docutils literal notranslate"><span class="pre">Interest</span></code>, etc. Instrument will be like what you choose. You can also leave it blank, which means create a brand new branch of class.</p>
+<p>If you choose to inherit from <code class="docutils literal notranslate"><span class="pre">security</span></code> in <code class="docutils literal notranslate"><span class="pre">config.py</span></code>, Instrument will be like security type. Or you inherit from <code class="docutils literal notranslate"><span class="pre">index</span></code> or <code class="docutils literal notranslate"><span class="pre">interest</span></code>, etc. Instrument will be like what you choose. You can also only declare the name of instrument, which means create a brand new branch of class.</p>
 <p>Any type of instrument should be initialized with <code class="docutils literal notranslate"><span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">code</span></code> behaves like index in pandas, <code class="docutils literal notranslate"><span class="pre">name</span></code> is the string to tell you information of detail.</p>
 <p><strong>Notice: code and name attribute is not totally the same, code will be related to some function in instrument list.</strong></p>
 <p>By <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">RiskQuantLib.module</span> <span class="pre">import</span> <span class="pre">*</span></code>, any registered instrument will be imported automatically. You can use it be create an object of that class. If you create an Instrument called pandaBond, then use it like:</p>
@@ -220,7 +220,7 @@
 </div>
 <p><strong>This is very similar as the tag in html, actually, RiskQuantLib can help you to generate some code and insert them into target position. Source code can only be inserted between tags. And any content between tags can be dynamically replaced. This is why you should write your own code outside of tags.</strong></p>
 <p><strong>Notice: However, any created instrument file will remain unless you delete the class file manually.</strong></p>
-<p><strong>Notice: Instrument file can not be deleted automatically, but instrument class can be un-registered. If you want to cancel the registration of some instrument, you only need to remove its row in</strong> <code class="docutils literal notranslate"><span class="pre">Build_Instrument.xlsx</span></code> <strong>and rebuild it. After this operation, you can not use it directly by</strong> <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">RiskQuantLib.module</span> <span class="pre">import</span> <span class="pre">*</span></code> <strong>or create another instrument inheriting from this.</strong></p>
+<p><strong>Notice: Instrument file can not be deleted automatically, but instrument class can be un-registered. If you want to cancel the registration of some instrument, you only need to remove its row in</strong> <code class="docutils literal notranslate"><span class="pre">config.py</span></code> <strong>and rebuild it. After this operation, you can not use it directly by</strong> <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">RiskQuantLib.module</span> <span class="pre">import</span> <span class="pre">*</span></code> <strong>or create another instrument inheriting from this.</strong></p>
 </div>
 
 

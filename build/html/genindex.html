@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Index &mdash; RiskQuantLib 0.2.9 documentation</title>
+  <title>Index &mdash; RiskQuantLib 0.3.6 documentation</title>
   
 
   
@@ -256,15 +256,17 @@
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.buildDir">buildDir() (builder method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder">builder (class in RiskQuantLib.Build.builder)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.buildFile">buildFile() (builder method)</a>
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.buildProject">buildProject() (builder method)</a>
 
       <ul>
+        <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.configBuilder.buildProject">(configBuilder method)</a>
+</li>
         <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.databaseBuilder.buildProject">(databaseBuilder method)</a>
 </li>
         <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.dataframeBuilder.buildProject">(dataframeBuilder method)</a>
@@ -273,10 +275,12 @@
 </li>
         <li><a href="RiskQuantLib.html#RiskQuantLib.buildProject">(in module RiskQuantLib)</a>
 </li>
+        <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.stringBuilder.buildProject">(stringBuilder method)</a>
+</li>
         <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.validateBuilder.buildProject">(validateBuilder method)</a>
 </li>
       </ul></li>
-      <li><a href="RiskQuantLib.html#RiskQuantLib.buildProjectFromExcel">buildProjectFromExcel() (in module RiskQuantLib)</a>
+      <li><a href="RiskQuantLib.html#RiskQuantLib.buildProjectFromConfig">buildProjectFromConfig() (in module RiskQuantLib)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -314,13 +318,15 @@
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.clearProject">clearProject() (builder method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.codeBuilderTool.codeBuilder">codeBuilder (class in RiskQuantLib.Tool.codeBuilderTool)</a>
 </li>
       <li><a href="RiskQuantLib.Property.html#RiskQuantLib.Property.property.property.commit">commit() (property method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.fileTool.compressExcel">compressExcel() (in module RiskQuantLib.Tool.fileTool)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.configBuilder">configBuilder (class in RiskQuantLib.Build.builder)</a>
 </li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.GUITool.confirmGUI">confirmGUI (class in RiskQuantLib.Tool.GUITool)</a>
 </li>
@@ -329,6 +335,8 @@
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.databaseTool.neo4jTool.connectNodeByAttr">connectNodeByAttr() (neo4jTool method)</a>
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.router.router.contentSplit">contentSplit() (router static method)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.controller.controller">controller (class in RiskQuantLib.Build.controller)</a>
 </li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.databaseTool.neo4jTool.convertDataType">convertDataType() (neo4jTool method)</a>
 </li>
@@ -345,7 +353,11 @@
       <li><a href="RiskQuantLib.Model.Copula.html#RiskQuantLib.Model.Copula.copula.copulae">copulae (class in RiskQuantLib.Model.Copula.copula)</a>
 </li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.copy">copy() (operation method)</a>
+
+      <ul>
+        <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.tree.treeOperation.copy">(treeOperation method)</a>
 </li>
+      </ul></li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.fileTool.systemWatcher.createGuardian">createGuardian() (systemWatcher method)</a>
 </li>
   </ul></td>
@@ -414,6 +426,8 @@
 </li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.plotTool.exponential">exponential() (in module RiskQuantLib.Tool.plotTool)</a>
 </li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritNode.extendInheritTree">extendInheritTree() (inheritNode method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -435,6 +449,8 @@
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.debugger.debugger.findControlCommentLineId">findControlCommentLineId() (debugger static method)</a>
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.debugger.debugger.findControlCommentLineRange">findControlCommentLineRange() (debugger static method)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.controller.controller.findDeclareTag">findDeclareTag() (controller static method)</a>
 </li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.fileTool.findFirstNotNanValueOfSeries">findFirstNotNanValueOfSeries() (in module RiskQuantLib.Tool.fileTool)</a>
 </li>
@@ -600,11 +616,13 @@
 </li>
       <li><a href="RiskQuantLib.Instrument.html#RiskQuantLib.Instrument.instrument.instrument.iniPricingModule">iniPricingModule() (instrument method)</a>
 </li>
-      <li><a href="RiskQuantLib.html#RiskQuantLib.initiateAttributeFile">initiateAttributeFile() (in module RiskQuantLib)</a>
-</li>
       <li><a href="RiskQuantLib.html#RiskQuantLib.initiateBuildFile">initiateBuildFile() (in module RiskQuantLib)</a>
 </li>
-      <li><a href="RiskQuantLib.html#RiskQuantLib.initiateInstrumentFile">initiateInstrumentFile() (in module RiskQuantLib)</a>
+      <li><a href="RiskQuantLib.html#RiskQuantLib.initiateConfigFile">initiateConfigFile() (in module RiskQuantLib)</a>
+</li>
+      <li><a href="RiskQuantLib.html#RiskQuantLib.initiateExecutableBuildShortcutFile">initiateExecutableBuildShortcutFile() (in module RiskQuantLib)</a>
+</li>
+      <li><a href="RiskQuantLib.html#RiskQuantLib.initiateExecutableDebugShortcutFile">initiateExecutableDebugShortcutFile() (in module RiskQuantLib)</a>
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.initiateInstrumentTree">initiateInstrumentTree() (builder method)</a>
 </li>
@@ -615,6 +633,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.initiatePropertyTree">initiatePropertyTree() (builder method)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.validateBuilder.initiateTree">initiateTree() (validateBuilder method)</a>
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.router.router.injectToContent">injectToContent() (router static method)</a>
 </li>
@@ -674,14 +694,20 @@
 </li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.mathTool.linearRegression">linearRegression() (in module RiskQuantLib.Tool.mathTool)</a>
 </li>
+      <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.link">link() (operation method)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.linkContent">linkContent() (builder method)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.controller.controller.linkController">linkController() (controller static method)</a>
+</li>
       <li><a href="RiskQuantLib.html#RiskQuantLib.listProjectTemplate">listProjectTemplate() (in module RiskQuantLib)</a>
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.loadInfo">loadInfo() (builder static method)</a>
 </li>
-      <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.fileTool.loadVariable">loadVariable() (in module RiskQuantLib.Tool.fileTool)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.fileTool.loadVariable">loadVariable() (in module RiskQuantLib.Tool.fileTool)</a>
+</li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.loc.loc">loc (class in RiskQuantLib.Operation.loc)</a>
 </li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.plotTool.logistic">logistic() (in module RiskQuantLib.Tool.plotTool)</a>
@@ -700,6 +726,8 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.match">match() (operation method)</a>
+</li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.mathTool.maxDropDown">maxDropDown() (in module RiskQuantLib.Tool.mathTool)</a>
 </li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.mean">mean() (operation method)</a>
@@ -735,6 +763,8 @@
         <li><a href="RiskQuantLib.Build.Component.ContentGenerator.html#module-RiskQuantLib.Build.Component.ContentGenerator">RiskQuantLib.Build.Component.ContentGenerator</a>
 </li>
         <li><a href="RiskQuantLib.Build.Component.FileInitiator.html#module-RiskQuantLib.Build.Component.FileInitiator">RiskQuantLib.Build.Component.FileInitiator</a>
+</li>
+        <li><a href="RiskQuantLib.Build.html#module-RiskQuantLib.Build.controller">RiskQuantLib.Build.controller</a>
 </li>
         <li><a href="RiskQuantLib.Build.html#module-RiskQuantLib.Build.debugger">RiskQuantLib.Build.debugger</a>
 </li>
@@ -783,6 +813,8 @@
         <li><a href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.codeBuilderTool">RiskQuantLib.Tool.codeBuilderTool</a>
 </li>
         <li><a href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.databaseTool">RiskQuantLib.Tool.databaseTool</a>
+</li>
+        <li><a href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.decoratorTool">RiskQuantLib.Tool.decoratorTool</a>
 </li>
         <li><a href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.excelTool">RiskQuantLib.Tool.excelTool</a>
 </li>
@@ -859,9 +891,19 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.html#RiskQuantLib.packProject">packProject() (in module RiskQuantLib)</a>
 </li>
+      <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.paraFunc">paraFunc() (operation method)</a>
+</li>
+      <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.paraRun">paraRun() (operation method)</a>
+</li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.plotTool.pareto">pareto() (in module RiskQuantLib.Tool.plotTool)</a>
 </li>
       <li><a href="RiskQuantLib.html#RiskQuantLib.parseBuildPath">parseBuildPath() (in module RiskQuantLib)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.controller.controller.parseDeclareTagAsDF">parseDeclareTagAsDF() (controller static method)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.controller.controller.parseDeclareTagAsSeries">parseDeclareTagAsSeries() (controller static method)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.controller.controller.parseDeclareTagByGivenString">parseDeclareTagByGivenString() (controller static method)</a>
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.router.router.parseInjectTarget">parseInjectTarget() (router static method)</a>
 </li>
@@ -875,10 +917,10 @@
         <li><a href="RiskQuantLib.html#RiskQuantLib.persistProject">(in module RiskQuantLib)</a>
 </li>
       </ul></li>
-      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.router.router.persistToContent">persistToContent() (router static method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.router.router.persistToContent">persistToContent() (router static method)</a>
+</li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.router.router.persistToFile">persistToFile() (router static method)</a>
 </li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.plotTool.plot3DScatter">plot3DScatter() (in module RiskQuantLib.Tool.plotTool)</a>
@@ -1053,6 +1095,13 @@
 </li>
       </ul></li>
       <li>
+    RiskQuantLib.Build.controller
+
+      <ul>
+        <li><a href="RiskQuantLib.Build.html#module-RiskQuantLib.Build.controller">module</a>
+</li>
+      </ul></li>
+      <li>
     RiskQuantLib.Build.debugger
 
       <ul>
@@ -1220,6 +1269,13 @@
 
       <ul>
         <li><a href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.databaseTool">module</a>
+</li>
+      </ul></li>
+      <li>
+    RiskQuantLib.Tool.decoratorTool
+
+      <ul>
+        <li><a href="RiskQuantLib.Tool.html#module-RiskQuantLib.Tool.decoratorTool">module</a>
 </li>
       </ul></li>
       <li>
@@ -1431,6 +1487,8 @@
 </li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.str">str() (operation method)</a>
 </li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.stringBuilder">stringBuilder (class in RiskQuantLib.Build.builder)</a>
+</li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.router.router.stripTag">stripTag() (router static method)</a>
 </li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.sub">sub() (operation method)</a>
@@ -1449,19 +1507,25 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.tail">tail() (operation method)</a>
 </li>
+      <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.decoratorTool.timer">timer (class in RiskQuantLib.Tool.decoratorTool)</a>
+</li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.toArray">toArray() (operation method)</a>
 </li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.toDF">toDF() (operation method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.toDict">toDict() (operation method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.toList">toList() (operation method)</a>
 </li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.toSeries">toSeries() (operation method)</a>
 </li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.tree.treeOperation">treeOperation (class in RiskQuantLib.Build.tree)</a>
+</li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.plotTool.triangular">triangular() (in module RiskQuantLib.Tool.plotTool)</a>
+</li>
+      <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.fileTool.systemGuardian.tryWatch">tryWatch() (systemGuardian method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1485,10 +1549,10 @@
 </li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.updateAttr">updateAttr() (operation method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.updateAttrFromArray">updateAttrFromArray() (operation method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.updateAttrFromDF">updateAttrFromDF() (operation method)</a>
 </li>
       <li><a href="RiskQuantLib.Operation.html#RiskQuantLib.Operation.operation.operation.updateAttrFromDict">updateAttrFromDict() (operation method)</a>
@@ -1498,6 +1562,8 @@
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.updateBuildInfo">updateBuildInfo() (builder method)</a>
 </li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.databaseTool.neo4jTool.updateDFToNode">updateDFToNode() (neo4jTool method)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.tree.inheritNode.updateInheritTree">updateInheritTree() (inheritNode method)</a>
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.updatePathInfo">updatePathInfo() (builder method)</a>
 </li>
@@ -1517,13 +1583,15 @@
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.validateBuilder.validateParentClassName">validateParentClassName() (validateBuilder static method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.validateBuilder.validateRootInstrumentName">validateRootInstrumentName() (validateBuilder static method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.validateBuilder.validateString">validateString() (validateBuilder static method)</a>
 </li>
       <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.builder.validateStringForJson">validateStringForJson() (builder static method)</a>
+</li>
+      <li><a href="RiskQuantLib.Build.html#RiskQuantLib.Build.builder.validateBuilder.validateTree">validateTree() (validateBuilder method)</a>
 </li>
       <li><a href="RiskQuantLib.Tool.html#RiskQuantLib.Tool.plotTool.vonmises">vonmises() (in module RiskQuantLib.Tool.plotTool)</a>
 </li>
