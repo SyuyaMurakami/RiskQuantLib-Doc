@@ -1,94 +1,49 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>RiskQuantLib.Instrument package &mdash; RiskQuantLib 0.3.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/readthedocs-custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+  <title>RiskQuantLib.Instrument package &mdash; RiskQuantLib 0.3.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/readthedocs-custom.css" />
 
   
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/documentation_options.js?v=c1cae59a"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="RiskQuantLib.InstrumentList package" href="RiskQuantLib.InstrumentList.html" />
     <link rel="prev" title="RiskQuantLib.Build.Component.FileInitiator package" href="RiskQuantLib.Build.Component.FileInitiator.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> RiskQuantLib
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            RiskQuantLib
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home page</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">RiskQuantLib</a><ul class="current">
@@ -105,7 +60,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib.module">RiskQuantLib.module module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib.Module">RiskQuantLib.Module module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib">Module contents</a></li>
 </ul>
 </li>
@@ -122,170 +77,90 @@
 <li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">With QuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">With Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="With_ORM.html">With ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E_project.html">图数据结构编程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_Github.html">与Github配合使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advance.html">高级教程</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">RiskQuantLib</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="modules.html">RiskQuantLib</a> &raquo;</li>
-        
-          <li><a href="RiskQuantLib.html">RiskQuantLib package</a> &raquo;</li>
-        
-      <li>RiskQuantLib.Instrument package</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">RiskQuantLib</a></li>
+          <li class="breadcrumb-item"><a href="RiskQuantLib.html">RiskQuantLib package</a></li>
+      <li class="breadcrumb-item active">RiskQuantLib.Instrument package</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="riskquantlib-instrument-package">
-<h1>RiskQuantLib.Instrument package<a class="headerlink" href="#riskquantlib-instrument-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-RiskQuantLib.Instrument.instrument">
-<span id="riskquantlib-instrument-instrument-module"></span><h2>RiskQuantLib.Instrument.instrument module<a class="headerlink" href="#module-RiskQuantLib.Instrument.instrument" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="riskquantlib-instrument-package">
+<h1>RiskQuantLib.Instrument package<a class="headerlink" href="#riskquantlib-instrument-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-RiskQuantLib.Instrument.instrument">
+<span id="riskquantlib-instrument-instrument-module"></span><h2>RiskQuantLib.Instrument.instrument module<a class="headerlink" href="#module-RiskQuantLib.Instrument.instrument" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Instrument.instrument.instrument">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">instrument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">codeString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nameString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrumentTypeString</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Instrument'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Instrument/instrument.html#instrument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Instrument.instrument.instrument" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QuantLib.QuantLib.Instrument</span></code>, <a class="reference internal" href="RiskQuantLib.Auto.Instrument.html#RiskQuantLib.Auto.Instrument.instrument.instrumentAuto" title="RiskQuantLib.Auto.Instrument.instrument.instrumentAuto"><code class="xref py py-class docutils literal notranslate"><span class="pre">RiskQuantLib.Auto.Instrument.instrument.instrumentAuto</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">instrument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Observable</span> <span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Instrument/instrument.html#instrument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Instrument.instrument.instrument" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Instrument</span></code>, <a class="reference internal" href="RiskQuantLib.Auto.Instrument.html#RiskQuantLib.Auto.Instrument.instrument.instrumentAuto" title="RiskQuantLib.Auto.Instrument.instrument.instrumentAuto"><code class="xref py py-class docutils literal notranslate"><span class="pre">instrumentAuto</span></code></a></p>
 <p>This is the instrument basic class. Any instrument should inherit from this class.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Instrument.instrument.instrument.iniPricingModule">
-<span class="sig-name descname"><span class="pre">iniPricingModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Instrument/instrument.html#instrument.iniPricingModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Instrument.instrument.instrument.iniPricingModule" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">iniPricingModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Instrument/instrument.html#instrument.iniPricingModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Instrument.instrument.instrument.iniPricingModule" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-RiskQuantLib.Instrument">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-RiskQuantLib.Instrument" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
+</section>
+<section id="module-RiskQuantLib.Instrument">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-RiskQuantLib.Instrument" title="Link to this heading">¶</a></h2>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="RiskQuantLib.InstrumentList.html" class="btn btn-neutral float-right" title="RiskQuantLib.InstrumentList package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="RiskQuantLib.Build.Component.FileInitiator.html" class="btn btn-neutral float-left" title="RiskQuantLib.Build.Component.FileInitiator package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="RiskQuantLib.InstrumentList.html" class="btn btn-neutral float-right" title="RiskQuantLib.InstrumentList package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright .
-
-    </p>
+    <p>&#169; Copyright .</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

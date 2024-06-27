@@ -1,93 +1,50 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>使用守卫项目 &mdash; RiskQuantLib 0.3.6 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/readthedocs-custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+  <title>Guardian &mdash; RiskQuantLib 0.3.8 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/readthedocs-custom.css" />
 
   
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/documentation_options.js?v=c1cae59a"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="使用多进程" href="Multi_Process.html" />
+    <link rel="prev" title="Component" href="Src.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> RiskQuantLib
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            RiskQuantLib
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home page</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">RiskQuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Install.html">Install</a></li>
@@ -101,170 +58,107 @@
 <li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">With QuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">With Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="With_ORM.html">With ORM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E_project.html">Process Graph-Structure Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_Github.html">With Github</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Advance.html">Advance</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Src.html">Component</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Guardian</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-guardian-is-needed">Why Guardian Is Needed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-use-guardian">How To Use Guardian</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Multi_Process.html">使用多进程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Vectorization.html">使用矢量化</a></li>
+</ul>
+</li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">RiskQuantLib</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>使用守卫项目</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Advance.html">Advance</a></li>
+      <li class="breadcrumb-item active">Guardian</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="id1">
-<h1>使用守卫项目<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="guardian">
+<h1>Guardian<a class="headerlink" href="#guardian" title="Link to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>本章节主要涉及 <code class="docutils literal notranslate"><span class="pre">守卫项目</span></code> ，所谓的 <code class="docutils literal notranslate"><span class="pre">守卫项目</span></code> 是在当前工程之外的另一个RiskQuantLib数据工程。但它的独特之处在于它不进行任何的数据处理，它无法单独完成任何数据分析任务。它唯一的作用是向 <code class="docutils literal notranslate"><span class="pre">被守卫项目</span></code> 提供源代码，进行文件分发或控制文件输出。</p>
-<div class="section" id="id2">
-<h2>为什么需要守卫项目<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>很多时候，一个数据工程除了数据处理逻辑，还有很多工具函数。这些工具函数和具体的数据处理方式无关，但又不可或缺。比如计算日期的函数，比如衍生品工程里计算波动率曲面插值的函数。当你有很多个衍生品数据工程的时候，每个工程都一个自己的日期计算函数当然满足了探索性数据分析的需要，但如果它形成了稳定的应用，每天都要运行，这么多相同的函数对于后期的维护就是是非常不便的。</p>
-<p>所以很自然地，我们可以使用 <code class="docutils literal notranslate"><span class="pre">守卫项目</span></code> ，一般来说，RiskQuantLib工程在编译的时候只会对自己的源代码进行生成和修改，但 <code class="docutils literal notranslate"><span class="pre">守卫项目</span></code> 可以对其他不同于自己的RiskQuantLib工程进行代码生成和修改。这样你就可以把那些在多个类似工程中都要用到的函数放在 <code class="docutils literal notranslate"><span class="pre">守卫项目</span></code> 里，通过编译 <code class="docutils literal notranslate"><span class="pre">守卫项目</span></code> 进行代码的分发。如果有后期更改的需求，那么只需要更改 <code class="docutils literal notranslate"><span class="pre">守卫项目</span></code> ，然后重新编译。</p>
-<p>比如你在进行一个多因子模型的研发，那么你可以分别有 <code class="docutils literal notranslate"><span class="pre">回测</span></code> ， <code class="docutils literal notranslate"><span class="pre">寻参</span></code> ， <code class="docutils literal notranslate"><span class="pre">每日更新</span></code> 三个数据工程。再新建一个 <code class="docutils literal notranslate"><span class="pre">多因子守卫项目</span></code> ，把常用的日期函数，矩阵特征计算函数等工具函数都放入 <code class="docutils literal notranslate"><span class="pre">守卫项目</span></code> ，然后统一进行控制，这是非常方便的做法。</p>
-<p><strong>当然，使用守卫项目会使得你每次更改工程的名称时，都需要对守卫项目进行相应的更改。在更换工程位置的时候也是如此。不过一旦守卫项目被编译，代码就会变成被守卫项目的本地代码，除非信道被更新覆盖，否则无论怎么改变文件的名称或者工程的目录，这些代码都是不会受到影响的。</strong></p>
-</div>
-<div class="section" id="id3">
-<h2>如何使用守卫项目<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>在上一章节我们已经知道了 <code class="docutils literal notranslate"><span class="pre">Src</span></code> 文件夹可以将源代码汇聚在一处，以业务逻辑分类源代码，并且使用 <code class="docutils literal notranslate"><span class="pre">注释控制语句</span></code> 告诉RiskQuantLib应该把这些源代码插入到哪个源文件中。通常情况下， <code class="docutils literal notranslate"><span class="pre">Src</span></code> 文件夹位于当前的数据工程项目下。你使用 <code class="docutils literal notranslate"><span class="pre">newRQL</span></code> 命令创建工程的时候， <code class="docutils literal notranslate"><span class="pre">Src</span></code> 文件夹就被创建了。</p>
-<p><strong>但实际上，</strong> <code class="docutils literal notranslate"><span class="pre">Src</span></code> <strong>文件夹可以位于任何位置，并不需要一定处于当前数据工程目录下。</strong> <code class="docutils literal notranslate"><span class="pre">Src</span></code> <strong>文件夹也可以有不同的名称。</strong></p>
-<p>如果你将 <code class="docutils literal notranslate"><span class="pre">Src</span></code> 文件夹放在输出工程文件夹之外，你需要在编译的时候指定 <code class="docutils literal notranslate"><span class="pre">Src</span></code> 文件夹的位置，使用 <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">yourSrcPath</span></code> 来告诉RiskQuantLib使用 <code class="docutils literal notranslate"><span class="pre">yourSrcPath</span></code> 这个文件夹作为组件文件夹，而不是默认的 <code class="docutils literal notranslate"><span class="pre">Src</span></code> 文件夹。具体的命令如下：</p>
+<p>This section deals mainly with <code class="docutils literal notranslate"><span class="pre">Guardian</span></code>, <code class="docutils literal notranslate"><span class="pre">Guardian</span></code> is another RiskQuantLib project in addition to the current one. However, it does not perform any data processing logic, and it cannot perform any data analysis tasks on its own. Its only role is to provide source code to the <code class="docutils literal notranslate"><span class="pre">Guarded</span> <span class="pre">Project</span></code> .</p>
+<section id="why-guardian-is-needed">
+<h2>Why Guardian Is Needed<a class="headerlink" href="#why-guardian-is-needed" title="Link to this heading">¶</a></h2>
+<p>Usually, a data project has many tool functions in addition to the data processing logic. These tool functions have nothing to do with the specific data processing, but are indispensable. For example, the function to calculate the date, the function to calculate the volatility surface interpolation for options. To meet the needs of exploratory data analysis, each project may have a date calculation function of its own. But if you want a stable application to run every day, having so many of the same functions is not a wise choice.</p>
+<p>That is why we need <code class="docutils literal notranslate"><span class="pre">Guardian</span> <span class="pre">Project</span></code>, also called <code class="docutils literal notranslate"><span class="pre">Guardian</span></code>. Generally speaking, RiskQuantLib project only generates and modifies its own source code when built, but <code class="docutils literal notranslate"><span class="pre">Guardian</span></code> can generate and modify the code of other RiskQuantLib projects that located in other paths. You can put functions that will be used in several similar projects in the <code class="docutils literal notranslate"><span class="pre">Guardian</span></code> and distribute the code by build the <code class="docutils literal notranslate"><span class="pre">Guardian</span></code>. If there is a need to make changes someday, then just change the <code class="docutils literal notranslate"><span class="pre">Guardian</span></code> and build it again.</p>
+<p>For example, if you are working on a multi-factor stock investment model, you can have three separate data projects for <code class="docutils literal notranslate"><span class="pre">backtesting</span></code>, <code class="docutils literal notranslate"><span class="pre">parameter</span> <span class="pre">search</span></code>, and <code class="docutils literal notranslate"><span class="pre">daily</span> <span class="pre">update</span></code>. It is very convenient to create a new <code class="docutils literal notranslate"><span class="pre">multifactor</span> <span class="pre">guard</span> <span class="pre">project</span></code> and put all the common date functions, matrix eigenfunctions, and other utility functions into the <code class="docutils literal notranslate"><span class="pre">guard</span> <span class="pre">project</span></code> and control them in a unified way.</p>
+<p><strong>Of course, using a Guardian will make it necessary to make a corresponding change to the Guardian every time you change the name of the project, or when you change the location of the guarded project. However, once the guarded project is built, the code becomes native to the guarded project, and unless the channel is overwritten by an update, the code is unaffected no matter how you change the name of the file or the directory of the project.</strong></p>
+</section>
+<section id="how-to-use-guardian">
+<h2>How To Use Guardian<a class="headerlink" href="#how-to-use-guardian" title="Link to this heading">¶</a></h2>
+<p>As we learned in the previous section, the <code class="docutils literal notranslate"><span class="pre">Src</span></code> folder allows you to aggregate source code in one place, categorize the source code by data process logic, and use <code class="docutils literal notranslate"><span class="pre">Comment</span> <span class="pre">Control</span> <span class="pre">Syntax</span></code> to tell RiskQuantLib which source file to insert that source code into. Typically, the <code class="docutils literal notranslate"><span class="pre">Src</span></code> folder is located under the current data engineering project. The <code class="docutils literal notranslate"><span class="pre">Src</span></code> folder is created when you create a project using the <code class="docutils literal notranslate"><span class="pre">newRQL</span></code> command.</p>
+<p><strong>In practice, however, the</strong> <code class="docutils literal notranslate"><span class="pre">Src</span></code> <strong>folder can be located anywhere and does not necessarily need to be in the current data project directory. The</strong> <code class="docutils literal notranslate"><span class="pre">Src</span></code> <strong>folder can also have a different name.</strong></p>
+<p>If you put the <code class="docutils literal notranslate"><span class="pre">Src</span></code> folder outside the root path of current project, you need to specify the location of the <code class="docutils literal notranslate"><span class="pre">Src</span></code> folder at build time, using <code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">yourSrcPath</span></code> to tell RiskQuantLib to use the <code class="docutils literal notranslate"><span class="pre">yourSrcPath</span></code> folder as the component folder instead of the default <code class="docutils literal notranslate"><span class="pre">Src</span></code> folder. The specific command is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">r</span> <span class="n">yourSrcPath</span>
 </pre></div>
 </div>
-<p><strong>更关键的，同一个数据工程可以有不止一个组件文件夹。当有多于一个组件文件夹的时候，不同的组件通过不同的</strong> <code class="docutils literal notranslate"><span class="pre">信道</span></code> <strong>来对目标数据工程进行更改，编译时需要使用</strong> <code class="docutils literal notranslate"><span class="pre">-c</span></code> <strong>参数来指定信道的名称。</strong></p>
-<p>设想一下，你的数据工程 <code class="docutils literal notranslate"><span class="pre">A</span></code> 可能需要很多处理业务的逻辑，他们被你放在 <code class="docutils literal notranslate"><span class="pre">A/Src</span></code> 组件内。但同时，你的工程还需要很多工具函数，比如计算每个月的第三个星期五是哪一天的函数，等等。这些函数是你自己编写的，你把它们放在 <code class="docutils literal notranslate"><span class="pre">B</span></code> 工程下的 <code class="docutils literal notranslate"><span class="pre">Src</span></code> 组件文件夹里。</p>
-<p>要让 <code class="docutils literal notranslate"><span class="pre">A</span></code> 工程正常运行，必须同时需要 <code class="docutils literal notranslate"><span class="pre">A/Src</span></code> 和 <code class="docutils literal notranslate"><span class="pre">B/Src</span></code> 中的代码。这时候，负责业务逻辑处理的 <code class="docutils literal notranslate"><span class="pre">A</span></code> 就被称为 <code class="docutils literal notranslate"><span class="pre">被守卫项目</span></code> ，负责提供工具函数的 <code class="docutils literal notranslate"><span class="pre">B</span></code> 就被称为 <code class="docutils literal notranslate"><span class="pre">守卫项目</span></code> 。进入 <code class="docutils literal notranslate"><span class="pre">A</span></code> 项目目录，分别运行下方的两条命令，可以使得两个组件文件夹的代码同时起效：</p>
+<p><strong>More critically, the same data project can have more than one component folder. When there is more than one component folder, different components make changes to the target data project via different</strong> <code class="docutils literal notranslate"><span class="pre">channels</span></code> <strong>, and the</strong> <code class="docutils literal notranslate"><span class="pre">-c</span></code> <strong>parameter needs to be used at compile time to specify the name of the channel.</strong></p>
+<p>Imagine that your data project <code class="docutils literal notranslate"><span class="pre">A</span></code> may need a lot of logic to handle data, and they are located inside the <code class="docutils literal notranslate"><span class="pre">A/Src</span></code> . But at the same time, your project also needs a lot of tool functions, such as a function that calculates what day the third Friday of each month is, and so on. These functions are located in the <code class="docutils literal notranslate"><span class="pre">Src</span></code> component folder under the <code class="docutils literal notranslate"><span class="pre">B</span></code> project.</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">A</span></code> project to work properly, you need the code in both <code class="docutils literal notranslate"><span class="pre">A/Src</span></code> and <code class="docutils literal notranslate"><span class="pre">B/Src</span></code>. In this case, <code class="docutils literal notranslate"><span class="pre">A</span></code>, which handles the data-process logic, is called the <code class="docutils literal notranslate"><span class="pre">guarded</span> <span class="pre">project</span></code>, and <code class="docutils literal notranslate"><span class="pre">B</span></code>, which provides the tool functions, is called the <code class="docutils literal notranslate"><span class="pre">guard</span> <span class="pre">project</span></code> or <code class="docutils literal notranslate"><span class="pre">Guardian</span></code>. Go to the <code class="docutils literal notranslate"><span class="pre">A</span></code> project directory and run each of the following two commands to make the code in both component folders work at the same time:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span>
 <span class="n">python</span> <span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">r</span> <span class="n">B</span><span class="o">/</span><span class="n">Src</span> <span class="o">-</span><span class="n">c</span> <span class="n">guardian</span>
 </pre></div>
 </div>
-<p>第一条命令的意思是使用默认的 <code class="docutils literal notranslate"><span class="pre">A</span></code> 工程下的 <code class="docutils literal notranslate"><span class="pre">Src</span></code> 文件夹，使用默认信道进行编译。第二条命令的意思是使用 <code class="docutils literal notranslate"><span class="pre">B/Src</span></code> 文件夹，使用 <code class="docutils literal notranslate"><span class="pre">guardian</span></code> 信道进行编译。</p>
-<p><strong>不同信道对同一个标签进行修改时，最后生效的信道会覆盖之前的信道。如果不同信道的组件对不同的标签进行修改，那么它们彼此互不影响。</strong></p>
-<p>如果你不清楚什么是 <code class="docutils literal notranslate"><span class="pre">标签</span></code> ，你可以参考 <a class="reference internal" href="Src.html"><span class="doc">使用组件文件夹</span></a> 。</p>
-</div>
-</div>
+<p>The first command means to use the <code class="docutils literal notranslate"><span class="pre">Src</span></code> component folder under <code class="docutils literal notranslate"><span class="pre">A</span></code> project and the default channel to build it. The second command means to use the <code class="docutils literal notranslate"><span class="pre">B/Src</span></code> component folder and the <code class="docutils literal notranslate"><span class="pre">guardian</span></code> channel to build it.</p>
+<p><strong>When different channels make changes to the same Tag, the last channel in effect overwrites the previous channel. If components from different channels make changes to different Tags, they do not affect each other.</strong></p>
+<p>If you are not sure what a <code class="docutils literal notranslate"><span class="pre">Tag</span></code> is, you can refer to <a class="reference internal" href="Src.html"><span class="doc">Component</span></a>.</p>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Src.html" class="btn btn-neutral float-left" title="Component" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Multi_Process.html" class="btn btn-neutral float-right" title="使用多进程" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright .
-
-    </p>
+    <p>&#169; Copyright .</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

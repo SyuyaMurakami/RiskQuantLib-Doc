@@ -17,6 +17,10 @@
    With_QuantLib.rst
    With_Pandas.rst
    With_ORM.rst
+   E_project.rst
+   With_Github.rst
+   Advance.rst
+   About.rst
 
 Welcome to Use RiskQuantLib
 ===========================
