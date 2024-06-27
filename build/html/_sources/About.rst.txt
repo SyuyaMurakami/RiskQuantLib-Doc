@@ -98,7 +98,7 @@ I still remember how Daniel looked like when he heard about my idea. It was like
 
  `You are not the first one to think about this, it has been come up with by this man 100 years ago.`
 
- `I'm not finished. That is one way, another way is we can stand on one island, and send messagers to different islands, get the data we need and come back, and do calculation, make one massager to carry the result and send it to the island where we want to store this result.`
+ `I'm not finished. That is one way, another way is we can stand on one island, and send messagers to different islands, get the data we need and come back, and do calculation, make one messager to carry the result and send it to the island where we want to store this result.`
 
 This is how ``apply``, ``execFunc``, ``tunneling index`` is born. ``apply`` is the first way, while ``execFunc`` is the second way. When I deal with my data, I imagine myself dance with it, it should be enjoyable and elegant. These two ways are exactly what in my dream about how I should dance with data. They make me understand what I realy need:
 
