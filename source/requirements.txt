@@ -17,3 +17,10 @@ copulae
 scipy
 importlib
 matplotlib
+redmail
+python-docx
+python-pptx
+imapclient
+openpyxl
+easygui
+plotly
