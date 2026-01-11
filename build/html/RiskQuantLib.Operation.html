@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RiskQuantLib.Operation package &mdash; RiskQuantLib 0.3.8 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <title>RiskQuantLib.Operation package &mdash; RiskQuantLib 0.4.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/readthedocs-custom.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/documentation_options.js?v=c1cae59a"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="_static/documentation_options.js?v=5bfaad31"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -60,7 +58,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib.Module">RiskQuantLib.Module module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#riskquantlib-module-module">RiskQuantLib.module module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RiskQuantLib.html#module-RiskQuantLib">Module contents</a></li>
 </ul>
 </li>
@@ -77,9 +75,10 @@
 <li class="toctree-l1"><a class="reference internal" href="With_QuantLib.html">With QuantLib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="With_Pandas.html">With Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="With_ORM.html">With ORM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="E_project.html">图数据结构编程</a></li>
-<li class="toctree-l1"><a class="reference internal" href="With_Github.html">与Github配合使用</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Advance.html">高级教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="E_project.html">Process Graph-Structure Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="With_Github.html">With Github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advance.html">Advance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="About.html">About</a></li>
 </ul>
 
         </div>
@@ -112,38 +111,12 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 </section>
-<section id="module-RiskQuantLib.Operation.iloc">
-<span id="riskquantlib-operation-iloc-module"></span><h2>RiskQuantLib.Operation.iloc module<a class="headerlink" href="#module-RiskQuantLib.Operation.iloc" title="Link to this heading">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="RiskQuantLib.Operation.iloc.iloc">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">iloc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/iloc.html#iloc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.iloc.iloc" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>This class is the function class for RiskQuantLib list to use iloc function. It’s similar to
-that in pandas. Use it by calling stockList.iloc[number]. It returns the number-th element in
-that list.</p>
-<p>Passing a list to initialize iloc object.</p>
-</dd></dl>
-
-</section>
-<section id="module-RiskQuantLib.Operation.loc">
-<span id="riskquantlib-operation-loc-module"></span><h2>RiskQuantLib.Operation.loc module<a class="headerlink" href="#module-RiskQuantLib.Operation.loc" title="Link to this heading">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="RiskQuantLib.Operation.loc.loc">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">loc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/loc.html#loc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.loc.loc" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>This class is the function class for RiskQuantLib list to use loc function. It’s similar to
-that in pandas. Use it by calling stockList.loc[index]. It returns the element in
-that list whose index equals given value.</p>
-<p>Passing a list to initialize loc object.</p>
-</dd></dl>
-
-</section>
 <section id="module-RiskQuantLib.Operation.operation">
 <span id="riskquantlib-operation-operation-module"></span><h2>RiskQuantLib.Operation.operation module<a class="headerlink" href="#module-RiskQuantLib.Operation.operation" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">operation</span></span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>operation() is the function class that makes all RiskQuantLib list object functional.
 Any RiskQuantLib list class should inherit from this class to own certain functions,
 such as groupBy, execFunc, etc.</p>
@@ -261,12 +234,6 @@ If true is returned, the element from present list will be added to another list
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.copy" title="Link to this definition">¶</a></dt>
 <dd><p>Get a copy of present RiskQuantLib list object.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.dropIndex">
-<span class="sig-name descname"><span class="pre">dropIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.dropIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.dropIndex" title="Link to this definition">¶</a></dt>
-<dd><p>Delete index for each element.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -586,16 +553,10 @@ what function you want to parallel.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.reIndex">
-<span class="sig-name descname"><span class="pre">reIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indexList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useObj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.reIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.reIndex" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attrName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indexList</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useObj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.reIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.reIndex" title="Link to this definition">¶</a></dt>
 <dd><p>Return a new RiskQuantLib list object whose elements are chosen according to
 the index, the index of new list element must be in th indexList to be included.
 If more than one elements meet requirement, only the first one will be kept.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.resetIndex">
-<span class="sig-name descname"><span class="pre">resetIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.resetIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.resetIndex" title="Link to this definition">¶</a></dt>
-<dd><p>Reset the index as the n-th element of list.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -603,7 +564,7 @@ If more than one elements meet requirement, only the first one will be kept.</p>
 <span class="sig-name descname"><span class="pre">rolling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windowNumber</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useObj</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.rolling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.rolling" title="Link to this definition">¶</a></dt>
 <dd><p>For each element, This function will collect the n elements before
 that element, create a new RiskQuantLib list object to holding it. The new list
-will be set as an attribute of ‘_rolling’, thus the present element can reach to
+will be set as an attribute of ‘rolling’, thus the present element can reach to
 the information of its former elements.</p>
 </dd></dl>
 
@@ -644,13 +605,6 @@ False means not included.</p>
 <h3>Returns<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h3>
 <p>None</p>
 </section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="RiskQuantLib.Operation.operation.operation.setIndex">
-<span class="sig-name descname"><span class="pre">setIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propertyNameString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/operation.html#operation.setIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.operation.operation.setIndex" title="Link to this definition">¶</a></dt>
-<dd><p>Set the index for each element, given attribute name. The index value will be set as the attribute value
-you choose.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1081,7 +1035,7 @@ list with the value of given internal attribute.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RiskQuantLib.Operation.vectorization.vectorization">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vectorization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/RiskQuantLib/Operation/vectorization.html#vectorization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#RiskQuantLib.Operation.vectorization.vectorization" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Add element to object, and mark it as attribute ‘all’.</p>
 </dd></dl>
 

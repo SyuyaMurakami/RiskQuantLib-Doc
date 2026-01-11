@@ -1,23 +1,21 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Component &mdash; RiskQuantLib 0.3.8 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <title>Component &mdash; RiskQuantLib 0.4.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/readthedocs-custom.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/documentation_options.js?v=c1cae59a"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="_static/documentation_options.js?v=5bfaad31"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -75,10 +73,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Guardian.html">Guardian</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Multi_Process.html">使用多进程</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Vectorization.html">使用矢量化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Multi_Process.html">Multi-Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Vectorization.html">Vectorization</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="About.html">About</a></li>
 </ul>
 
         </div>
@@ -146,7 +145,7 @@
 <h4><em>Distribute</em><a class="headerlink" href="#distribute" title="Link to this heading">¶</a></h4>
 <p>In the previous tutorial on how to build your project, you should have noticed to how to use comment control syntax with the Src folder. Let’s review this example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#-&gt;stock</span>
-<span class="k">def</span> <span class="nf">sayHello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sayHello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">greeting</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_hello&quot;</span>
 </pre></div>
 </div>
@@ -158,7 +157,7 @@
 <h4><em>Tag</em><a class="headerlink" href="#tag" title="Link to this heading">¶</a></h4>
 <p>Let’s see another example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#-&gt;bond@import</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </pre></div>
 </div>
 <p>It means to distribute the <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">os</span></code> statement to the <code class="docutils literal notranslate"><span class="pre">import</span></code> tag of the <code class="docutils literal notranslate"><span class="pre">bond</span></code> instrument. The <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> here splits the name of the destination file you want to distribute into and the name of the destination tag. Here we meet the so-called <code class="docutils literal notranslate"><span class="pre">Tag</span></code>, which are not difficult to understand because there are many locations in a destination .py file where code can be inserted, so how do we know whether we should insert code into the third or fifth line of the destination file? The tags are there to help us determine the location.</p>
@@ -173,25 +172,25 @@
 <p>For example, if you added another new tag in <code class="docutils literal notranslate"><span class="pre">RiskQuantLib/Instrument/Security/Bond/bond.py</span></code> called <code class="docutils literal notranslate"><span class="pre">ifItIsConvertibleBond</span></code>, your file would then look like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
 <span class="c1">#coding = utf-8</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">RiskQuantLib.Instrument.Security.security</span> <span class="kn">import</span> <span class="n">security</span>
-<span class="kn">from</span> <span class="nn">RiskQuantLib.Auto.Instrument.Security.Bond.bond</span> <span class="kn">import</span> <span class="n">bondAuto</span>
-<span class="kn">from</span> <span class="nn">QuantLib</span> <span class="kn">import</span> <span class="n">Bond</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">RiskQuantLib.Instrument.Security.security</span><span class="w"> </span><span class="kn">import</span> <span class="n">security</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">RiskQuantLib.Auto.Instrument.Security.Bond.bond</span><span class="w"> </span><span class="kn">import</span> <span class="n">bondAuto</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">QuantLib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bond</span>
 <span class="c1">#&lt;import&gt;</span>
 <span class="c1">#&lt;/import&gt;</span>
 
-<span class="k">class</span> <span class="nc">bond</span><span class="p">(</span><span class="n">security</span><span class="p">,</span><span class="n">Bond</span><span class="p">,</span><span class="n">bondAuto</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">bond</span><span class="p">(</span><span class="n">security</span><span class="p">,</span><span class="n">Bond</span><span class="p">,</span><span class="n">bondAuto</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    bond is an instrument class, used as nodes of data graph.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#&lt;init&gt;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">codeString</span><span class="p">,</span><span class="n">nameString</span><span class="p">,</span><span class="n">instrumentTypeString</span> <span class="o">=</span> <span class="s1">&#39;Bond&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">codeString</span><span class="p">,</span><span class="n">nameString</span><span class="p">,</span><span class="n">instrumentTypeString</span> <span class="o">=</span> <span class="s1">&#39;Bond&#39;</span><span class="p">):</span>
         <span class="n">security</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">codeString</span><span class="p">,</span><span class="n">nameString</span><span class="p">,</span><span class="n">instrumentTypeString</span><span class="p">)</span>
     <span class="c1">#&lt;/init&gt;</span>
 
     <span class="c1">#&lt;initQuantLib&gt;</span>
-    <span class="k">def</span> <span class="nf">iniPricingModule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">iniPricingModule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="n">Bond</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
     <span class="c1">#&lt;/initQuantLib&gt;</span>
 
@@ -204,7 +203,7 @@
 </div>
 <p>Then you can add code in <code class="docutils literal notranslate"><span class="pre">Src/test.py</span></code> :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#-&gt;bond@ifItIsConvertibleBond</span>
-<span class="k">def</span> <span class="nf">ifItIsConvertibleBond</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ifItIsConvertibleBond</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bondType</span> <span class="o">==</span> <span class="s1">&#39;convertibleBond&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
@@ -214,24 +213,24 @@
 <p>After run <code class="docutils literal notranslate"><span class="pre">build.py</span></code>, your code will be inserted between tags.</p>
 <p><strong>Notice: You can define Tag anywhere, including inside functions. The generated code will keep the indentation level of the Tag.</strong></p>
 <p>Let’s look at an example of defining a Tag inside a function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">bond</span><span class="p">(</span><span class="n">security</span><span class="p">,</span><span class="n">Bond</span><span class="p">,</span><span class="n">bondAuto</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">bond</span><span class="p">(</span><span class="n">security</span><span class="p">,</span><span class="n">Bond</span><span class="p">,</span><span class="n">bondAuto</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    bond is an instrument class, used as nodes of data graph.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1">#&lt;init&gt;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">codeString</span><span class="p">,</span><span class="n">nameString</span><span class="p">,</span><span class="n">instrumentTypeString</span> <span class="o">=</span> <span class="s1">&#39;Bond&#39;</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">codeString</span><span class="p">,</span><span class="n">nameString</span><span class="p">,</span><span class="n">instrumentTypeString</span> <span class="o">=</span> <span class="s1">&#39;Bond&#39;</span><span class="p">):</span>
         <span class="n">security</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">codeString</span><span class="p">,</span><span class="n">nameString</span><span class="p">,</span><span class="n">instrumentTypeString</span><span class="p">)</span>
     <span class="c1">#&lt;/init&gt;</span>
 
     <span class="c1">#&lt;initQuantLib&gt;</span>
-    <span class="k">def</span> <span class="nf">iniPricingModule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">iniPricingModule</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="n">Bond</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
     <span class="c1">#&lt;/initQuantLib&gt;</span>
 
     <span class="c1">#&lt;bond&gt;</span>
     <span class="c1">#&lt;/bond&gt;</span>
 
-    <span class="k">def</span> <span class="nf">ifItIsConvertibleBond</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ifItIsConvertibleBond</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bondType</span> <span class="o">==</span> <span class="s1">&#39;convertibleBond&#39;</span><span class="p">:</span>
             <span class="c1">#&lt;ifItIsConvertibleBond&gt;</span>
             <span class="c1">#&lt;/ifItIsConvertibleBond&gt;</span>
@@ -252,8 +251,8 @@
 <p><strong>If you have more than one destination, you can use commas to split them.</strong></p>
 <p>For example, if you need to control imported libraries by a separate file <code class="docutils literal notranslate"><span class="pre">import.py</span></code> in the Src folder, you can do such:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#-&gt;stock@import,bond@import,future@import,option</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
 <p>You can always add new destinations after the control syntax to tell RiskQuantLib that it needs to put this <code class="docutils literal notranslate"><span class="pre">chunk</span></code> into another target location. Of course, these destinations can have different Tags from each other or have no Tag.</p>

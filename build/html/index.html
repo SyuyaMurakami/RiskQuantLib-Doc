@@ -1,25 +1,21 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to Use RiskQuantLib &mdash; RiskQuantLib 0.3.8 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <title>Welcome to Use RiskQuantLib &mdash; RiskQuantLib 0.4.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/readthedocs-custom.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/documentation_options.js?v=c1cae59a"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/documentation_options.js?v=5bfaad31"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -303,22 +299,22 @@
 </pre></div>
 </div>
 <p>After this, you open <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Instrument.Security.Fund.fund</span></code> to add class function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calVaR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calVaR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="bp">self</span><span class="o">.</span><span class="n">VaR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">netAssetValue</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">varPercentage</span>
 </pre></div>
 </div>
 <p>You open <code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Instrument.Security.Stock.stock</span></code> to add class function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calVaRPercentage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-   <span class="kn">from</span> <span class="nn">RiskQuantLib.Tool.mathTool</span> <span class="kn">import</span> <span class="n">percentageOfSeries</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calVaRPercentage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="kn">from</span><span class="w"> </span><span class="nn">RiskQuantLib.Tool.mathTool</span><span class="w"> </span><span class="kn">import</span> <span class="n">percentageOfSeries</span>
    <span class="bp">self</span><span class="o">.</span><span class="n">varPercentage</span> <span class="o">=</span> <span class="n">percentageOfSeries</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">closeSeries</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="mi">99</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">calVaR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calVaR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="bp">self</span><span class="o">.</span><span class="n">VaR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mktValue</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">varPercentage</span>
 </pre></div>
 </div>
 <p><strong>Notice: All these coding are done before you input your data.</strong></p>
 <p>Turn into root path of this project and open <code class="docutils literal notranslate"><span class="pre">main.py</span></code>, we start analysis:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RiskQuantLib.Module</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RiskQuantLib.Module</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># Read files</span>
 <span class="n">df_stock_holding</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_one</span><span class="p">)</span>
@@ -358,7 +354,7 @@
 <section id="data-input">
 <h3><em>Data Input</em>:<a class="headerlink" href="#data-input" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">main.py</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RiskQuantLib.Module</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RiskQuantLib.Module</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># Read files</span>
 <span class="n">df_stock_holding</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">path_one</span><span class="p">)</span>
@@ -386,16 +382,16 @@
 <section id="data-analysis">
 <h3><em>Data Analysis</em><a class="headerlink" href="#data-analysis" title="Link to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Instrument.Security.Fund.fund</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calVaR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calVaR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="bp">self</span><span class="o">.</span><span class="n">VaR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">netAssetValue</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">varPercentage</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">RiskQuantLib.Instrument.Security.Stock.stock</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calVaRPercentage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-   <span class="kn">from</span> <span class="nn">RiskQuantLib.Tool.mathTool</span> <span class="kn">import</span> <span class="n">percentageOfSeries</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calVaRPercentage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+   <span class="kn">from</span><span class="w"> </span><span class="nn">RiskQuantLib.Tool.mathTool</span><span class="w"> </span><span class="kn">import</span> <span class="n">percentageOfSeries</span>
    <span class="bp">self</span><span class="o">.</span><span class="n">varPercentage</span> <span class="o">=</span> <span class="n">percentageOfSeries</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">closeSeries</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="mi">99</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">calVaR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calVaR</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
    <span class="bp">self</span><span class="o">.</span><span class="n">VaR</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mktValue</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">varPercentage</span>
 </pre></div>
 </div>
